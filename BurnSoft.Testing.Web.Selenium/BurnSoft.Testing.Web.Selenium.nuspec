@@ -6,8 +6,8 @@
 		<title>$title$</title>
 		<authors>$author$</authors>
 		<owners>burnsoftnet</owners>
-		<projectUrl></projectUrl>
-		<repository type="git" url="" />
+		<projectUrl>https://github.com/burnsoftnet/BurnSoft.Testing.Web.Selenium.git</projectUrl>
+		<repository type="git" url="https://github.com/burnsoftnet/BurnSoft.Testing.Web.Selenium.git" />
 		<iconUrl>https://avatars0.githubusercontent.com/u/24593581?s=460</iconUrl>
 		<icon>bswtsicon.png</icon>
 		<license type="expression">MIT</license>
