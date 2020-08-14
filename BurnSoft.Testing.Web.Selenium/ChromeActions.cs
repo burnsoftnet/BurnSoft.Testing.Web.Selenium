@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BurnSoft.Testing.Web.Selenium
 {
-    public class Class1
+    public class ChromeActions
     {
     }
 }
