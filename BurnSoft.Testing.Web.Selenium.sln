@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium", "BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium.csproj", "{302F1C35-0BFA-4B62-9B8D-E269ED101DF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.UnitTest", "BurnSoft.Testing.Web.Selenium.UnitTest\BurnSoft.Testing.Web.Selenium.UnitTest.csproj", "{9995E183-2FAC-4001-BE76-37D98F3142E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{302F1C35-0BFA-4B62-9B8D-E269ED101DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{302F1C35-0BFA-4B62-9B8D-E269ED101DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{302F1C35-0BFA-4B62-9B8D-E269ED101DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
