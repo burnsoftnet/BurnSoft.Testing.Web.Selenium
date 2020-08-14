@@ -90,15 +90,19 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public void ScreenShotIt()
         {
-            ITakesScreenshot screenshotDriver = _driver;
-            if (screenshotDriver.GetScreenshot() != null)
+            if (_driver != null)
             {
-                Screenshot screenshot = screenshotDriver.GetScreenshot();
-                screenshot.SaveAsFile($"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png", ScreenshotImageFormat.Png);
-            }
-            else
-            {
-                Debug.Print("The browser is not active so we are unable to take a screen shot at this time.");
+                ITakesScreenshot screenshotDriver = _driver;
+                if (screenshotDriver.GetScreenshot() != null)
+                {
+                    Screenshot screenshot = screenshotDriver.GetScreenshot();
+                    screenshot.SaveAsFile($"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png", ScreenshotImageFormat.Png);
+                }
+                else
+                {
+                    Debug.Print("The browser is not active so we are unable to take a screen shot at this time.");
+                }
+
             }
         }
         /// <summary>

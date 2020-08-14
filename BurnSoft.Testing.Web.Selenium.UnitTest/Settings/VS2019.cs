@@ -38,6 +38,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest.Settings
         }
 
         public static string GetSetting(string value) => GetSettings(value);
-        //protected override int GetSetting(string value) => Convert.ToInt32(GetSettings(value));
+        public static int iGetSetting(string value) => Convert.ToInt32(GetSettings(value));
+        public static double dGetSetting(string value) => Convert.ToDouble(GetSettings(value));
+        public static bool bGetSetting(string value) => Convert.ToBoolean(GetSettings(value));
     }
 }
