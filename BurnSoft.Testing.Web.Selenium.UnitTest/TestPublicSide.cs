@@ -48,15 +48,24 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
             Ca.DoSleep = true;
             Ca.Initializer();
+            Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("My Gun Collection", ChromeActions.FindBy.LinkText, ChromeActions.MyAction.Click);
-            Ca.FindElements("//div[@id='main-container']/div[2]/div/div[4]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
-            Ca.FindElements("//div[@id='main-container']/div[2]/div/div[5]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
+            //Ca.FindElements("//div[@id='main-container']/div[2]/div/div[4]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
+            //Ca.FindElements("//div[@id='main-container']/div[2]/div/div[5]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
+            //Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("My Loaders Log", ChromeActions.FindBy.LinkText, ChromeActions.MyAction.Click);
+            Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("File Renamer Utility", ChromeActions.FindBy.LinkText, ChromeActions.MyAction.Click);
+            Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("BurnPad", ChromeActions.FindBy.LinkText, ChromeActions.MyAction.Click);
+            Ca.FindElements("//ul[@id='jetmenu']/li[7]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ca.FindElements("Contact", ChromeActions.FindBy.LinkText, ChromeActions.MyAction.Click);
-
+            Ca.FindElements("MainContent_txtName", ChromeActions.FindBy.Id, ChromeActions.MyAction.SendKeys,"Jimmy Pop Corn");
+            Ca.FindElements("MainContent_txteMail", ChromeActions.FindBy.Id, ChromeActions.MyAction.SendKeys,"joe.mireles@burnsoft.net");
+            Ca.FindElements("MainContent_txtMsg", ChromeActions.FindBy.Id, ChromeActions.MyAction.SendKeys,"Make software great again!");
+            Ca.FindElements("MainContent_btnSend", ChromeActions.FindBy.Id, ChromeActions.MyAction.Click);
+            Ca.WaitTillElementFound("MainContent_Label4", ChromeActions.FindBy.Id, ChromeActions.MyAction.Nothing);
         }
     }
 }
