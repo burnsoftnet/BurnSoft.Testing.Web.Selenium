@@ -114,7 +114,7 @@ namespace BurnSoft.Testing.Web.Selenium
             _driver.Navigate().GoToUrl($"{url}");
         }
         /// <summary>
-        /// Enum My Actions to do on the webpage
+        /// Enum My Actions to do on the web page
         /// </summary>
         public enum MyAction
         {
