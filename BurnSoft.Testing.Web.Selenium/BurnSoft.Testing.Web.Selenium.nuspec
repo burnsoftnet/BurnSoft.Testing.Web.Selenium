@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<owners>burnsoftnet</owners>
+		<projectUrl></projectUrl>
+		<repository type="git" url="" />
+		<iconUrl>https://avatars0.githubusercontent.com/u/24593581?s=460</iconUrl>
+		<icon>bswtsicon.png</icon>
+		<license type="expression">MIT</license>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>$description$</description>
+		<releaseNotes>Initial Release.</releaseNotes>
+		<copyright>$copyright$</copyright>
+		<tags>burnsoft web general main testing selenium</tags>
+	</metadata>
+	<files>
+		<file src="bswtsicon.png" target="" />
+		<file src="bin/$configuration$/$id$.chm" target="content/$id$.chm" />
+	</files>
+</package>
