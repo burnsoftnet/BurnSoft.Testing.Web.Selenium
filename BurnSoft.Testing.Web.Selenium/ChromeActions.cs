@@ -113,106 +113,43 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             _driver.Navigate().GoToUrl($"{url}");
         }
-        /// <summary>
-        /// Enum My Actions to do on the web page
-        /// </summary>
-        public enum MyAction
-        {
-            /// <summary>
-            /// The nothing
-            /// </summary>
-            Nothing,
-            /// <summary>
-            /// The click
-            /// </summary>
-            Click,
-            /// <summary>
-            /// The send keys
-            /// </summary>
-            SendKeys,
-            /// <summary>
-            /// The clear
-            /// </summary>
-            Clear,
-            /// <summary>
-            /// The clear send keys
-            /// </summary>
-            ClearSendKeys
-        }
 
-        /// <summary>
-        /// Enum FindBy
-        /// </summary>
-        public enum FindBy
-        {
-            /// <summary>
-            /// The class name
-            /// </summary>
-            ClassName,
-            /// <summary>
-            /// The identifier
-            /// </summary>
-            Id,
-            /// <summary>
-            /// The x path
-            /// </summary>
-            XPath,
-            /// <summary>
-            /// The link text
-            /// </summary>
-            LinkText,
-            /// <summary>
-            /// The CSS selector
-            /// </summary>
-            CssSelector,
-            /// <summary>
-            /// The tag name
-            /// </summary>
-            TagName,
-            /// <summary>
-            /// The name
-            /// </summary>
-            Name,
-            /// <summary>
-            /// The partial link text
-            /// </summary>
-            PartialLinkText
-        }
+        
         /// <summary>
         /// Sets the type of the by.
         /// </summary>
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
         /// <returns>By.</returns>
-        private By SetByType(string field, FindBy fb)
+        private By SetByType(string field, GeneralActions.FindBy fb)
         {
             By b = new ByAll();
             try
             {
                 switch (fb)
                 {
-                    case FindBy.ClassName:
+                    case GeneralActions.FindBy.ClassName:
                         b = By.ClassName(field);
                         break;
-                    case FindBy.Id:
+                    case GeneralActions.FindBy.Id:
                         b = By.Id(field);
                         break;
-                    case FindBy.XPath:
+                    case GeneralActions.FindBy.XPath:
                         b = By.XPath(field);
                         break;
-                    case FindBy.CssSelector:
+                    case GeneralActions.FindBy.CssSelector:
                         b = By.CssSelector(field);
                         break;
-                    case FindBy.LinkText:
+                    case GeneralActions.FindBy.LinkText:
                         b = By.LinkText(field);
                         break;
-                    case FindBy.PartialLinkText:
+                    case GeneralActions.FindBy.PartialLinkText:
                         b = By.PartialLinkText(field);
                         break;
-                    case FindBy.Name:
+                    case GeneralActions.FindBy.Name:
                         b = By.Name(field);
                         break;
-                    case FindBy.TagName:
+                    case GeneralActions.FindBy.TagName:
                         b = By.TagName(field);
                         break;
                 }
@@ -233,26 +170,26 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="fb">The fb.</param>
         /// <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
         /// <param name="sendText">the text that you want to send</param>
-        public void FindElements(string field, FindBy fb, MyAction ma, string sendText = "")
+        public void FindElements(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendText = "")
         {
             try
             {
                 switch (ma)
                 {
-                    case MyAction.Click:
+                    case GeneralActions.MyAction.Click:
                         _driver.FindElement(SetByType(field, fb)).Click();
                         break;
-                    case MyAction.Clear:
+                    case GeneralActions.MyAction.Clear:
                         _driver.FindElement(SetByType(field, fb)).Clear();
                         break;
-                    case MyAction.ClearSendKeys:
+                    case GeneralActions.MyAction.ClearSendKeys:
                         _driver.FindElement(SetByType(field, fb)).Clear();
                         _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
                         break;
-                    case MyAction.SendKeys:
+                    case GeneralActions.MyAction.SendKeys:
                         _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
                         break;
-                    case MyAction.Nothing:
+                    case GeneralActions.MyAction.Nothing:
                         _driver.FindElement(SetByType(field, fb));
                         break;
                 }
@@ -271,7 +208,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
         /// <param name="textToSelect">The text to select.</param>
-        public void SelectElementInPage(string field, FindBy fb, string textToSelect)
+        public void SelectElementInPage(string field, GeneralActions.FindBy fb, string textToSelect)
         {
             var getAdminlist = _driver.FindElement(SetByType(field, fb));
             SelectElement iSelect = new SelectElement(getAdminlist);
@@ -286,27 +223,27 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="fb">The fb.</param>
         /// <param name="ma">Actions to so, click clear, send keys etc</param>
         /// <param name="sendKeys">keys that you want to send</param>
-        public void WaitTillElementFound(string field, FindBy fb, MyAction ma, string sendKeys = "")
+        public void WaitTillElementFound(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendKeys = "")
         {
             try
             {
                 var element = _wait.Until(ExpectedConditions.ElementIsVisible(SetByType(field, fb)));
                 switch (ma)
                 {
-                    case MyAction.Click:
+                    case GeneralActions.MyAction.Click:
                         element.Click();
                         break;
-                    case MyAction.Clear:
+                    case GeneralActions.MyAction.Clear:
                         element.Clear();
                         break;
-                    case MyAction.ClearSendKeys:
+                    case GeneralActions.MyAction.ClearSendKeys:
                         element.Clear();
                         element.SendKeys(sendKeys);
                         break;
-                    case MyAction.SendKeys:
+                    case GeneralActions.MyAction.SendKeys:
                         element.SendKeys(sendKeys);
                         break;
-                    case MyAction.Nothing:
+                    case GeneralActions.MyAction.Nothing:
                         break;
                 }
             }
@@ -322,7 +259,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
-        public void DoWait(string field, FindBy fb)
+        public void DoWait(string field, GeneralActions.FindBy fb)
         {
             try
             {
