@@ -17,6 +17,7 @@ namespace BurnSoft.Testing.Web.Selenium
     /// <seealso cref="System.IDisposable" />
     public class ChromeActions :IDisposable
     {
+        public GeneralActions Ga;
         /// <summary>
         /// The driver
         /// </summary>
@@ -73,10 +74,14 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             try
             {
+                Ga = new GeneralActions(Url);
+                Ga.SettingsScreenShotLocation = SettingsScreenShotLocation;
                 _driver = new ChromeDriver();
-                _driver.Navigate().GoToUrl($"{Url}");
-                _driver.Manage().Window.Maximize();
-                _wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 15));
+                Ga.Driver = _driver;
+                Ga.Initializer();
+                //_driver.Navigate().GoToUrl($"{Url}");
+                //_driver.Manage().Window.Maximize();
+                //_wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 15));
             }
             catch (Exception e)
             {
@@ -90,20 +95,9 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public void ScreenShotIt()
         {
-            if (_driver != null)
-            {
-                ITakesScreenshot screenshotDriver = _driver;
-                if (screenshotDriver.GetScreenshot() != null)
-                {
-                    Screenshot screenshot = screenshotDriver.GetScreenshot();
-                    screenshot.SaveAsFile($"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png", ScreenshotImageFormat.Png);
-                }
-                else
-                {
-                    Debug.Print("The browser is not active so we are unable to take a screen shot at this time.");
-                }
-
-            }
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            Ga.ScreenShotIt();
         }
         /// <summary>
         /// Goes to another page.
@@ -111,56 +105,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="url">The URL.</param>
         public void GoToAnotherPage(string url)
         {
-            _driver.Navigate().GoToUrl($"{url}");
-        }
-
-        
-        /// <summary>
-        /// Sets the type of the by.
-        /// </summary>
-        /// <param name="field">The field.</param>
-        /// <param name="fb">The fb.</param>
-        /// <returns>By.</returns>
-        private By SetByType(string field, GeneralActions.FindBy fb)
-        {
-            By b = new ByAll();
-            try
-            {
-                switch (fb)
-                {
-                    case GeneralActions.FindBy.ClassName:
-                        b = By.ClassName(field);
-                        break;
-                    case GeneralActions.FindBy.Id:
-                        b = By.Id(field);
-                        break;
-                    case GeneralActions.FindBy.XPath:
-                        b = By.XPath(field);
-                        break;
-                    case GeneralActions.FindBy.CssSelector:
-                        b = By.CssSelector(field);
-                        break;
-                    case GeneralActions.FindBy.LinkText:
-                        b = By.LinkText(field);
-                        break;
-                    case GeneralActions.FindBy.PartialLinkText:
-                        b = By.PartialLinkText(field);
-                        break;
-                    case GeneralActions.FindBy.Name:
-                        b = By.Name(field);
-                        break;
-                    case GeneralActions.FindBy.TagName:
-                        b = By.TagName(field);
-                        break;
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.Print(e.Message);
-                ScreenShotIt();
-                _driver.Quit();
-            }
-            return b;
+            Ga.GoToAnotherPage(url);
         }
 
         /// <summary>
@@ -172,35 +117,39 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="sendText">the text that you want to send</param>
         public void FindElements(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendText = "")
         {
-            try
-            {
-                switch (ma)
-                {
-                    case GeneralActions.MyAction.Click:
-                        _driver.FindElement(SetByType(field, fb)).Click();
-                        break;
-                    case GeneralActions.MyAction.Clear:
-                        _driver.FindElement(SetByType(field, fb)).Clear();
-                        break;
-                    case GeneralActions.MyAction.ClearSendKeys:
-                        _driver.FindElement(SetByType(field, fb)).Clear();
-                        _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
-                        break;
-                    case GeneralActions.MyAction.SendKeys:
-                        _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
-                        break;
-                    case GeneralActions.MyAction.Nothing:
-                        _driver.FindElement(SetByType(field, fb));
-                        break;
-                }
-                if (DoSleep) Thread.Sleep(SleepInterval);
-            }
-            catch (Exception e)
-            {
-                Debug.Print(e.Message);
-                ScreenShotIt();
-                _driver.Quit();
-            }
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            Ga.FindElements(field, fb, ma, sendText);
+
+            //try
+            //{
+            //    switch (ma)
+            //    {
+            //        case GeneralActions.MyAction.Click:
+            //            _driver.FindElement(SetByType(field, fb)).Click();
+            //            break;
+            //        case GeneralActions.MyAction.Clear:
+            //            _driver.FindElement(SetByType(field, fb)).Clear();
+            //            break;
+            //        case GeneralActions.MyAction.ClearSendKeys:
+            //            _driver.FindElement(SetByType(field, fb)).Clear();
+            //            _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
+            //            break;
+            //        case GeneralActions.MyAction.SendKeys:
+            //            _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
+            //            break;
+            //        case GeneralActions.MyAction.Nothing:
+            //            _driver.FindElement(SetByType(field, fb));
+            //            break;
+            //    }
+            //    if (DoSleep) Thread.Sleep(SleepInterval);
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.Print(e.Message);
+            //    ScreenShotIt();
+            //    _driver.Quit();
+            //}
         }
         /// <summary>
         /// Selects the element in page.
@@ -210,10 +159,13 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="textToSelect">The text to select.</param>
         public void SelectElementInPage(string field, GeneralActions.FindBy fb, string textToSelect)
         {
-            var getAdminlist = _driver.FindElement(SetByType(field, fb));
-            SelectElement iSelect = new SelectElement(getAdminlist);
-            iSelect.SelectByText(textToSelect);
-            if (DoSleep) Thread.Sleep(SleepInterval);
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            Ga.SelectElementInPage(field, fb,textToSelect);
+            //var getAdminlist = _driver.FindElement(SetByType(field, fb));
+            //SelectElement iSelect = new SelectElement(getAdminlist);
+            //iSelect.SelectByText(textToSelect);
+            //if (DoSleep) Thread.Sleep(SleepInterval);
         }
 
         /// <summary>
@@ -225,34 +177,37 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="sendKeys">keys that you want to send</param>
         public void WaitTillElementFound(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendKeys = "")
         {
-            try
-            {
-                var element = _wait.Until(ExpectedConditions.ElementIsVisible(SetByType(field, fb)));
-                switch (ma)
-                {
-                    case GeneralActions.MyAction.Click:
-                        element.Click();
-                        break;
-                    case GeneralActions.MyAction.Clear:
-                        element.Clear();
-                        break;
-                    case GeneralActions.MyAction.ClearSendKeys:
-                        element.Clear();
-                        element.SendKeys(sendKeys);
-                        break;
-                    case GeneralActions.MyAction.SendKeys:
-                        element.SendKeys(sendKeys);
-                        break;
-                    case GeneralActions.MyAction.Nothing:
-                        break;
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.Print(e.Message);
-                ScreenShotIt();
-                _driver.Quit();
-            }
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            Ga.WaitTillElementFound(field, fb, ma, sendKeys);
+            //try
+            //{
+            //    var element = _wait.Until(ExpectedConditions.ElementIsVisible(SetByType(field, fb)));
+            //    switch (ma)
+            //    {
+            //        case GeneralActions.MyAction.Click:
+            //            element.Click();
+            //            break;
+            //        case GeneralActions.MyAction.Clear:
+            //            element.Clear();
+            //            break;
+            //        case GeneralActions.MyAction.ClearSendKeys:
+            //            element.Clear();
+            //            element.SendKeys(sendKeys);
+            //            break;
+            //        case GeneralActions.MyAction.SendKeys:
+            //            element.SendKeys(sendKeys);
+            //            break;
+            //        case GeneralActions.MyAction.Nothing:
+            //            break;
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.Print(e.Message);
+            //    ScreenShotIt();
+            //    _driver.Quit();
+            //}
         }
         /// <summary>
         /// Does the wait.
@@ -261,16 +216,19 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="fb">The fb.</param>
         public void DoWait(string field, GeneralActions.FindBy fb)
         {
-            try
-            {
-                _wait.Until(wt => wt.FindElement(SetByType(field, fb)));
-            }
-            catch (Exception e)
-            {
-                Debug.Print(e.Message);
-                ScreenShotIt();
-                _driver.Quit();
-            }
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            Ga.DoWait(field, fb);
+            //try
+            //{
+            //    _wait.Until(wt => wt.FindElement(SetByType(field, fb)));
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.Print(e.Message);
+            //    ScreenShotIt();
+            //    _driver.Quit();
+            //}
         }
         /// <summary>
         /// Releases the unmanaged resources.
@@ -300,6 +258,7 @@ namespace BurnSoft.Testing.Web.Selenium
             TestName = @"";
             _driver.Close();
             _driver.Dispose();
+            Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);
         }

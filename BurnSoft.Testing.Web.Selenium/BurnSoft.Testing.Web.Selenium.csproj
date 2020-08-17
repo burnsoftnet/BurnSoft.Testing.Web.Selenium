@@ -60,6 +60,7 @@
     <Compile Include="GeneralActions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="iChromeActions.cs" />
+    <Compile Include="iGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
