@@ -67,7 +67,7 @@ namespace BurnSoft.Testing.Web.Selenium
         public string TestName;
 
         /// <summary>
-        /// Initializers this instance.
+        /// Initialize this instance.
         /// </summary>
         public void Initializer()
         {
