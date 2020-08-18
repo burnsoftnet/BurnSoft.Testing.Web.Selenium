@@ -1,16 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+// ReSharper disable EmptyDestructor
+// ReSharper disable UnusedMember.Global
 
 namespace BurnSoft.Testing.Web.Selenium
 {
+    /// <summary>
+    /// Class GeneralActions.
+    /// Implements the <see cref="System.IDisposable" />
+    /// </summary>
+    /// <seealso cref="System.IDisposable" />
     public class GeneralActions : IDisposable
     {
         /// <summary>
@@ -187,7 +190,9 @@ namespace BurnSoft.Testing.Web.Selenium
 
             }
         }
-
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             Driver?.Dispose();
@@ -210,35 +215,35 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
         /// <returns>By.</returns>
-        private By SetByType(string field, GeneralActions.FindBy fb)
+        private By SetByType(string field, FindBy fb)
         {
             By b = new ByAll();
             try
             {
                 switch (fb)
                 {
-                    case GeneralActions.FindBy.ClassName:
+                    case FindBy.ClassName:
                         b = By.ClassName(field);
                         break;
-                    case GeneralActions.FindBy.Id:
+                    case FindBy.Id:
                         b = By.Id(field);
                         break;
-                    case GeneralActions.FindBy.XPath:
+                    case FindBy.XPath:
                         b = By.XPath(field);
                         break;
-                    case GeneralActions.FindBy.CssSelector:
+                    case FindBy.CssSelector:
                         b = By.CssSelector(field);
                         break;
-                    case GeneralActions.FindBy.LinkText:
+                    case FindBy.LinkText:
                         b = By.LinkText(field);
                         break;
-                    case GeneralActions.FindBy.PartialLinkText:
+                    case FindBy.PartialLinkText:
                         b = By.PartialLinkText(field);
                         break;
-                    case GeneralActions.FindBy.Name:
+                    case FindBy.Name:
                         b = By.Name(field);
                         break;
-                    case GeneralActions.FindBy.TagName:
+                    case FindBy.TagName:
                         b = By.TagName(field);
                         break;
                 }
@@ -259,19 +264,19 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="fb">The fb.</param>
         /// <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
         /// <param name="sendText">the text that you want to send</param>
-        public void FindElements(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendText = "")
+        public void FindElements(string field, FindBy fb, MyAction ma, string sendText = "")
         {
             try
             {
                 switch (ma)
                 {
-                    case GeneralActions.MyAction.Click:
+                    case MyAction.Click:
                         Driver.FindElement(SetByType(field, fb)).Click();
                         break;
-                    case GeneralActions.MyAction.Clear:
+                    case MyAction.Clear:
                         Driver.FindElement(SetByType(field, fb)).Clear();
                         break;
-                    case GeneralActions.MyAction.ClearSendKeys:
+                    case MyAction.ClearSendKeys:
                         Driver.FindElement(SetByType(field, fb)).Clear();
                         Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
                         break;
