@@ -6,6 +6,7 @@ using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 // ReSharper disable EmptyDestructor
 // ReSharper disable UnusedMember.Global
+#pragma warning disable 618
 
 namespace BurnSoft.Testing.Web.Selenium
 {
@@ -280,10 +281,10 @@ namespace BurnSoft.Testing.Web.Selenium
                         Driver.FindElement(SetByType(field, fb)).Clear();
                         Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
                         break;
-                    case GeneralActions.MyAction.SendKeys:
+                    case MyAction.SendKeys:
                         Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
                         break;
-                    case GeneralActions.MyAction.Nothing:
+                    case MyAction.Nothing:
                         Driver.FindElement(SetByType(field, fb));
                         break;
                 }
@@ -302,7 +303,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
         /// <param name="textToSelect">The text to select.</param>
-        public void SelectElementInPage(string field, GeneralActions.FindBy fb, string textToSelect)
+        public void SelectElementInPage(string field, FindBy fb, string textToSelect)
         {
             var getAdminlist = Driver.FindElement(SetByType(field, fb));
             SelectElement iSelect = new SelectElement(getAdminlist);
@@ -317,27 +318,27 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="fb">The fb.</param>
         /// <param name="ma">Actions to so, click clear, send keys etc</param>
         /// <param name="sendKeys">keys that you want to send</param>
-        public void WaitTillElementFound(string field, GeneralActions.FindBy fb, GeneralActions.MyAction ma, string sendKeys = "")
+        public void WaitTillElementFound(string field, FindBy fb, MyAction ma, string sendKeys = "")
         {
             try
             {
                 var element = Wait.Until(ExpectedConditions.ElementIsVisible(SetByType(field, fb)));
                 switch (ma)
                 {
-                    case GeneralActions.MyAction.Click:
+                    case MyAction.Click:
                         element.Click();
                         break;
-                    case GeneralActions.MyAction.Clear:
+                    case MyAction.Clear:
                         element.Clear();
                         break;
-                    case GeneralActions.MyAction.ClearSendKeys:
+                    case MyAction.ClearSendKeys:
                         element.Clear();
                         element.SendKeys(sendKeys);
                         break;
-                    case GeneralActions.MyAction.SendKeys:
+                    case MyAction.SendKeys:
                         element.SendKeys(sendKeys);
                         break;
-                    case GeneralActions.MyAction.Nothing:
+                    case MyAction.Nothing:
                         break;
                 }
             }
@@ -353,7 +354,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         /// <param name="field">The field.</param>
         /// <param name="fb">The fb.</param>
-        public void DoWait(string field, GeneralActions.FindBy fb)
+        public void DoWait(string field, FindBy fb)
         {
             try
             {
