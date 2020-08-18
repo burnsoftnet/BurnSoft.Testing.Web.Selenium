@@ -1,5 +1,7 @@
 ﻿// ReSharper disable InconsistentNaming
 
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedMemberInSuper.Global
 namespace BurnSoft.Testing.Web.Selenium
 {
     /// <summary>

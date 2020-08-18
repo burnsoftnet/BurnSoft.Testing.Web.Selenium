@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
-using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
-
+// ReSharper disable UnusedMember.Global
 
 namespace BurnSoft.Testing.Web.Selenium
 {
@@ -21,12 +16,16 @@ namespace BurnSoft.Testing.Web.Selenium
         /// The driver
         /// </summary>
         private ChromeDriver _driver;
-        /// <summary>
-        /// The wait
-        /// </summary>
-        private WebDriverWait _wait;
 
+        /// <summary>
+        /// Gets or sets the ga.
+        /// </summary>
+        /// <value>The ga.</value>
         public GeneralActions Ga { get; set; }
+        /// <summary>
+        /// Gets or sets the sleep interval.
+        /// </summary>
+        /// <value>The sleep interval.</value>
         public int _sleepInterval { get; set; }
 
         /// <summary>
@@ -48,10 +47,25 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             set => _sleepInterval = value;
         }
-
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        /// <value>The URL.</value>
         public string Url { get; set; }
+        /// <summary>
+        /// Gets or sets the settings screen shot location.
+        /// </summary>
+        /// <value>The settings screen shot location.</value>
         public string SettingsScreenShotLocation { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [do sleep].
+        /// </summary>
+        /// <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
         public bool DoSleep { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the test.
+        /// </summary>
+        /// <value>The name of the test.</value>
         public string TestName { get; set; }
 
         /// <summary>
@@ -61,8 +75,7 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             try
             {
-                Ga = new GeneralActions(Url);
-                Ga.SettingsScreenShotLocation = SettingsScreenShotLocation;
+                Ga = new GeneralActions(Url) {SettingsScreenShotLocation = SettingsScreenShotLocation};
                 _driver = new ChromeDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
@@ -147,7 +160,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         private void ReleaseUnmanagedResources()
         {
-            // TODO release unmanaged resources here
+           
         }
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
@@ -165,7 +178,6 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public void Dispose()
         {
-            _wait = null;
             Url = @"";
             TestName = @"";
             _driver.Close();
