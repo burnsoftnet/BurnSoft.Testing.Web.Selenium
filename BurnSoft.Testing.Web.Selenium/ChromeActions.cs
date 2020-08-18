@@ -15,9 +15,8 @@ namespace BurnSoft.Testing.Web.Selenium
     /// Implements the <see cref="System.IDisposable" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    public class ChromeActions :IDisposable
+    public class ChromeActions :IDisposable, iGeneral
     {
-        public GeneralActions Ga;
         /// <summary>
         /// The driver
         /// </summary>
@@ -26,10 +25,10 @@ namespace BurnSoft.Testing.Web.Selenium
         /// The wait
         /// </summary>
         private WebDriverWait _wait;
-        /// <summary>
-        /// The sleep interval
-        /// </summary>
-        private int _sleepInterval;
+
+        public GeneralActions Ga { get; set; }
+        public int _sleepInterval { get; set; }
+
         /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
@@ -50,22 +49,10 @@ namespace BurnSoft.Testing.Web.Selenium
             set => _sleepInterval = value;
         }
 
-        /// <summary>
-        /// The URL to start with
-        /// </summary>
-        public string Url;
-        /// <summary>
-        /// The settings screen shot location
-        /// </summary>
-        public string SettingsScreenShotLocation;
-        /// <summary>
-        /// Toggle the sleeping after a command was issue so you can see the results
-        /// </summary>
-        public bool DoSleep;
-        /// <summary>
-        /// The test name that will mostly be used for the screen capturing exception capturing
-        /// </summary>
-        public string TestName;
+        public string Url { get; set; }
+        public string SettingsScreenShotLocation { get; set; }
+        public bool DoSleep { get; set; }
+        public string TestName { get; set; }
 
         /// <summary>
         /// Initialize this instance.
@@ -79,9 +66,6 @@ namespace BurnSoft.Testing.Web.Selenium
                 _driver = new ChromeDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
-                //_driver.Navigate().GoToUrl($"{Url}");
-                //_driver.Manage().Window.Maximize();
-                //_wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 15));
             }
             catch (Exception e)
             {
@@ -120,36 +104,6 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.FindElements(field, fb, ma, sendText);
-
-            //try
-            //{
-            //    switch (ma)
-            //    {
-            //        case GeneralActions.MyAction.Click:
-            //            _driver.FindElement(SetByType(field, fb)).Click();
-            //            break;
-            //        case GeneralActions.MyAction.Clear:
-            //            _driver.FindElement(SetByType(field, fb)).Clear();
-            //            break;
-            //        case GeneralActions.MyAction.ClearSendKeys:
-            //            _driver.FindElement(SetByType(field, fb)).Clear();
-            //            _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
-            //            break;
-            //        case GeneralActions.MyAction.SendKeys:
-            //            _driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
-            //            break;
-            //        case GeneralActions.MyAction.Nothing:
-            //            _driver.FindElement(SetByType(field, fb));
-            //            break;
-            //    }
-            //    if (DoSleep) Thread.Sleep(SleepInterval);
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.Print(e.Message);
-            //    ScreenShotIt();
-            //    _driver.Quit();
-            //}
         }
         /// <summary>
         /// Selects the element in page.
@@ -162,10 +116,6 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.SelectElementInPage(field, fb,textToSelect);
-            //var getAdminlist = _driver.FindElement(SetByType(field, fb));
-            //SelectElement iSelect = new SelectElement(getAdminlist);
-            //iSelect.SelectByText(textToSelect);
-            //if (DoSleep) Thread.Sleep(SleepInterval);
         }
 
         /// <summary>
@@ -180,34 +130,6 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.WaitTillElementFound(field, fb, ma, sendKeys);
-            //try
-            //{
-            //    var element = _wait.Until(ExpectedConditions.ElementIsVisible(SetByType(field, fb)));
-            //    switch (ma)
-            //    {
-            //        case GeneralActions.MyAction.Click:
-            //            element.Click();
-            //            break;
-            //        case GeneralActions.MyAction.Clear:
-            //            element.Clear();
-            //            break;
-            //        case GeneralActions.MyAction.ClearSendKeys:
-            //            element.Clear();
-            //            element.SendKeys(sendKeys);
-            //            break;
-            //        case GeneralActions.MyAction.SendKeys:
-            //            element.SendKeys(sendKeys);
-            //            break;
-            //        case GeneralActions.MyAction.Nothing:
-            //            break;
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.Print(e.Message);
-            //    ScreenShotIt();
-            //    _driver.Quit();
-            //}
         }
         /// <summary>
         /// Does the wait.
@@ -219,16 +141,6 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.DoWait(field, fb);
-            //try
-            //{
-            //    _wait.Until(wt => wt.FindElement(SetByType(field, fb)));
-            //}
-            //catch (Exception e)
-            //{
-            //    Debug.Print(e.Message);
-            //    ScreenShotIt();
-            //    _driver.Quit();
-            //}
         }
         /// <summary>
         /// Releases the unmanaged resources.
