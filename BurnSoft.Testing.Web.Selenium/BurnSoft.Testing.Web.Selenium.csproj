@@ -59,7 +59,9 @@
     <Compile Include="ChromeActions.cs" />
     <Compile Include="GeneralActions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IEActions.cs" />
     <Compile Include="interfaces\iChromeActions.cs" />
+    <Compile Include="interfaces\iIEActions.cs" />
     <Compile Include="interfaces\iMsEdgeActions.cs" />
     <Compile Include="MSEdgeActions.cs" />
     <Compile Include="interfaces\iGeneral.cs" />
