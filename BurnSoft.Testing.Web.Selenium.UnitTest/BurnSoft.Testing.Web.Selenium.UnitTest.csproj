@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Settings\VS2019.cs" />
-    <Compile Include="TestPublicSide.cs" />
+    <Compile Include="TestPublicSideChrome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BurnSoft.Testing.Web.Selenium.UnitTest
 {
     [TestClass]
-    public class TestPublicSide : iChromeActions
+    public class TestPublicSideChrome : iChromeActions
     {
         /// <summary>
         /// Access Selenium Chrome Actions Class
