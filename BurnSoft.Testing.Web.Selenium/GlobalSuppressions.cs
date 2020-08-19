@@ -6,3 +6,10 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.iChromeActions")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~P:BurnSoft.Testing.Web.Selenium.iGeneral._sleepInterval")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.iGeneral")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.iMsEdgeActions")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral._sleepInterval")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions")]

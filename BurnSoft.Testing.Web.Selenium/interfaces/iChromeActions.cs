@@ -2,7 +2,7 @@
 
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedMemberInSuper.Global
-namespace BurnSoft.Testing.Web.Selenium
+namespace BurnSoft.Testing.Web.Selenium.interfaces
 {
     /// <summary>
     /// Interface iChromeActions

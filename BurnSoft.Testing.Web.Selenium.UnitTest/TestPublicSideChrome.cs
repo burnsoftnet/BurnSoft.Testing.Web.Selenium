@@ -1,10 +1,16 @@
 ﻿using System;
 using System.IO;
+using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.UnitTest.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BurnSoft.Testing.Web.Selenium.UnitTest
 {
+    /// <summary>
+    /// Defines test class TestPublicSideChrome.
+    /// Implements the <see cref="BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions" />
+    /// </summary>
+    /// <seealso cref="BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions" />
     [TestClass]
     public class TestPublicSideChrome : iChromeActions
     {

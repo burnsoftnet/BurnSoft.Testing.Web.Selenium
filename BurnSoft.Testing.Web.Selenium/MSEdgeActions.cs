@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
-using OpenQA.Selenium.Chrome;
-// ReSharper disable UnusedMember.Global
+using OpenQA.Selenium.Edge;
 
 namespace BurnSoft.Testing.Web.Selenium
 {
     /// <summary>
-    /// Class ChromeActions.
+    /// Class to test the website using the Selenium Edge Driver
     /// Implements the <see cref="System.IDisposable" />
+    /// Implements the <see cref="iGeneral" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    public class ChromeActions :IDisposable, iGeneral
+    /// <seealso cref="iGeneral" />
+    public class MsEdgeActions : IDisposable, iGeneral
     {
         /// <summary>
         /// The driver
         /// </summary>
-        private ChromeDriver _driver;
-
+        private EdgeDriver _driver;
         /// <summary>
         /// Gets or sets the ga.
         /// </summary>
@@ -76,8 +76,8 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             try
             {
-                Ga = new GeneralActions(Url) {SettingsScreenShotLocation = SettingsScreenShotLocation};
-                _driver = new ChromeDriver();
+                Ga = new GeneralActions(Url) { SettingsScreenShotLocation = SettingsScreenShotLocation };
+                _driver = new EdgeDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
             }
@@ -129,7 +129,7 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Ga.Driver = _driver;
             Ga.TestName = TestName;
-            Ga.SelectElementInPage(field, fb,textToSelect);
+            Ga.SelectElementInPage(field, fb, textToSelect);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         private void ReleaseUnmanagedResources()
         {
-           
+
         }
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
@@ -181,8 +181,11 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Url = @"";
             TestName = @"";
-            _driver.Close();
-            _driver.Dispose();
+            if (_driver != null)
+            {
+                _driver.Close();
+                _driver.Dispose();
+            }
             Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -190,14 +193,14 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// Finalizes an instance of the <see cref="ChromeActions"/> class.
         /// </summary>
-        ~ChromeActions()
+        ~MsEdgeActions()
         {
             Dispose(false);
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="ChromeActions"/> class.
         /// </summary>
-        public ChromeActions()
+        public MsEdgeActions()
         {
 
         }
@@ -205,7 +208,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// Initializes a new instance of the <see cref="ChromeActions"/> class.
         /// </summary>
         /// <param name="url">The URL.</param>
-        public ChromeActions(string url)
+        public MsEdgeActions(string url)
         {
             Url = url;
         }

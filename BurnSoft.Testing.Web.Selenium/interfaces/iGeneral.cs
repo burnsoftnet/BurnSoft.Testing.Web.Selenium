@@ -2,7 +2,7 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMemberInSuper.Global
 // ReSharper disable UnusedMember.Global
-namespace BurnSoft.Testing.Web.Selenium
+namespace BurnSoft.Testing.Web.Selenium.interfaces
 {
     /// <summary>
     /// Interface iGeneral
