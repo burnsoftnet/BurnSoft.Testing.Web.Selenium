@@ -17,7 +17,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// The driver
         /// </summary>
-        private EdgeDriver _driver;
+        private EdgeDriver _driver = null;
         /// <summary>
         /// Gets or sets the ga.
         /// </summary>
@@ -85,7 +85,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                _driver.Quit();
+                if (_driver != null) _driver.Quit();
             }
         }
         /// <summary>

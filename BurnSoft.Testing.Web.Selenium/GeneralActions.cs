@@ -24,7 +24,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// The driver
         /// </summary>
-        public IWebDriver Driver;
+        public IWebDriver Driver = null;
         /// <summary>
         /// The settings screen shot location
         /// </summary>
@@ -253,7 +253,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                Driver.Quit();
+                if (Driver != null) Driver.Quit();
             }
             return b;
         }
@@ -294,7 +294,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                Driver.Quit();
+                if (Driver != null) Driver.Quit();
             }
         }
         /// <summary>
@@ -346,7 +346,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                Driver.Quit();
+                if(Driver !=null) Driver.Quit();
             }
         }
         /// <summary>
@@ -364,7 +364,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                Driver.Quit();
+                if (Driver != null) Driver.Quit();
             }
         }
     }
