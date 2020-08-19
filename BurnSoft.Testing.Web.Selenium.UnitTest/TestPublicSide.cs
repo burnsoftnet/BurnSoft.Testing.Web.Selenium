@@ -8,28 +8,69 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
     [TestClass]
     public class TestPublicSide : iChromeActions
     {
-
+        /// <summary>
+        /// Access Selenium Chrome Actions Class
+        /// </summary>
+        /// <value>The ca.</value>
         public ChromeActions Ca { get; set; }
+        /// <summary>
+        /// Gets or sets the main URL.
+        /// </summary>
+        /// <value>The main URL.</value>
         public string MainUrl { get; set; }
+        /// <summary>
+        /// Gets or sets the usr login.
+        /// </summary>
+        /// <value>The usr login.</value>
         public string UsrLogin { get; set; }
+        /// <summary>
+        /// Gets or sets the usr password.
+        /// </summary>
+        /// <value>The usr password.</value>
         public string UsrPwd { get; set; }
+        /// <summary>
+        /// The settings screen shot location
+        /// </summary>
+        /// <value>The settings screen shot location.</value>
         public string SettingsScreenShotLocation { get; set; }
+        /// <summary>
+        /// The full exception path
+        /// </summary>
+        /// <value>The full exception path.</value>
         public string FullExceptionPath { get; set; }
+        /// <summary>
+        /// Gets or sets the pages login.
+        /// </summary>
+        /// <value>The pages login.</value>
         public string PagesLogin { get; set; }
+        /// <summary>
+        /// Logs the in.
+        /// </summary>
+        /// <param name="testName">Name of the test.</param>
+        /// <exception cref="NotImplementedException"></exception>
         public void LogIn(string testName)
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Logs the out.
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
         public void LogOut()
         {
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
         [TestCleanup]
         public void Close()
         {
             Ca.Dispose();
         }
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize]
         public void Init()
         {
@@ -38,7 +79,9 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
         }
-
+        /// <summary>
+        /// Defines the test method CheckPublic.
+        /// </summary>
         [TestMethod]
         public void CheckPublic()
         {
