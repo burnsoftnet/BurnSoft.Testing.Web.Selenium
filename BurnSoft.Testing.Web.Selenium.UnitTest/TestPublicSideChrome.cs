@@ -99,9 +99,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.Initializer();
             Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("My Gun Collection", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
-            //Ca.FindElements("//div[@id='main-container']/div[2]/div/div[4]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
-            //Ca.FindElements("//div[@id='main-container']/div[2]/div/div[5]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
-            //Ca.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
+
             Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("My Loaders Log", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
