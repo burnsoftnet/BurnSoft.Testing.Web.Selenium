@@ -8,7 +8,7 @@ I do recommend using the Selenium Chrome IDE to first walk through what you want
 
 If there is an error, it will perform a screen shot capture and store it in a directory of your choosing so you can see what the error might be.
 
-##Resources
+## Resources
 - [https://www.selenium.dev](https://www.selenium.dev)
 - [Selenium Chrome IDE](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=en)
 
@@ -17,7 +17,7 @@ If there is an error, it will perform a screen shot capture and store it in a di
 1. Install nuget package
 2. Check out the Unit Tests for examples on what the interface requires.  A lot of it is copy and paste code except for the parts on what items that you are looking for on the selected website.
 
-###Example:
+### Example:
 
         [TestClass]
     public class TestPublicSideChrome : iChromeActions
@@ -124,4 +124,6 @@ If there is an error, it will perform a screen shot capture and store it in a di
         }
     }
         
-So now when you application throws an exception it will catch it and email it to you.
+Happy Testing!
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JSW8XEMQVH4BE)]
