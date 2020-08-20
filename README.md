@@ -1,30 +1,127 @@
-# BurnSoft.Web.ErrorHandling
-Simple Library that can help send error messages from your website to you or your support email about any application exception errors that have occurred in a pretty HTML report.
+# BurnSoft.Testing.Web.Selenium
 
-Somethings you might need to get the exact exception that occurred as well as any Session information that you can use to  recreate or diagnose the issue depending on how you currently use your session variables.
+This library was created to simplify testing out a website using Selenium.  All you have to do is add which interface that you want to use (Chrome, IE, Edge, etc) and add the code required for that interface to initialize the module.
 
-## Example Picture
-![](SampleeMail.png)
+Then in your main test you just have to add the tags and and types of tags and actions that you want to perform.
+
+I do recommend using the Selenium Chrome IDE to first walk through what you want to do with the site, then use that session capture to get the names of the id's, xpaths, etc that you want to step through with your tests.
+
+If there is an error, it will perform a screen shot capture and store it in a directory of your choosing so you can see what the error might be.
+
+##Resources
+- [https://www.selenium.dev](https://www.selenium.dev)
+- [Selenium Chrome IDE](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=en)
 
 ## How To Use
 
-1. Install nugget package
-2. Open your **Global.asax.cs** file.
-3. If you do not have it add the *Application_Error* function
-4. Call the function *SendHtmlError* in the Application_Error section.
-5. Add *Session["ERRORMESSAGE"] = "";* in your **Session_Start** function.
+1. Install nuget package
+2. Check out the Unit Tests for examples on what the interface requires.  A lot of it is copy and paste code except for the parts on what items that you are looking for on the selected website.
 
-Example:
+###Example:
 
-        void Application_Error(object sender, EventArgs e)
+        [TestClass]
+    public class TestPublicSideChrome : iChromeActions
+    {
+        /// <summary>
+        /// Access Selenium Chrome Actions Class
+        /// </summary>
+        /// <value>The ca.</value>
+        public ChromeActions Ca { get; set; }
+        /// <summary>
+        /// Gets or sets the main URL.
+        /// </summary>
+        /// <value>The main URL.</value>
+        public string MainUrl { get; set; }
+        /// <summary>
+        /// Gets or sets the usr login.
+        /// </summary>
+        /// <value>The usr login.</value>
+        public string UsrLogin { get; set; }
+        /// <summary>
+        /// Gets or sets the usr password.
+        /// </summary>
+        /// <value>The usr password.</value>
+        public string UsrPwd { get; set; }
+        /// <summary>
+        /// The settings screen shot location
+        /// </summary>
+        /// <value>The settings screen shot location.</value>
+        public string SettingsScreenShotLocation { get; set; }
+        /// <summary>
+        /// The full exception path
+        /// </summary>
+        /// <value>The full exception path.</value>
+        public string FullExceptionPath { get; set; }
+        /// <summary>
+        /// Gets or sets the pages login.
+        /// </summary>
+        /// <value>The pages login.</value>
+        public string PagesLogin { get; set; }
+        /// <summary>
+        /// Logs the in.
+        /// </summary>
+        /// <param name="testName">Name of the test.</param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void LogIn(string testName)
         {
-            Exception myErr = Server.GetLastError().GetBaseException();
-            BurnSoft.Web.ErrorHandling.ApplicationErrors.SendHtmlError(myErr,"tosomeone@test.com", "siteSupport@test.com", "smtp.test.com", "siteSupport@test.com", "12345");
+            throw new NotImplementedException();
         }
-
-        void Session_Start(Object sender, EventArgs e)
+        /// <summary>
+        /// Logs the out.
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        public void LogOut()
         {
-            Session["ERRORMESSAGE"] = "";
+            throw new NotImplementedException();
         }
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
+        [TestCleanup]
+        public void Close()
+        {
+            Ca.Dispose();
+        }
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
+        [TestInitialize]
+        public void Init()
+        {
+            MainUrl = "http://www.burnsoft.test";
+            SettingsScreenShotLocation = "c:\pics\";
+            FullExceptionPath = SettingsScreenShotLocation;
+            if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
+        }
+        /// <summary>
+        /// Defines the test method CheckPublic.
+        /// </summary>
+        [TestMethod]
+        public void CheckPublic()
+        {
+            Ca = new ChromeActions();
+            Ca.TestName = "PublicUI";
+            Ca.Url = MainUrl;
+            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ca.DoSleep = true;
+            Ca.Initializer();
+            Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("My Gun Collection", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
+
+            Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("My Loaders Log", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("File Renamer Utility", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("BurnPad", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[7]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("Contact", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("MainContent_txtName", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys,"Jimmy Pop Corn");
+            Ca.FindElements("MainContent_txteMail", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys,"joe.mireles@burnsoft.net");
+            Ca.FindElements("MainContent_txtMsg", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys,"Make software great again!");
+            Ca.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
+            Ca.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
+        }
+    }
         
 So now when you application throws an exception it will catch it and email it to you.
