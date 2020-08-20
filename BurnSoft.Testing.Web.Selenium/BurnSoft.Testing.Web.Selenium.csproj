@@ -89,4 +89,7 @@
   <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.150.1.2\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.150.1.2\build\Selenium.WebDriver.IEDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.MicrosoftDriver.17.17134.0\build\Selenium.WebDriver.MicrosoftDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MicrosoftDriver.17.17134.0\build\Selenium.WebDriver.MicrosoftDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.84.0.524\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.84.0.524\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)postbuild.bat $(SolutionDir) $(ProjectDir) $(ConfigurationName) $(ProjectName)</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BurnSoft.Testing.Web.Selenium")]
-[assembly: AssemblyDescription("Web Testing LIrbary using Selenium to test any of the websites, just simplifying the process to to a unit test on your website")]
+[assembly: AssemblyDescription("Web Testing library using Selenium to test any of the websites, just simplifying the process to to a unit test on your website")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("www.burnsoft.net")]
 [assembly: AssemblyProduct("BurnSoft.Testing.Web.Selenium")]
