@@ -122,13 +122,25 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             SendKeys,
             /// <summary>
+            /// The send keys submit
+            /// </summary>
+            SendKeysSubmit,
+            /// <summary>
             /// The clear
             /// </summary>
             Clear,
             /// <summary>
             /// The clear send keys
             /// </summary>
-            ClearSendKeys
+            ClearSendKeys,
+            /// <summary>
+            /// The submit
+            /// </summary>
+            Submit,
+            /// <summary>
+            /// The clear send keys submit
+            /// </summary>
+            ClearSendKeysSubmit,
         }
 
         /// <summary>
@@ -283,6 +295,18 @@ namespace BurnSoft.Testing.Web.Selenium
                         break;
                     case MyAction.SendKeys:
                         Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
+                        break;
+                    case MyAction.SendKeysSubmit:
+                        Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
+                        Driver.FindElement(SetByType(field, fb)).Submit();
+                        break;
+                    case MyAction.ClearSendKeysSubmit:
+                        Driver.FindElement(SetByType(field, fb)).Clear();
+                        Driver.FindElement(SetByType(field, fb)).SendKeys(sendText);
+                        Driver.FindElement(SetByType(field, fb)).Submit();
+                        break;
+                    case MyAction.Submit:
+                        Driver.FindElement(SetByType(field, fb)).Submit();
                         break;
                     case MyAction.Nothing:
                         Driver.FindElement(SetByType(field, fb));
