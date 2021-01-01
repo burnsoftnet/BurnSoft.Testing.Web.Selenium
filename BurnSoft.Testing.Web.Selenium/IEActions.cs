@@ -188,7 +188,7 @@ namespace BurnSoft.Testing.Web.Selenium
                 _driver.Close();
                 _driver.Dispose();
             }
-            Ga.Dispose();
+            if (Ga != null) Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);
         }

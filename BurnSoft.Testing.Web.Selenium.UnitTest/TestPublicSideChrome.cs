@@ -14,7 +14,6 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
     [TestClass]
     public class TestPublicSideChrome : iChromeActions
     {
-        private TestContext TestContext { get; set; }
         /// <summary>
         /// Access Selenium Chrome Actions Class
         /// </summary>
@@ -127,7 +126,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.Initializer();
 
             string value = Ca.GetContentsOfTag("body");
-            TestContext.WriteLine(value);
+            Console.WriteLine(value);
             Assert.IsTrue(value.Length > 0);
         }
     }

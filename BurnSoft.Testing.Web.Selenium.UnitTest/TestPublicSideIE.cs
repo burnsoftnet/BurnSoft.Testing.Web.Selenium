@@ -3,9 +3,15 @@ using System.IO;
 using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.UnitTest.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+// ReSharper disable InconsistentNaming
 
 namespace BurnSoft.Testing.Web.Selenium.UnitTest
 {
+    /// <summary>
+    /// Defines test class TestPublicSideIE.
+    /// Implements the <see cref="BurnSoft.Testing.Web.Selenium.interfaces.iIEActions" />
+    /// </summary>
+    /// <seealso cref="BurnSoft.Testing.Web.Selenium.interfaces.iIEActions" />
     [TestClass]
     public class TestPublicSideIE : iIEActions
     {
@@ -94,9 +100,6 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ea.Initializer();
             Ea.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("My Gun Collection", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
-            //Ea.FindElements("//div[@id='main-container']/div[2]/div/div[4]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
-            //Ea.FindElements("//div[@id='main-container']/div[2]/div/div[5]", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
-            //Ea.FindElements("//ul[@id='jetmenu']/li[3]/a", ChromeActions.FindBy.XPath, ChromeActions.MyAction.Click);
             Ea.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("My Loaders Log", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
