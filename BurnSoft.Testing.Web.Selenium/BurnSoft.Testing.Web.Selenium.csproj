@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChromeActions.cs" />
+    <Compile Include="FlexAction.cs" />
     <Compile Include="GeneralActions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IEActions.cs" />
