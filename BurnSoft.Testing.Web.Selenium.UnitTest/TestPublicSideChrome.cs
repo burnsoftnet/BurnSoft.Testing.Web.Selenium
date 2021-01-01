@@ -161,5 +161,16 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
         }
+
+        [TestMethod]
+        public void LinkIsPresentByIdTest()
+        {
+            Ca.TestName = "LinkIsPresentByIdTest";
+            Ca.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ca.LinkIsPresentById("MainContent_TreeView1t2", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
+        }
     }
 }
