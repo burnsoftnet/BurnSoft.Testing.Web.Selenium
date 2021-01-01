@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("www.burnsoft.net")]
 [assembly: AssemblyProduct("BurnSoft.Testing.Web.Selenium")]
-[assembly: AssemblyCopyright("Copyright © www.burnsoft.net  2020")]
+[assembly: AssemblyCopyright("Copyright © www.burnsoft.net  2020-2021")]
 [assembly: AssemblyTrademark("www.burnsoft.net")]
 [assembly: AssemblyCulture("")]
 
