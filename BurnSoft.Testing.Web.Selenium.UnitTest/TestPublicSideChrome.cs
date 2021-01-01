@@ -114,12 +114,14 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
         }
-
+        /// <summary>
+        /// Defines the test method GetContentsOfTagTest.
+        /// </summary>
         [TestMethod]
         public void GetContentsOfTagTest()
         {
             Ca = new ChromeActions();
-            Ca.TestName = "PublicUI";
+            Ca.TestName = "GetContentsOfTagTest";
             Ca.Url = MainUrl;
             Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
             Ca.DoSleep = true;
