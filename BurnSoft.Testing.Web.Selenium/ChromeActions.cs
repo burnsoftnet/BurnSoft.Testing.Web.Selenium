@@ -200,13 +200,12 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Ga.Driver = _driver;
                 Ga.TestName = TestName;
-                bAns = _driver.FindElement(By.LinkText(name)).Displayed;
-                if (!bAns) throw new Exception($"Unable to find link {name}");
+                bAns = _driver.FindElement(By.Id(name)).Displayed;
+                if (!bAns) throw new Exception($"Unable to find link id {name}");
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                errOut = e.Message;
             }
             return bAns;
         }

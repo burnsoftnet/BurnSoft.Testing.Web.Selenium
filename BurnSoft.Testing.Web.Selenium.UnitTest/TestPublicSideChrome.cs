@@ -161,7 +161,9 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
         }
-
+        /// <summary>
+        /// Defines the test method LinkIsPresentByIdTest.
+        /// </summary>
         [TestMethod]
         public void LinkIsPresentByIdTest()
         {
