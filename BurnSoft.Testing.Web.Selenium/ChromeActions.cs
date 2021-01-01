@@ -4,6 +4,8 @@ using BurnSoft.Testing.Web.Selenium.interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 // ReSharper disable UnusedMember.Global
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
+// ReSharper disable RedundantAssignment
 
 namespace BurnSoft.Testing.Web.Selenium
 {
@@ -158,7 +160,13 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return bAns;
         }
-
+        /// <summary>
+        /// Links the is present by link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
         public bool LinkIsPresentByLinkText(string name, out string errOut)
         {
             bool bAns = false;
@@ -177,7 +185,13 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return bAns;
         }
-
+        /// <summary>
+        /// Links the is present by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
         public bool LinkIsPresentById(string name, out string errOut)
         {
             bool bAns = false;
