@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
 namespace BurnSoft.Testing.Web.Selenium
@@ -17,7 +18,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// The driver
         /// </summary>
-        private EdgeDriver _driver = null;
+        private EdgeDriver _driver;
         /// <summary>
         /// Gets or sets the ga.
         /// </summary>
@@ -118,6 +119,19 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.FindElements(field, fb, ma, sendText);
+        }
+
+        /// <summary>
+        /// Gets the contents of tag.  If you ask for the <br/>
+        /// Body tag it will return only the text of the entire webpage.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>System.String.</returns>
+        public string GetContentsOfTag(string name)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return _driver.FindElement(By.TagName(name)).Text;
         }
         /// <summary>
         /// Selects the element in page.
