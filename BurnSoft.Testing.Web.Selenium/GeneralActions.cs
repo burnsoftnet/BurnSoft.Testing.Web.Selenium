@@ -6,6 +6,9 @@ using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 // ReSharper disable EmptyDestructor
 // ReSharper disable UnusedMember.Global
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
+// ReSharper disable RedundantAssignment
+// ReSharper disable UseNullPropagation
 #pragma warning disable 618
 
 namespace BurnSoft.Testing.Web.Selenium
@@ -24,7 +27,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// The driver
         /// </summary>
-        public IWebDriver Driver = null;
+        public IWebDriver Driver;
         /// <summary>
         /// The settings screen shot location
         /// </summary>
@@ -390,6 +393,95 @@ namespace BurnSoft.Testing.Web.Selenium
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
+        }
+
+        /// <summary>
+        /// Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">Error out if results return false or exception</param>
+        /// <param name="expectedCount">The expected count.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool NumberOfExpectedLinks(string name, out string errOut, int expectedCount = 1)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                int myCount = Driver.FindElements(By.LinkText(name)).Count;
+                bAns = myCount == expectedCount;
+                if (!bAns) throw new Exception($"Expected {expectedCount} of {name} but got {myCount}");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return bAns;
+        }
+        /// <summary>
+        /// Links the is present by link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
+        public bool LinkIsPresentByLinkText(string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                bAns = Driver.FindElement(By.LinkText(name)).Displayed;
+                if (!bAns) throw new Exception($"Unable to find link {name}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return bAns;
+        }
+        /// <summary>
+        /// Links the is present by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
+        public bool LinkIsPresentById(string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                bAns = Driver.FindElement(By.Id(name)).Displayed;
+                if (!bAns) throw new Exception($"Unable to find link id {name}");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return bAns;
+        }
+        /// <summary>
+        /// Gets the text from element by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementById(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Id(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
         }
     }
 }
