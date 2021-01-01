@@ -14,7 +14,7 @@ using OpenQA.Selenium.IE;
 
 namespace BurnSoft.Testing.Web.Selenium
 {
-    public class FlexAction 
+    public class FlexAction : IDisposable
     {
         /// <summary>
         /// Gets or sets the selected driver.
