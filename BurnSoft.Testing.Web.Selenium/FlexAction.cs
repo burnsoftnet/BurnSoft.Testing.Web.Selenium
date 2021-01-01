@@ -120,7 +120,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                Driver.Quit();
+                if (Driver != null) Driver.Quit();
             }
         }
         /// <summary>

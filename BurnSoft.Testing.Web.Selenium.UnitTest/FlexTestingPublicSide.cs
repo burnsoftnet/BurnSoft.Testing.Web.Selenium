@@ -39,6 +39,13 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestCleanup]
         public void Close()
         {
+            if (Ca.ErrorList.Count > 0)
+            {
+                foreach (string err in Ca.ErrorList)
+                {
+                    TestContext.WriteLine(err);
+                }
+            }
             if (Ca != null) Ca.Dispose();
         }
         /// <summary>
@@ -52,14 +59,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
 
-            Ca = new FlexAction(FlexAction.UseDriver.Edge);
-            if (Ca.ErrorList.Count > 0)
-            {
-                foreach (string err in Ca.ErrorList)
-                {
-                    TestContext.WriteLine(err);
-                }
-            }
+            Ca = new FlexAction(FlexAction.UseDriver.Chrome);
+           
             Ca.TestName = "Init";
             Ca.Url = MainUrl;
             Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
@@ -89,6 +90,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.FindElements("MainContent_txtMsg", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys, "Make software great again!");
             Ca.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
+
+            Assert.IsTrue(Ca.ErrorList.Count == 0);
         }
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
