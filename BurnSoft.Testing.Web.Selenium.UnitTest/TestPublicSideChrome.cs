@@ -15,6 +15,11 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
     public class TestPublicSideChrome : iChromeActions
     {
         /// <summary>
+        /// Gets or sets the test context.
+        /// </summary>
+        /// <value>The test context.</value>
+        public TestContext TestContext { get; set; }
+        /// <summary>
         /// Access Selenium Chrome Actions Class
         /// </summary>
         /// <value>The ca.</value>
@@ -128,8 +133,24 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.Initializer();
 
             string value = Ca.GetContentsOfTag("body");
-            Console.WriteLine(value);
+            TestContext.WriteLine(value);
             Assert.IsTrue(value.Length > 0);
+        }
+
+        [TestMethod]
+        public void NumberOfExpectedLinksTest()
+        {
+            Ca = new ChromeActions();
+            Ca.TestName = "NumberOfExpectedLinksTest";
+            Ca.Url = MainUrl;
+            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ca.DoSleep = true;
+            Ca.Initializer();
+
+            bool value = Ca.NumberOfExpectedLinks("", out var err);
+            if (err?.Length > 0) throw new Exception(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
         }
     }
 }
