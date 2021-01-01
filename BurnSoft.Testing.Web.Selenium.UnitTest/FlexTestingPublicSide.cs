@@ -43,28 +43,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// </summary>
         /// <value>The full exception path.</value>
         public string FullExceptionPath { get; set; }
-        /// <summary>
-        /// Gets or sets the pages login.
-        /// </summary>
-        /// <value>The pages login.</value>
-        public string PagesLogin { get; set; }
-        /// <summary>
-        /// Logs the in.
-        /// </summary>
-        /// <param name="testName">Name of the test.</param>
-        /// <exception cref="NotImplementedException"></exception>
-        public void LogIn(string testName)
-        {
-            throw new NotImplementedException();
-        }
-        /// <summary>
-        /// Logs the out.
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        public void LogOut()
-        {
-            throw new NotImplementedException();
-        }
+        
         /// <summary>
         /// Closes this instance.
         /// </summary>
