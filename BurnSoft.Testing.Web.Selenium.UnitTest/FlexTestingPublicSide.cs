@@ -71,7 +71,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestCleanup]
         public void Close()
         {
-            Ca.Dispose();
+            if (Ca != null) Ca.Dispose();
         }
         /// <summary>
         /// Initializes this instance.
@@ -84,7 +84,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
 
-            Ca = new FlexAction(FlexAction.UseDriver.Chrome);
+            Ca = new FlexAction(FlexAction.UseDriver.Edge);
             Ca.TestName = "Init";
             Ca.Url = MainUrl;
             Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
