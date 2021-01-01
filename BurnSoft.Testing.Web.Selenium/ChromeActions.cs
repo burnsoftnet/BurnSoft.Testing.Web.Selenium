@@ -134,13 +134,13 @@ namespace BurnSoft.Testing.Web.Selenium
         }
 
         /// <summary>
-        /// Links the text exists. and the optional expected count
+        /// Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="errOut">Error out if results return false or exception</param>
         /// <param name="expectedCount">The expected count.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public bool LinkTextExists(string name, out string errOut, int expectedCount = 1)
+        public bool NumberOfExpectedLinks(string name, out string errOut, int expectedCount = 1)
         {
             bool bAns = false;
             errOut = @"";
@@ -155,6 +155,25 @@ namespace BurnSoft.Testing.Web.Selenium
             catch (Exception e)
             {
                 errOut = e.Message;
+            }
+            return bAns;
+        }
+
+        public bool LinkIsPresentByLinkText(string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                Ga.Driver = _driver;
+                Ga.TestName = TestName;
+                bAns = _driver.FindElement(By.LinkText(name)).Displayed;
+                if (!bAns) throw new Exception($"Unable to find link {name}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
             return bAns;
         }
