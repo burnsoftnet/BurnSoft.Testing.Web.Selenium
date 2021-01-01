@@ -53,6 +53,13 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
 
             Ca = new FlexAction(FlexAction.UseDriver.Edge);
+            if (Ca.ErrorList.Count > 0)
+            {
+                foreach (string err in Ca.ErrorList)
+                {
+                    TestContext.WriteLine(err);
+                }
+            }
             Ca.TestName = "Init";
             Ca.Url = MainUrl;
             Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;

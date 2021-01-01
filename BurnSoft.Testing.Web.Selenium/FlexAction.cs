@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -37,6 +38,10 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <value>The sleep interval.</value>
         private int _sleepInterval { get; set; }
 
+        /// <summary>
+        /// A simple list to log errors
+        /// </summary>
+        public List<string> ErrorList;
         /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
@@ -278,8 +283,12 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Url = @"";
             TestName = @"";
-            Driver.Close();
-            Driver.Dispose();
+            if (Driver != null)
+            {
+                Driver.Close();
+                Driver.Dispose();
+            }
+            ErrorList = null;
             Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -305,7 +314,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public FlexAction()
         {
-
+            ErrorList = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexAction"/> class.
@@ -313,6 +322,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="ud">The ud.</param>
         public FlexAction(UseDriver ud)
         {
+            ErrorList = new List<string>();
             InitDriver(ud);
         }
         /// <summary>
@@ -344,7 +354,7 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             catch (Exception e)
             {
-                Debug.Print(e.Message);
+                ApplendToErrorList("InitDriver", e.Message);
             }
         }
 
@@ -355,10 +365,20 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="url">The URL.</param>
         public FlexAction(UseDriver ud, string url)
         {
+            ErrorList = new List<string>();
             Url = url;
             InitDriver(ud);
         }
-        #endregion
-        
+        #endregion        
+        /// <summary>
+        /// Applends to error list.
+        /// </summary>
+        /// <param name="function">The function.</param>
+        /// <param name="msg">The MSG.</param>
+        private void ApplendToErrorList(string function, string msg)
+        {
+            if (ErrorList == null) ErrorList = new List<string>();
+            ErrorList.Add($"{DateTime.Now} - {function} - {msg}");
+        }
     }
 }
