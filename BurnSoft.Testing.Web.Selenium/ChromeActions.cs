@@ -121,7 +121,8 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.FindElements(field, fb, ma, sendText);
         }
         /// <summary>
-        /// Gets the contents of tag.
+        /// Gets the contents of tag.  If you ask for the <br/>
+        /// Body tag it will return only the text of the entire webpage.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <returns>System.String.</returns>
