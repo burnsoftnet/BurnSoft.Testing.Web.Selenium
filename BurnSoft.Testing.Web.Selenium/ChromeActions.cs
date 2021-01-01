@@ -178,6 +178,25 @@ namespace BurnSoft.Testing.Web.Selenium
             return bAns;
         }
 
+        public bool LinkIsPresentById(string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                Ga.Driver = _driver;
+                Ga.TestName = TestName;
+                bAns = _driver.FindElement(By.LinkText(name)).Displayed;
+                if (!bAns) throw new Exception($"Unable to find link {name}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return bAns;
+        }
+
         /// <summary>
         /// Selects the element in page.
         /// </summary>
