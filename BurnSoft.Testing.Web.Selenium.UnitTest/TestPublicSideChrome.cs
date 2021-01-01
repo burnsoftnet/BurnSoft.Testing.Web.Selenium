@@ -89,6 +89,13 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             SettingsScreenShotLocation = VS2019.GetSetting("SettingsScreenShotLocation");
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
+
+            Ca = new ChromeActions();
+            Ca.TestName = "Init";
+            Ca.Url = MainUrl;
+            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ca.DoSleep = true;
+            Ca.Initializer();
         }
         /// <summary>
         /// Defines the test method CheckPublic.
@@ -96,12 +103,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestMethod]
         public void CheckPublic()
         {
-            Ca = new ChromeActions();
             Ca.TestName = "PublicUI";
-            Ca.Url = MainUrl;
-            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
-            Ca.DoSleep = true;
-            Ca.Initializer();
             Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("My Gun Collection", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
 
@@ -125,30 +127,22 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestMethod]
         public void GetContentsOfTagTest()
         {
-            Ca = new ChromeActions();
             Ca.TestName = "GetContentsOfTagTest";
-            Ca.Url = MainUrl;
-            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
-            Ca.DoSleep = true;
-            Ca.Initializer();
 
             string value = Ca.GetContentsOfTag("body");
             TestContext.WriteLine(value);
             Assert.IsTrue(value.Length > 0);
         }
-
+        /// <summary>
+        /// Defines the test method NumberOfExpectedLinksTest.
+        /// </summary>
         [TestMethod]
         public void NumberOfExpectedLinksTest()
         {
-            Ca = new ChromeActions();
             Ca.TestName = "NumberOfExpectedLinksTest";
-            Ca.Url = MainUrl;
-            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
-            Ca.DoSleep = true;
-            Ca.Initializer();
-
-            bool value = Ca.NumberOfExpectedLinks("", out var err);
-            if (err?.Length > 0) throw new Exception(err);
+            Ca.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ca.NumberOfExpectedLinks("My Gun Collection", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
         }

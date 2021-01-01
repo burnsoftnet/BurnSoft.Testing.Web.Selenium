@@ -71,8 +71,8 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             try
             {
-                Driver.Navigate().GoToUrl($"{Url}");
                 Driver.Manage().Window.Maximize();
+                Driver.Navigate().GoToUrl($"{Url}");
                 Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 15));
             }
             catch (Exception e)
