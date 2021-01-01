@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BurnSoft.Testing.Web.Selenium.interfaces;
-using Microsoft.Win32;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -14,6 +8,12 @@ using OpenQA.Selenium.IE;
 
 namespace BurnSoft.Testing.Web.Selenium
 {
+    /// <summary>
+    /// Class FlexAction.  The flex action class is allows a quick and easy way to
+    /// run test against seperate browsers just by passing which browser you want to use.
+    /// Implements the <see cref="System.IDisposable" />
+    /// </summary>
+    /// <seealso cref="System.IDisposable" />
     public class FlexAction : IDisposable
     {
         /// <summary>
@@ -321,23 +321,30 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="ud">The ud.</param>
         private void InitDriver(UseDriver ud)
         {
-            switch (ud)
+            try
             {
-                case UseDriver.Chrome:
-                    Driver = new ChromeDriver();
-                    break;
-                case UseDriver.Edge:
-                    Driver = new EdgeDriver();
-                    break;
-                case UseDriver.IE:
-                    Driver = new InternetExplorerDriver();
-                    break;
-                case UseDriver.FireFox:
-                    Driver = new FirefoxDriver();
-                    break;
-                default:
-                    Driver = new ChromeDriver();
-                    break;
+                switch (ud)
+                {
+                    case UseDriver.Chrome:
+                        Driver = new ChromeDriver();
+                        break;
+                    case UseDriver.Edge:
+                        Driver = new EdgeDriver();
+                        break;
+                    case UseDriver.IE:
+                        Driver = new InternetExplorerDriver();
+                        break;
+                    case UseDriver.FireFox:
+                        Driver = new FirefoxDriver();
+                        break;
+                    default:
+                        Driver = new ChromeDriver();
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Print(e.Message);
             }
         }
 
