@@ -133,7 +133,7 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Ga.Driver = _driver;
             Ga.TestName = TestName;
-            return _driver.FindElement(By.TagName(name)).Text;
+            return Ga.GetContentsOfTag(name);
         }
 
         /// <summary>
@@ -147,6 +147,58 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.SelectElementInPage(field, fb, textToSelect);
+        }
+
+        /// <summary>
+        /// Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">Error out if results return false or exception</param>
+        /// <param name="expectedCount">The expected count.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool NumberOfExpectedLinks(string name, out string errOut, int expectedCount = 1)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.NumberOfExpectedLinks(name, out errOut, expectedCount);
+        }
+        /// <summary>
+        /// Links the is present by link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
+        public bool LinkIsPresentByLinkText(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.LinkIsPresentByLinkText(name, out errOut);
+        }
+        /// <summary>
+        /// Links the is present by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception">Unable to find link {name}</exception>
+        public bool LinkIsPresentById(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.LinkIsPresentById(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the text from element by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementById(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementById(name, out errOut);
         }
 
         /// <summary>

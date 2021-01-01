@@ -16,6 +16,11 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
     public class TestPublicSideIE : iIEActions
     {
         /// <summary>
+        /// Gets or sets the test context.
+        /// </summary>
+        /// <value>The test context.</value>
+        public TestContext TestContext { get; set; }
+        /// <summary>
         /// Access Selenium Chrome Actions Class
         /// </summary>
         /// <value>The ca.</value>
@@ -85,6 +90,13 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             SettingsScreenShotLocation = VS2019.GetSetting("SettingsScreenShotLocation");
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
+
+            Ea = new IEActions();
+            Ea.TestName = "Init";
+            Ea.Url = MainUrl;
+            Ea.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ea.DoSleep = true;
+            Ea.Initializer();
         }
         /// <summary>
         /// Defines the test method CheckPublic.
@@ -92,12 +104,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestMethod]
         public void CheckPublic()
         {
-            Ea = new IEActions();
             Ea.TestName = "PublicUI";
-            Ea.Url = MainUrl;
-            Ea.SettingsScreenShotLocation = SettingsScreenShotLocation;
-            Ea.DoSleep = true;
-            Ea.Initializer();
+
             Ea.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("My Gun Collection", GeneralActions.FindBy.LinkText, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
@@ -121,15 +129,64 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestMethod]
         public void GetContentsOfTagTest()
         {
-            Ea = new IEActions();
             Ea.TestName = "GetContentsOfTagTest";
-            Ea.Url = MainUrl;
-            Ea.SettingsScreenShotLocation = SettingsScreenShotLocation;
-            Ea.DoSleep = true;
-            Ea.Initializer();
 
             string value = Ea.GetContentsOfTag("body");
             Console.WriteLine(value);
+            Assert.IsTrue(value.Length > 0);
+        }
+
+        /// <summary>
+        /// Defines the test method NumberOfExpectedLinksTest.
+        /// </summary>
+        [TestMethod]
+        public void NumberOfExpectedLinksTest()
+        {
+            Ea.TestName = "NumberOfExpectedLinksTest";
+            Ea.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ea.NumberOfExpectedLinks("My Gun Collection", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
+        }
+
+        /// <summary>
+        /// Defines the test method LinkIsPresentByLinkTextTest.
+        /// </summary>
+        [TestMethod]
+        public void LinkIsPresentByLinkTextTest()
+        {
+            Ea.TestName = "LinkIsPresentByLinkTextTest";
+            Ea.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ea.LinkIsPresentByLinkText("My Gun Collection", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
+        }
+        /// <summary>
+        /// Defines the test method LinkIsPresentByIdTest.
+        /// </summary>
+        [TestMethod]
+        public void LinkIsPresentByIdTest()
+        {
+            Ea.TestName = "LinkIsPresentByIdTest";
+            Ea.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ea.LinkIsPresentById("MainContent_TreeView1t2", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
+        }
+        /// <summary>
+        /// Defines the test method GetTextFromElementByIdTest.
+        /// </summary>
+        [TestMethod]
+        public void GetTextFromElementByIdTest()
+        {
+            Ea.TestName = "GetTextFromElementByIdTest";
+            Ea.GoToAnotherPage($"{MainUrl}/Pages/Sitemap.aspx");
+            string value = Ea.GetTextFromElementById("MainContent_TreeView1t5", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
             Assert.IsTrue(value.Length > 0);
         }
     }
