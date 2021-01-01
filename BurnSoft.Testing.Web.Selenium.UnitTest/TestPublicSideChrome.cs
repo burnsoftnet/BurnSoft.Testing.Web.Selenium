@@ -133,6 +133,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             TestContext.WriteLine(value);
             Assert.IsTrue(value.Length > 0);
         }
+
         /// <summary>
         /// Defines the test method NumberOfExpectedLinksTest.
         /// </summary>
@@ -142,6 +143,20 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.TestName = "NumberOfExpectedLinksTest";
             Ca.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
             bool value = Ca.NumberOfExpectedLinks("My Gun Collection", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value);
+        }
+
+        /// <summary>
+        /// Defines the test method LinkIsPresentByLinkTextTest.
+        /// </summary>
+        [TestMethod]
+        public void LinkIsPresentByLinkTextTest()
+        {
+            Ca.TestName = "LinkIsPresentByLinkTextTest";
+            Ca.GoToAnotherPage($"{MainUrl}/Pages/Software_OpenSource.aspx");
+            bool value = Ca.LinkIsPresentByLinkText("My Gun Collection", out var err);
             if (err?.Length > 0) TestContext.WriteLine(err);
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
