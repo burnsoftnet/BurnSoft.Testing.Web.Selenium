@@ -14,6 +14,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
     [TestClass]
     public class TestPublicSideChrome : iChromeActions
     {
+        private TestContext TestContext { get; set; }
         /// <summary>
         /// Access Selenium Chrome Actions Class
         /// </summary>
@@ -113,6 +114,21 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.FindElements("MainContent_txtMsg", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys,"Make software great again!");
             Ca.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
+        }
+
+        [TestMethod]
+        public void GetContentsOfTagTest()
+        {
+            Ca = new ChromeActions();
+            Ca.TestName = "PublicUI";
+            Ca.Url = MainUrl;
+            Ca.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ca.DoSleep = true;
+            Ca.Initializer();
+
+            string value = Ca.GetContentsOfTag("body");
+            TestContext.WriteLine(value);
+            Assert.IsTrue(value.Length > 0);
         }
     }
 }
