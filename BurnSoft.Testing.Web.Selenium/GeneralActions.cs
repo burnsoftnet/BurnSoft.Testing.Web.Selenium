@@ -483,5 +483,16 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
+
+        /// <summary>
+        /// Gets the contents of tag.  If you ask for the <br/>
+        /// Body tag it will return only the text of the entire webpage.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>System.String.</returns>
+        public string GetContentsOfTag(string name)
+        {
+            return Driver.FindElement(By.TagName(name)).Text;
+        }
     }
 }

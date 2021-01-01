@@ -132,7 +132,7 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Ga.Driver = _driver;
             Ga.TestName = TestName;
-            return _driver.FindElement(By.TagName(name)).Text;
+            return Ga.GetContentsOfTag(name);
         }
 
         /// <summary>
