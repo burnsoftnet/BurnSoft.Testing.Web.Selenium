@@ -9,6 +9,7 @@ using OpenQA.Selenium.IE;
 // ReSharper disable InconsistentNaming
 // ReSharper disable UseObjectOrCollectionInitializer
 // ReSharper disable UseNullPropagation
+// ReSharper disable UnusedMember.Global
 
 namespace BurnSoft.Testing.Web.Selenium
 {
