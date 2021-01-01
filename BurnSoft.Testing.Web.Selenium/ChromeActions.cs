@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 // ReSharper disable UnusedMember.Global
 
@@ -118,6 +119,17 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.FindElements(field, fb, ma, sendText);
+        }
+        /// <summary>
+        /// Gets the contents of tag.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns>System.String.</returns>
+        public string GetContentsOfTag(string name)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return _driver.FindElement(By.TagName(name)).Text;
         }
         /// <summary>
         /// Selects the element in page.
