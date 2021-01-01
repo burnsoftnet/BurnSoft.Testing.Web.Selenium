@@ -1,6 +1,5 @@
 ﻿using BurnSoft.Testing.Web.Selenium.UnitTest.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.IO;
 
 namespace BurnSoft.Testing.Web.Selenium.UnitTest
@@ -23,16 +22,6 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// </summary>
         /// <value>The main URL.</value>
         public string MainUrl { get; set; }
-        /// <summary>
-        /// Gets or sets the usr login.
-        /// </summary>
-        /// <value>The usr login.</value>
-        public string UsrLogin { get; set; }
-        /// <summary>
-        /// Gets or sets the usr password.
-        /// </summary>
-        /// <value>The usr password.</value>
-        public string UsrPwd { get; set; }
         /// <summary>
         /// The settings screen shot location
         /// </summary>
