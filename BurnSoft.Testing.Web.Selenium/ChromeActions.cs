@@ -132,6 +132,33 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.TestName = TestName;
             return _driver.FindElement(By.TagName(name)).Text;
         }
+
+        /// <summary>
+        /// Links the text exists. and the optional expected count
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">Error out if results return false or exception</param>
+        /// <param name="expectedCount">The expected count.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool LinkTextExists(string name, out string errOut, int expectedCount = 1)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                Ga.Driver = _driver;
+                Ga.TestName = TestName;
+                int myCount = _driver.FindElements(By.LinkText(name)).Count;
+                bAns = myCount == expectedCount;
+                if (!bAns) throw new Exception($"Expected {expectedCount} of {name} but got {myCount}");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return bAns;
+        }
+
         /// <summary>
         /// Selects the element in page.
         /// </summary>
