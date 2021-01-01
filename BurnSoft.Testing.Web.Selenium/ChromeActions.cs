@@ -210,7 +210,28 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return bAns;
         }
-
+        /// <summary>
+        /// Gets the text from element by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementById(string name,  out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                Ga.Driver = _driver;
+                Ga.TestName = TestName;
+                sAns = _driver.FindElement(By.Id(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
         /// <summary>
         /// Selects the element in page.
         /// </summary>
