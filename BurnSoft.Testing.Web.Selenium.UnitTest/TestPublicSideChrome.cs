@@ -174,5 +174,16 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
         }
+
+        [TestMethod]
+        public void GetTextFromElementByIdTest()
+        {
+            Ca.TestName = "GetTextFromElementByIdTest";
+            Ca.GoToAnotherPage($"{MainUrl}/Pages/Sitemap.aspx");
+            string value = Ca.GetTextFromElementById("MainContent_TreeView1t5", out var err);
+            if (err?.Length > 0) TestContext.WriteLine(err);
+            TestContext.WriteLine($"{value}");
+            Assert.IsTrue(value.Length > 0);
+        }
     }
 }
