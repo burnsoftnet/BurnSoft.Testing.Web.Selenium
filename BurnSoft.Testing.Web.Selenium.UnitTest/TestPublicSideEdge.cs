@@ -111,5 +111,23 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ea.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
             Ea.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
         }
+
+        /// <summary>
+        /// Defines the test method GetContentsOfTagTest.
+        /// </summary>
+        [TestMethod]
+        public void GetContentsOfTagTest()
+        {
+            Ea = new MsEdgeActions();
+            Ea.TestName = "GetContentsOfTagTest";
+            Ea.Url = MainUrl;
+            Ea.SettingsScreenShotLocation = SettingsScreenShotLocation;
+            Ea.DoSleep = true;
+            Ea.Initializer();
+
+            string value = Ea.GetContentsOfTag("body");
+            Console.WriteLine(value);
+            Assert.IsTrue(value.Length > 0);
+        }
     }
 }
