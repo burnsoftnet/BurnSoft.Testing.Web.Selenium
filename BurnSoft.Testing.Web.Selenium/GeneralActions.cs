@@ -427,7 +427,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <exception cref="Exception">Unable to find link {name}</exception>
         public bool LinkIsPresentByLinkText(string name, out string errOut)
         {
-            bool bAns = false;
+            bool bAns;
             errOut = @"";
             try
             {
