@@ -184,6 +184,33 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             PartialLinkText
         }
+        /// <summary>
+        /// Enum UseCommand
+        /// </summary>
+        public enum UseCommand
+        {
+            /// <summary>
+            /// The find
+            /// </summary>
+            Find,
+            /// <summary>
+            /// The wait found
+            /// </summary>
+            WaitFound,
+            /// <summary>
+            /// The wait
+            /// </summary>
+            Wait,
+            /// <summary>
+            /// The sleep
+            /// </summary>
+            Sleep,
+            /// <summary>
+            /// The find element link test
+            /// </summary>
+            FindElementLinkTest
+
+        }
 
         /// <summary>
         /// Screens the shot it.
