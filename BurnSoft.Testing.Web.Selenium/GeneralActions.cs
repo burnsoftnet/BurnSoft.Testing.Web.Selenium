@@ -212,6 +212,7 @@ namespace BurnSoft.Testing.Web.Selenium
 
         }
 
+
         /// <summary>
         /// Screens the shot it.
         /// </summary>
@@ -503,6 +504,26 @@ namespace BurnSoft.Testing.Web.Selenium
             try
             {
                 sAns = Driver.FindElement(By.Id(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByXPath(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.XPath(name)).Text;
             }
             catch (Exception e)
             {
