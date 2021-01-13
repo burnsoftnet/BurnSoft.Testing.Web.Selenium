@@ -512,7 +512,7 @@ namespace BurnSoft.Testing.Web.Selenium
             return sAns;
         }
         /// <summary>
-        /// 
+        /// Gets the text from element by xpath
         /// </summary>
         /// <param name="name"></param>
         /// <param name="errOut"></param>
@@ -524,6 +524,46 @@ namespace BurnSoft.Testing.Web.Selenium
             try
             {
                 sAns = Driver.FindElement(By.XPath(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the text from element by Class Name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByClassName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.ClassName(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the text from element by Css Selector
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByCssSelector(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.CssSelector(name)).Text;
             }
             catch (Exception e)
             {
