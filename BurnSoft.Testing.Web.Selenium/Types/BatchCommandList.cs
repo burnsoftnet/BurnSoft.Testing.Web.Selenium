@@ -8,6 +8,6 @@ namespace BurnSoft.Testing.Web.Selenium.Types
 {
     public class BatchCommandList
     {
-        public GeneralActions.FindBy
+        //public GeneralActions.FindBy
     }
 }
