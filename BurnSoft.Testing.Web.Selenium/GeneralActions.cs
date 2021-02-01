@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 // ReSharper disable EmptyDestructor
@@ -421,6 +422,53 @@ namespace BurnSoft.Testing.Web.Selenium
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
+        }
+
+        /// <summary>
+        /// Moves the slider.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="sliderMin">The minium slider value</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="moveAmount">the amount to move the slider</param>
+        /// <param name="sliderMax">the maxium slider amount</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool MoveSlider(string elementName, int moveAmount, int sliderMax, int sliderMin, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                IWebElement slider = Driver.FindElement(By.XPath(elementName));
+                int pixelsToMove = GetPixelsToMove(slider, moveAmount, sliderMax, sliderMin);
+                Actions sliderAction = new Actions(Driver);
+                sliderAction.ClickAndHold(slider)
+                    .MoveByOffset((-(int)slider.Size.Width / 2), 0)
+                    .MoveByOffset(pixelsToMove, 0).Release().Perform();
+                bAns = true;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return bAns;
+        }
+        /// <summary>
+        /// Gets the pixels to move.
+        /// </summary>
+        /// <param name="slider">The slider.</param>
+        /// <param name="amount">The amount.</param>
+        /// <param name="sliderMax">The slider maximum.</param>
+        /// <param name="sliderMin">The slider minimum.</param>
+        /// <returns>System.Int32.</returns>
+        public int GetPixelsToMove(IWebElement slider, decimal amount, decimal sliderMax, decimal sliderMin)
+        {
+            int pixels = 0;
+            decimal tempPixels = slider.Size.Width;
+            tempPixels = tempPixels / (sliderMax - sliderMin);
+            tempPixels = tempPixels * (amount - sliderMin);
+            pixels = Convert.ToInt32(tempPixels);
+            return pixels;
         }
 
         /// <summary>
