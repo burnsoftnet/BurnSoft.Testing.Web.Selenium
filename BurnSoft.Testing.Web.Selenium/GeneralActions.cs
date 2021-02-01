@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
@@ -10,6 +12,7 @@ using OpenQA.Selenium.Support.UI;
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 // ReSharper disable RedundantAssignment
 // ReSharper disable UseNullPropagation
+// ReSharper disable RedundantCast
 #pragma warning disable 618
 
 namespace BurnSoft.Testing.Web.Selenium
@@ -469,6 +472,43 @@ namespace BurnSoft.Testing.Web.Selenium
             tempPixels = tempPixels * (amount - sliderMin);
             pixels = Convert.ToInt32(tempPixels);
             return pixels;
+        }
+
+        public bool RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                foreach (BatchCommandList c in cmd)
+                {
+                    if (c.SendKeys?.Length == 0)
+                    {
+                        switch (c.UseCommand)
+                        {
+                            case UseCommand.Find:
+                                FindElements(c.ElementName, c.FindBy, c.Actions);
+                                break;
+                            case UseCommand.FindElementLinkTest:
+
+                                break;
+                            case UseCommand.Sleep:
+                                break;
+                            case UseCommand.Wait:
+                                break;
+                            case UseCommand.WaitFound:
+                                break;
+                        }
+                    }
+                }
+                bAns = true;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+
+            return bAns;
         }
 
         /// <summary>
