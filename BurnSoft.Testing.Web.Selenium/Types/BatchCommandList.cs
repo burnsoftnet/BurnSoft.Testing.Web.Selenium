@@ -38,6 +38,21 @@ namespace BurnSoft.Testing.Web.Selenium.Types
         /// The slider min value.
         /// </summary>
         public int SliderMin { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether [passed failed].
+        /// </summary>
+        /// <value><c>true</c> if [passed failed]; otherwise, <c>false</c>.</value>
+        public bool PassedFailed { get; set; }
+        /// <summary>
+        /// Gets or sets the returned value.
+        /// </summary>
+        /// <value>The returned value.</value>
+        public string ReturnedValue { get; set; }
+        /// <summary>
+        /// Gets or sets the sleep interval.
+        /// </summary>
+        /// <value>The sleep interval.</value>
+        public int SleepInterval { get; set; }
 
     }
 }

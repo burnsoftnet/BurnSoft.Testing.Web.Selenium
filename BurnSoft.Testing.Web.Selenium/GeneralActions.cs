@@ -210,9 +210,9 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             Sleep,
             /// <summary>
-            /// The find element link test
+            /// The find element link text
             /// </summary>
-            FindElementLinkTest
+            FindElementLinkText
 
         }
 
@@ -474,41 +474,55 @@ namespace BurnSoft.Testing.Web.Selenium
             return pixels;
         }
 
-        public bool RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
+        public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
         {
-            bool bAns = false;
+            List<BatchCommandList> theReturned = new List<BatchCommandList>();
             errOut = @"";
             try
             {
                 foreach (BatchCommandList c in cmd)
                 {
-                    if (c.SendKeys?.Length == 0)
+                    bool didpass = false;
+                    string result = @"";
+                    try
                     {
-                        switch (c.UseCommand)
+                        if (c.SendKeys?.Length == 0)
                         {
-                            case UseCommand.Find:
-                                FindElements(c.ElementName, c.FindBy, c.Actions);
-                                break;
-                            case UseCommand.FindElementLinkTest:
-
-                                break;
-                            case UseCommand.Sleep:
-                                break;
-                            case UseCommand.Wait:
-                                break;
-                            case UseCommand.WaitFound:
-                                break;
+                            switch (c.UseCommand)
+                            {
+                                case UseCommand.Find:
+                                    FindElements(c.ElementName, c.FindBy, c.Actions);
+                                    break;
+                                case UseCommand.FindElementLinkText:
+                                    result = "";
+                                    break;
+                                case UseCommand.Sleep:
+                                    Thread.Sleep(c.SleepInterval);
+                                    break;
+                                case UseCommand.Wait:
+                                    DoWait(c.ElementName, c.FindBy);
+                                    break;
+                                case UseCommand.WaitFound:
+                                    WaitTillElementFound(c.ElementName, c.FindBy, c.Actions);
+                                    break;
+                            }
                         }
+
+                        didpass = true;
                     }
+                    catch (Exception e)
+                    {
+                        result = e.Message;
+                    }
+                    theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result});
                 }
-                bAns = true;
             }
             catch (Exception e)
             {
                 errOut = e.Message;
             }
 
-            return bAns;
+            return theReturned;
         }
 
         /// <summary>
