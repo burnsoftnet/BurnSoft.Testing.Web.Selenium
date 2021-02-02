@@ -594,6 +594,30 @@ namespace BurnSoft.Testing.Web.Selenium
             return bAns;
         }
         /// <summary>
+        /// Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElement(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Id(name)).Text;
+                if (sAns?.Length == 0) sAns = Driver.FindElement(By.XPath(name)).Text;
+                if (sAns?.Length == 0) sAns = Driver.FindElement(By.ClassName(name)).Text;
+                if (sAns?.Length == 0) sAns = Driver.FindElement(By.CssSelector(name)).Text;
+
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
         /// Gets the text from element by identifier.
         /// </summary>
         /// <param name="name">The name.</param>
