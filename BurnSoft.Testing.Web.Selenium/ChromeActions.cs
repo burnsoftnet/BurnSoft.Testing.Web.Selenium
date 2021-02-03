@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
+using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 // ReSharper disable UnusedMember.Global
@@ -211,6 +213,16 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.WaitTillElementFound(field, fb, ma, sendKeys);
+        }
+        /// <summary>
+        /// Runs the batch commands.
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
+        {
+            return Ga.RunBatchCommands(cmd, out errOut);
         }
         /// <summary>
         /// Does the wait.

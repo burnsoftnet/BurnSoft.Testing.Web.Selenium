@@ -235,6 +235,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 ElementName = "MainContent_Label4",
                 FindBy = GeneralActions.FindBy.Id
             });
+
+            
         }
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
