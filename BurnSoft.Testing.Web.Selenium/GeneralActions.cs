@@ -473,7 +473,12 @@ namespace BurnSoft.Testing.Web.Selenium
             pixels = Convert.ToInt32(tempPixels);
             return pixels;
         }
-
+        /// <summary>
+        /// Runs the batch of list commands to test the web ui
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
         {
             List<BatchCommandList> theReturned = new List<BatchCommandList>();
