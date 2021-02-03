@@ -210,9 +210,9 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             Sleep,
             /// <summary>
-            /// The find element link text
+            /// The find element and get the text value
             /// </summary>
-            FindElementLinkText
+            GetTextValue
 
         }
 
@@ -498,8 +498,8 @@ namespace BurnSoft.Testing.Web.Selenium
                                 case UseCommand.Find:
                                     FindElements(c.ElementName, c.FindBy, c.Actions);
                                     break;
-                                case UseCommand.FindElementLinkText:
-                                    result = "";
+                                case UseCommand.GetTextValue:
+                                    result = GetTextFromElement(c.ElementName, out errOut);
                                     break;
                                 case UseCommand.Sleep:
                                     Thread.Sleep(c.SleepInterval);
@@ -509,6 +509,18 @@ namespace BurnSoft.Testing.Web.Selenium
                                     break;
                                 case UseCommand.WaitFound:
                                     WaitTillElementFound(c.ElementName, c.FindBy, c.Actions);
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (c.UseCommand)
+                            {
+                                case UseCommand.Find:
+                                    FindElements(c.ElementName, c.FindBy, c.Actions, c.SendKeys);
+                                    break;
+                                case UseCommand.WaitFound:
+                                    WaitTillElementFound(c.ElementName, c.FindBy, c.Actions, c.SendKeys);
                                     break;
                             }
                         }

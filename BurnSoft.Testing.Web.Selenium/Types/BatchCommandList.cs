@@ -27,6 +27,11 @@ namespace BurnSoft.Testing.Web.Selenium.Types
         /// </summary>
         public string SendKeys { get; set; }
         /// <summary>
+        /// Gets or sets the jump to URL.
+        /// </summary>
+        /// <value>The jump to URL.</value>
+        public string JumpToUrl { get; set; }
+        /// <summary>
         /// Move slide x positions over + up, - down
         /// </summary>
         public int SliderMoveTo { get; set; }
