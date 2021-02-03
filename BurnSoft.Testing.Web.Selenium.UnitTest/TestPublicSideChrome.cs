@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using BurnSoft.Testing.Web.Selenium.interfaces;
+using BurnSoft.Testing.Web.Selenium.Types;
 using BurnSoft.Testing.Web.Selenium.UnitTest.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -120,6 +122,119 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.FindElements("MainContent_txtMsg", GeneralActions.FindBy.Id, GeneralActions.MyAction.SendKeys,"Make software great again!");
             Ca.FindElements("MainContent_btnSend", GeneralActions.FindBy.Id, GeneralActions.MyAction.Click);
             Ca.WaitTillElementFound("MainContent_Label4", GeneralActions.FindBy.Id, GeneralActions.MyAction.Nothing);
+        }
+
+        [TestMethod]
+        public void PublicSideBatch()
+        {
+            Ca.TestName = "PublicUIBatch";
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click, UseCommand  = GeneralActions.UseCommand.WaitFound,
+                ElementName = "//ul[@id='jetmenu']/li[3]/a", FindBy = GeneralActions.FindBy.XPath
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "My Gun Collection",
+                FindBy = GeneralActions.FindBy.LinkText
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                FindBy = GeneralActions.FindBy.XPath
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "My Loaders Log",
+                FindBy = GeneralActions.FindBy.LinkText
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                FindBy = GeneralActions.FindBy.XPath
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "File Renamer Utility",
+                FindBy = GeneralActions.FindBy.LinkText
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                FindBy = GeneralActions.FindBy.XPath
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "BurnPad",
+                FindBy = GeneralActions.FindBy.LinkText
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "//ul[@id='jetmenu']/li[7]/a",
+                FindBy = GeneralActions.FindBy.XPath
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "Contact",
+                FindBy = GeneralActions.FindBy.LinkText
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.SendKeys,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "MainContent_txtName",
+                FindBy = GeneralActions.FindBy.Id,
+                SendKeys = "Jimmy Pop Corn Batch"
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.Find,
+                ElementName = "MainContent_txteMail",
+                FindBy = GeneralActions.FindBy.Id,
+                SendKeys = "joe.mireles@burnsoft.net"
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.Find,
+                ElementName = "MainContent_txtMsg",
+                FindBy = GeneralActions.FindBy.Id,
+                SendKeys = "Make Software Great Again in Batch"
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.Find,
+                ElementName = "MainContent_btnSend",
+                FindBy = GeneralActions.FindBy.Id
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Nothing,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "MainContent_Label4",
+                FindBy = GeneralActions.FindBy.Id
+            });
         }
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
