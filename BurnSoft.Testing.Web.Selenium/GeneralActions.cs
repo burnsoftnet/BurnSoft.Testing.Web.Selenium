@@ -491,7 +491,7 @@ namespace BurnSoft.Testing.Web.Selenium
                     string result = @"";
                     try
                     {
-                        if (c.SendKeys?.Length == 0)
+                        if (c.SendKeys?.Length == 0 && c.JumpToUrl?.Length ==0)
                         {
                             switch (c.UseCommand)
                             {
@@ -512,7 +512,7 @@ namespace BurnSoft.Testing.Web.Selenium
                                     break;
                             }
                         }
-                        else
+                        else if (c.SendKeys?.Length > 0 && c.JumpToUrl?.Length ==0)
                         {
                             switch (c.UseCommand)
                             {
@@ -523,6 +523,9 @@ namespace BurnSoft.Testing.Web.Selenium
                                     WaitTillElementFound(c.ElementName, c.FindBy, c.Actions, c.SendKeys);
                                     break;
                             }
+                        } else if (c.JumpToUrl.Length > 0)
+                        {
+                            GoToAnotherPage(c.JumpToUrl);
                         }
 
                         didpass = true;
