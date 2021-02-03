@@ -611,6 +611,8 @@ namespace BurnSoft.Testing.Web.Selenium
                 if (sAns?.Length == 0) sAns = GetTextFromElementByCssSelector(name, out _);
                 if (sAns?.Length == 0) sAns = GetTextFromElementByName(name, out _);
                 if (sAns?.Length == 0) sAns = GetTextFromElementByTagName(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByLinkText(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByPartialLinkText(name, out _);
             }
             catch (Exception e)
             {
@@ -738,6 +740,47 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
+        /// <summary>
+        /// Get Text from Element by the link text
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByLinkText(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.LinkText(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Get Text from Element by the partial link text
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByPartialLinkText(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.PartialLinkText(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
         /// <summary>
         /// Gets the contents of tag.  If you ask for the <br/>
         /// Body tag it will return only the text of the entire webpage.
