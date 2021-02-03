@@ -605,11 +605,12 @@ namespace BurnSoft.Testing.Web.Selenium
             errOut = @"";
             try
             {
-                sAns = Driver.FindElement(By.Id(name)).Text;
-                if (sAns?.Length == 0) sAns = Driver.FindElement(By.XPath(name)).Text;
-                if (sAns?.Length == 0) sAns = Driver.FindElement(By.ClassName(name)).Text;
-                if (sAns?.Length == 0) sAns = Driver.FindElement(By.CssSelector(name)).Text;
-
+                sAns = GetTextFromElementById(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByXPath(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByClassName(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByCssSelector(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByName(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByTagName(name, out _);
             }
             catch (Exception e)
             {
@@ -697,7 +698,46 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Get Text from Element by the Name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Name(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Get Text from Element by the Tag Name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public string GetTextFromElementByTagName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.TagName(name)).Text;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
         /// <summary>
         /// Gets the contents of tag.  If you ask for the <br/>
         /// Body tag it will return only the text of the entire webpage.
