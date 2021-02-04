@@ -59,6 +59,11 @@ namespace BurnSoft.Testing.Web.Selenium.Types
         /// <value>The returned value.</value>
         public string ReturnedValue { get; set; }
         /// <summary>
+        /// Gets or sets the expected returned value.
+        /// </summary>
+        /// <value>The expected returned value.</value>
+        public string ExpectedReturnedValue { get; set; }
+        /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
         /// <value>The sleep interval.</value>
