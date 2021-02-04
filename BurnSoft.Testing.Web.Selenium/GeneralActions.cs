@@ -511,6 +511,12 @@ namespace BurnSoft.Testing.Web.Selenium
                                     result = GetTextFromElement(c.ElementName, out errOut);
                                     if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
                                     break;
+                                case UseCommand.GetTestValueAndCompare:
+                                    result = GetTextFromElement(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!result.Equals(c.ExpectedReturnedValue)) throw new Exception($"Values Did Not Match Up!! got {result} but expected {c.ExpectedReturnedValue}");
+                                    result = $"Value MATCH!  Expected {c.ExpectedReturnedValue} and got {result}";
+                                    break;
                                 case UseCommand.Sleep:
                                     Thread.Sleep(c.SleepInterval);
                                     break;
@@ -538,7 +544,7 @@ namespace BurnSoft.Testing.Web.Selenium
                             GoToAnotherPage(c.JumpToUrl);
                         }
 
-                        didpass = true;
+                        if (!didpass) didpass = true;
                     }
                     catch (Exception e)
                     {
