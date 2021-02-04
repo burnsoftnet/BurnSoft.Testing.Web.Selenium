@@ -236,7 +236,13 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 FindBy = GeneralActions.FindBy.Id
             });
 
-            
+            List<BatchCommandList> value =  Ca.RunBatchCommands(cmd, out var errOut);
+
+            foreach (BatchCommandList v in value)
+            {
+                TestContext.WriteLine(v.ReturnedValue);
+                TestContext.WriteLine($"Passed: {v.PassedFailed}");
+            }
         }
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
