@@ -128,11 +128,12 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         public void PublicSideBatch()
         {
             Ca.TestName = "PublicUIBatch";
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";
             List<BatchCommandList> cmd = new List<BatchCommandList>();
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click, UseCommand  = GeneralActions.UseCommand.WaitFound,
-                ElementName = "//ul[@id='jetmenu']/li[3]/a", FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
             });
             cmd.Add(new BatchCommandList()
             {
@@ -146,7 +147,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                ElementName = softwareMenu,
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = @"Click On Windows App Menu"
             });
@@ -162,7 +163,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                ElementName = softwareMenu,
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = @"Click On Windows App Menu"
             });
@@ -178,7 +179,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "//ul[@id='jetmenu']/li[3]/a",
+                ElementName = softwareMenu,
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = @"Click On Windows App Menu"
             });
@@ -248,6 +249,32 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 ElementName = "MainContent_Label4",
                 FindBy = GeneralActions.FindBy.Id,
                 TestName = "Wait for response label"
+            });
+
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = softwareMenu,
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = @"Click On Windows App Menu"
+            });
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.WaitFound,
+                ElementName = "My Gun Collection",
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = "Click on the My Gun Collection link"
+            });
+
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Nothing,
+                UseCommand = GeneralActions.UseCommand.GetTextValue,
+                ElementName = "//h3/span",
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = "Get Price of My Gun Collector Software"
             });
 
             List<BatchCommandList> value =  Ca.RunBatchCommands(cmd, out var errOut);
