@@ -277,6 +277,16 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 TestName = "Get Price of My Gun Collector Software"
             });
 
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Nothing,
+                UseCommand = GeneralActions.UseCommand.GetTestValueAndCompare,
+                ElementName = "//h3/span",
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = "Get Price of My Gun Collector Software and Compare to exptected Version",
+                ExpectedReturnedValue = "$29.99"
+            });
+
             List<BatchCommandList> value =  Ca.RunBatchCommands(cmd, out var errOut);
 
             int testNumber = 1;
