@@ -212,7 +212,11 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// The find element and get the text value
             /// </summary>
-            GetTextValue
+            GetTextValue,
+            /// <summary>
+            /// The get test value and compare to an expted value
+            /// </summary>
+            GetTestValueAndCompare
 
         }
 
@@ -505,6 +509,7 @@ namespace BurnSoft.Testing.Web.Selenium
                                     break;
                                 case UseCommand.GetTextValue:
                                     result = GetTextFromElement(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
                                     break;
                                 case UseCommand.Sleep:
                                     Thread.Sleep(c.SleepInterval);
