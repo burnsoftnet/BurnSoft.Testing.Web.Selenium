@@ -7,6 +7,11 @@ namespace BurnSoft.Testing.Web.Selenium.Types
     public class BatchCommandList
     {
         /// <summary>
+        /// Gets or sets the name of the test.
+        /// </summary>
+        /// <value>The name of the test.</value>
+        public string TestName { get; set; }
+        /// <summary>
         /// Fing By command, find by id, xpath, css, etc
         /// </summary>
         public GeneralActions.FindBy FindBy { get; set; }

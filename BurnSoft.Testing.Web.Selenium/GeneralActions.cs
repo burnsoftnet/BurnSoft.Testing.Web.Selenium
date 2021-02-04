@@ -489,9 +489,14 @@ namespace BurnSoft.Testing.Web.Selenium
                 {
                     bool didpass = false;
                     string result = @"";
+                    string sendkeys = @"";
+                    string jumpurl = @"";
                     try
                     {
-                        if (c.SendKeys?.Length == 0 && c.JumpToUrl?.Length ==0)
+                        if (c.SendKeys != null) sendkeys = c.SendKeys;
+                        if (c.JumpToUrl != null) jumpurl = c.JumpToUrl;
+
+                        if (sendkeys?.Length == 0 && jumpurl?.Length ==0)
                         {
                             switch (c.UseCommand)
                             {
@@ -512,7 +517,7 @@ namespace BurnSoft.Testing.Web.Selenium
                                     break;
                             }
                         }
-                        else if (c.SendKeys?.Length > 0 && c.JumpToUrl?.Length ==0)
+                        else if (sendkeys?.Length > 0 && jumpurl?.Length ==0)
                         {
                             switch (c.UseCommand)
                             {
@@ -523,7 +528,7 @@ namespace BurnSoft.Testing.Web.Selenium
                                     WaitTillElementFound(c.ElementName, c.FindBy, c.Actions, c.SendKeys);
                                     break;
                             }
-                        } else if (c.JumpToUrl.Length > 0)
+                        } else if (jumpurl.Length > 0)
                         {
                             GoToAnotherPage(c.JumpToUrl);
                         }
@@ -534,7 +539,7 @@ namespace BurnSoft.Testing.Web.Selenium
                     {
                         result = e.Message;
                     }
-                    theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result});
+                    theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result, JumpToUrl = c.JumpToUrl, TestName = c.TestName});
                 }
             }
             catch (Exception e)

@@ -132,70 +132,79 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click, UseCommand  = GeneralActions.UseCommand.WaitFound,
-                ElementName = "//ul[@id='jetmenu']/li[3]/a", FindBy = GeneralActions.FindBy.XPath
+                ElementName = "//ul[@id='jetmenu']/li[3]/a", FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "My Gun Collection",
-                FindBy = GeneralActions.FindBy.LinkText
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = "Click on the My Gun Collection link"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "//ul[@id='jetmenu']/li[3]/a",
-                FindBy = GeneralActions.FindBy.XPath
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = @"Click On Windows App Menu"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "My Loaders Log",
-                FindBy = GeneralActions.FindBy.LinkText
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = @"Click on the My Loaders Log Link"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "//ul[@id='jetmenu']/li[3]/a",
-                FindBy = GeneralActions.FindBy.XPath
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = @"Click On Windows App Menu"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "File Renamer Utility",
-                FindBy = GeneralActions.FindBy.LinkText
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = "Click on the File Renamer Utility"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "//ul[@id='jetmenu']/li[3]/a",
-                FindBy = GeneralActions.FindBy.XPath
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = @"Click On Windows App Menu"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "BurnPad",
-                FindBy = GeneralActions.FindBy.LinkText
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = "Click on BurnPad Link"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "//ul[@id='jetmenu']/li[7]/a",
-                FindBy = GeneralActions.FindBy.XPath
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = "Click on Support Menu"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "Contact",
-                FindBy = GeneralActions.FindBy.LinkText
+                FindBy = GeneralActions.FindBy.LinkText,
+                TestName = "Select Contact Option from menu"
             });
             cmd.Add(new BatchCommandList()
             {
@@ -203,45 +212,53 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "MainContent_txtName",
                 FindBy = GeneralActions.FindBy.Id,
-                SendKeys = "Jimmy Pop Corn Batch"
+                SendKeys = "Jimmy Pop Corn Batch",
+                TestName = "Send Name to Text Box"
             });
             cmd.Add(new BatchCommandList()
             {
-                Actions = GeneralActions.MyAction.Click,
+                Actions = GeneralActions.MyAction.SendKeys,
                 UseCommand = GeneralActions.UseCommand.Find,
                 ElementName = "MainContent_txteMail",
                 FindBy = GeneralActions.FindBy.Id,
-                SendKeys = "joe.mireles@burnsoft.net"
+                SendKeys = "joe.mireles@burnsoft.net",
+                TestName = "Send email to text box"
             });
             cmd.Add(new BatchCommandList()
             {
-                Actions = GeneralActions.MyAction.Click,
+                Actions = GeneralActions.MyAction.SendKeys,
                 UseCommand = GeneralActions.UseCommand.Find,
                 ElementName = "MainContent_txtMsg",
                 FindBy = GeneralActions.FindBy.Id,
-                SendKeys = "Make Software Great Again in Batch"
+                SendKeys = "Make Software Great Again in Batch",
+                TestName = "Send the message to the text box"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.Find,
                 ElementName = "MainContent_btnSend",
-                FindBy = GeneralActions.FindBy.Id
+                FindBy = GeneralActions.FindBy.Id,
+                TestName = "Click on the send button"
             });
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Nothing,
                 UseCommand = GeneralActions.UseCommand.WaitFound,
                 ElementName = "MainContent_Label4",
-                FindBy = GeneralActions.FindBy.Id
+                FindBy = GeneralActions.FindBy.Id,
+                TestName = "Wait for response label"
             });
 
             List<BatchCommandList> value =  Ca.RunBatchCommands(cmd, out var errOut);
 
+            int testNumber = 1;
             foreach (BatchCommandList v in value)
             {
+                string passfailed = v.PassedFailed ? "PASSED" : "FAILED";
+                TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}");
                 TestContext.WriteLine(v.ReturnedValue);
-                TestContext.WriteLine($"Passed: {v.PassedFailed}");
+                testNumber++;
             }
         }
         /// <summary>
