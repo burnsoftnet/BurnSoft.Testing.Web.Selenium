@@ -477,7 +477,13 @@ namespace BurnSoft.Testing.Web.Selenium
             pixels = Convert.ToInt32(tempPixels);
             return pixels;
         }
-
+        /// <summary>
+        /// Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+        /// if it failed, to return the element name that it failed at.
+        /// </summary>
+        /// <param name="cmdResults">The command results.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         public string GenerateResults(List<BatchCommandList> cmdResults, out string errOut)
         {
             string sAns = "";
