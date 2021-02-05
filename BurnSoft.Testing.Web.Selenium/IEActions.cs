@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
+using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.IE;
 // ReSharper disable InconsistentNaming
@@ -107,6 +109,27 @@ namespace BurnSoft.Testing.Web.Selenium
         public void GoToAnotherPage(string url)
         {
             Ga.GoToAnotherPage(url);
+        }
+        /// <summary>
+        /// Runs the batch commands.
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
+        {
+            return Ga.RunBatchCommands(cmd, out errOut);
+        }
+        /// <summary>
+        /// Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+        /// if it failed, to return the element name that it failed at.
+        /// </summary>
+        /// <param name="cmdResults">The command results.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GenerateResults(List<BatchCommandList> cmdResults, out string errOut)
+        {
+            return Ga.GenerateResults(cmdResults, out errOut);
         }
 
         /// <summary>
