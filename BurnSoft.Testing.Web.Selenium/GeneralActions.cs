@@ -477,6 +477,30 @@ namespace BurnSoft.Testing.Web.Selenium
             pixels = Convert.ToInt32(tempPixels);
             return pixels;
         }
+
+        public string GenerateResults(List<BatchCommandList> cmdResults, out string errOut)
+        {
+            string sAns = "";
+            errOut = "";
+            try
+            {
+                int stepNumber = 1;
+                foreach (BatchCommandList c in cmdResults)
+                {
+                    string passFailed = c.PassedFailed ? "PASSED!" : "FAILED!";
+                    sAns += $"{Environment.NewLine}{stepNumber}.)  {passFailed} {c.TestName}";
+                    if (c.ReturnedValue.Length > 0) sAns += $"  {c.ReturnedValue}";
+                    if (!c.PassedFailed) sAns += $"{Environment.NewLine} Failed at line: {c.ElementName}";
+                    stepNumber++;
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
         /// <summary>
         /// Runs the batch of list commands to test the web ui
         /// </summary>
