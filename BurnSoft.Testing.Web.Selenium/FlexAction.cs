@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -144,7 +145,16 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Ga.GoToAnotherPage(url);
         }
-
+        /// <summary>
+        /// Runs the batch commands.
+        /// </summary>
+        /// <param name="cmd">The command.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
+        {
+            return Ga.RunBatchCommands(cmd, out errOut);
+        }
         /// <summary>
         /// Finds the elements.
         /// </summary>
