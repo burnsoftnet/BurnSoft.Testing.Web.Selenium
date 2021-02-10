@@ -216,7 +216,11 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// The get test value and compare to an expted value
             /// </summary>
-            GetTestValueAndCompare
+            GetTestValueAndCompare,
+            /// <summary>
+            /// The move a slider
+            /// </summary>
+            MoveSlider
 
         }
 
@@ -434,7 +438,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <summary>
         /// Moves the slider.
         /// </summary>
-        /// <param name="elementName">Name of the element.</param>
+        /// <param name="elementName">Name of the element as xPath.</param>
         /// <param name="sliderMin">The minium slider value</param>
         /// <param name="errOut">The error out.</param>
         /// <param name="moveAmount">the amount to move the slider</param>
@@ -556,6 +560,10 @@ namespace BurnSoft.Testing.Web.Selenium
                                 case UseCommand.WaitFound:
                                     WaitTillElementFound(c.ElementName, c.FindBy, c.Actions);
                                     break;
+                                case UseCommand.MoveSlider:
+                                    didpass = MoveSlider(c.ElementName, c.SliderMoveTo, c.SliderMax, c.SliderMin, out errOut);
+                                    if (errOut?.Length > 0) throw new Exception($"Error occured while attempting to move slider. {errOut}");
+                                    break;
                             }
                         }
                         else if (sendkeys?.Length > 0 && jumpurl?.Length ==0)
@@ -578,6 +586,7 @@ namespace BurnSoft.Testing.Web.Selenium
                     }
                     catch (Exception e)
                     {
+                        didpass = false;
                         result = e.Message;
                     }
                     theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result, JumpToUrl = c.JumpToUrl, TestName = c.TestName});
