@@ -223,6 +223,103 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.TestName = TestName;
             return Ga.GetTextFromElementById(name, out errOut);
         }
+        /// <summary>
+        /// Gets the text from element by x path.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByXPath(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByXPath(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the text from element by link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByLinkText(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByLinkText(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the text from element by partial link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByPartialLinkText(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByPartialLinkText(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the text from element by CSS selector.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByCssSelector(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByCssSelector(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the name of the text from element by tag.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByTagName(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByTagName(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the name of the text from element by class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByClassName(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByClassName(name, out errOut);
+        }
+        /// <summary>
+        /// Gets the name of the text from element by.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElementByName(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElementByName(name, out errOut);
+        }
+
+        /// <summary>
+        /// Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetTextFromElement(string name, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.GetTextFromElement(name, out errOut);
+        }
 
         /// <summary>
         /// Waits the till element found.

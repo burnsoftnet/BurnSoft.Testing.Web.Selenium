@@ -292,6 +292,12 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.TestName = TestName;
             return Ga.GetTextFromElementByCssSelector(name, out errOut);
         }
+        /// <summary>
+        /// Gets the name of the text from element by tag.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         public string GetTextFromElementByTagName(string name, out string errOut)
         {
             Ga.Driver = Driver;
