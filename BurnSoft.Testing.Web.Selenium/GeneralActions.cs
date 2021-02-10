@@ -542,8 +542,18 @@ namespace BurnSoft.Testing.Web.Selenium
                                     FindElements(c.ElementName, c.FindBy, c.Actions);
                                     break;
                                 case UseCommand.GetTextValue:
+                                    bool blankOk = c.ReturnedValueBlankOk != null ? c.ReturnedValueBlankOk : false;
+
                                     result = GetTextFromElement(c.ElementName, out errOut);
-                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!blankOk)
+                                    {
+                                        if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    }
+                                    else
+                                    {
+                                        if (result?.Length == 0) result = "Nothing was returned, but we expected that.";
+                                    }
+                                    
                                     break;
                                 case UseCommand.GetTestValueAndCompare:
                                     result = GetTextFromElement(c.ElementName, out errOut);

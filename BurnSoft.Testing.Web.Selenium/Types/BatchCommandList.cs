@@ -64,6 +64,11 @@ namespace BurnSoft.Testing.Web.Selenium.Types
         /// <value>The expected returned value.</value>
         public string ExpectedReturnedValue { get; set; }
         /// <summary>
+        /// Gets or sets a value indicating whether [returned value blank ok].
+        /// </summary>
+        /// <value><c>true</c> if [returned value blank ok]; otherwise, <c>false</c>.</value>
+        public bool ReturnedValueBlankOk { get; set; }
+        /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
         /// <value>The sleep interval.</value>
