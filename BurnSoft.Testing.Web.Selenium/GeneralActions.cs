@@ -497,11 +497,17 @@ namespace BurnSoft.Testing.Web.Selenium
                 int stepNumber = 1;
                 foreach (BatchCommandList c in cmdResults)
                 {
-                    string passFailed = c.PassedFailed ? "PASSED!" : "FAILED!";
-                    sAns += $"{Environment.NewLine}{stepNumber}.)  {passFailed} {c.TestName}";
-                    if (c.ReturnedValue.Length > 0) sAns += $"  {c.ReturnedValue}";
-                    if (!c.PassedFailed) sAns += $"{Environment.NewLine} Failed at line: {c.ElementName}";
-                    stepNumber++;
+                    if (c.TestName != null)
+                    {
+                        if (c.TestName?.Length > 0)
+                        {
+                            string passFailed = c.PassedFailed ? "PASSED!" : "FAILED!";
+                            sAns += $"{Environment.NewLine}{stepNumber}.)  {passFailed} {c.TestName}";
+                            if (c.ReturnedValue.Length > 0) sAns += $"  {c.ReturnedValue}";
+                            if (!c.PassedFailed) sAns += $"{Environment.NewLine} Failed at line: {c.ElementName}";
+                            stepNumber++;
+                        }
+                    }
                 }
             }
             catch (Exception e)
