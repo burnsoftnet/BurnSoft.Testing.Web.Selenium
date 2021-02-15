@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
@@ -515,6 +516,17 @@ namespace BurnSoft.Testing.Web.Selenium
                 errOut = e.Message;
             }
             return sAns;
+        }
+
+        /// <summary>
+        /// Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+        /// if some show up as failed then it will return false, else everything passed and it is true.
+        /// </summary>
+        /// <param name="results"></param>
+        /// <returns></returns>
+        public bool AllTestsPassed(List<BatchCommandList> results)
+        {
+            return results.Any(r => !r.PassedFailed);
         }
 
         /// <summary>
