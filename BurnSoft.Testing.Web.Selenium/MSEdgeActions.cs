@@ -146,6 +146,16 @@ namespace BurnSoft.Testing.Web.Selenium
             return Ga.RunBatchCommands(cmd, out errOut);
         }
         /// <summary>
+        /// Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+        /// if some show up as failed then it will return false, else everything passed and it is true.
+        /// </summary>
+        /// <param name="results"></param>
+        /// <returns></returns>
+        public bool AllTestsPassed(List<BatchCommandList> results)
+        {
+            return Ga.AllTestsPassed(results);
+        }
+        /// <summary>
         /// Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
         /// if it failed, to return the element name that it failed at.
         /// </summary>
