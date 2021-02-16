@@ -526,7 +526,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <returns></returns>
         public bool AllTestsPassed(List<BatchCommandList> results)
         {
-            return results.Any(r => !r.PassedFailed);
+            return !results.Any(r => !r.PassedFailed);
         }
 
         /// <summary>
