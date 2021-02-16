@@ -549,6 +549,7 @@ namespace BurnSoft.Testing.Web.Selenium
                     string jumpurl = @"";
                     try
                     {
+                        if (Driver == null) throw new Exception("Error occured and the Driver is not active!");
                         if (c.SendKeys != null) sendkeys = c.SendKeys;
                         if (c.JumpToUrl != null) jumpurl = c.JumpToUrl;
 
