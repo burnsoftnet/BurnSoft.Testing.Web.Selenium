@@ -510,6 +510,8 @@ namespace BurnSoft.Testing.Web.Selenium
                         }
                     }
                 }
+
+                if (sAns.Length > 0) sAns += $"{Environment.NewLine}";
             }
             catch (Exception e)
             {
