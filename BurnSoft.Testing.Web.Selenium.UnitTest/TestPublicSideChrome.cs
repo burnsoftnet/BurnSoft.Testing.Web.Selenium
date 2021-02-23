@@ -280,7 +280,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Nothing,
-                UseCommand = GeneralActions.UseCommand.GetTestValueAndCompare,
+                UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare,
                 ElementName = "//h3/span",
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = "Get Price of My Gun Collector Software and Compare to exptected Version",

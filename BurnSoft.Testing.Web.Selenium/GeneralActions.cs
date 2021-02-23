@@ -14,6 +14,7 @@ using OpenQA.Selenium.Support.UI;
 // ReSharper disable RedundantAssignment
 // ReSharper disable UseNullPropagation
 // ReSharper disable RedundantCast
+// ReSharper disable SimplifyConditionalTernaryExpression
 #pragma warning disable 618
 
 namespace BurnSoft.Testing.Web.Selenium
@@ -215,13 +216,17 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             GetTextValue,
             /// <summary>
-            /// The get test value and compare to an expted value
+            /// The get text value and compare to an expted value
             /// </summary>
-            GetTestValueAndCompare,
+            GetTextValueAndCompare,
             /// <summary>
             /// The move a slider
             /// </summary>
-            MoveSlider
+            MoveSlider,
+            /// <summary>
+            /// Get the Test value and see if it contains whatever
+            /// </summary>
+            GetTextValueAndMustContain
 
         }
 
@@ -576,11 +581,17 @@ namespace BurnSoft.Testing.Web.Selenium
                                     }
                                     
                                     break;
-                                case UseCommand.GetTestValueAndCompare:
+                                case UseCommand.GetTextValueAndCompare:
                                     result = GetTextFromElement(c.ElementName, out errOut);
                                     if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
                                     if (!result.Equals(c.ExpectedReturnedValue)) throw new Exception($"Values Did Not Match Up!! got {result} but expected {c.ExpectedReturnedValue}");
                                     result = $"Value MATCH!  Expected {c.ExpectedReturnedValue} and got {result}";
+                                    break;
+                                case UseCommand.GetTextValueAndMustContain:
+                                    result = GetTextFromElement(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
+                                    result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";
                                     break;
                                 case UseCommand.Sleep:
                                     Thread.Sleep(c.SleepInterval);
