@@ -270,6 +270,7 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             //Driver.Navigate().GoToUrl($"{url}");
             Driver.Url = url;
+            Driver.Navigate().Refresh();
         }
 
         /// <summary>
