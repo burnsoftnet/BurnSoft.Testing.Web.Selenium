@@ -268,7 +268,8 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="url">The URL.</param>
         public void GoToAnotherPage(string url)
         {
-            Driver.Navigate().GoToUrl($"{url}");
+            //Driver.Navigate().GoToUrl($"{url}");
+            Driver.Url = url;
         }
 
         /// <summary>
