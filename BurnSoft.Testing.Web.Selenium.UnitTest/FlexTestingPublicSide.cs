@@ -54,8 +54,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         [TestInitialize]
         public void Init()
         {
-            MainUrl = VS2019.GetSetting("url_main");
-            SettingsScreenShotLocation = VS2019.GetSetting("SettingsScreenShotLocation");
+            MainUrl = Vs2019.GetSetting("url_main");
+            SettingsScreenShotLocation = Vs2019.GetSetting("SettingsScreenShotLocation");
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
 
