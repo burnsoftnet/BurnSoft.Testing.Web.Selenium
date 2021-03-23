@@ -269,7 +269,9 @@ namespace BurnSoft.Testing.Web.Selenium
         public void GoToAnotherPage(string url)
         {
             //Driver.Navigate().GoToUrl($"{url}");
+            string winHandlerBefore = Driver.CurrentWindowHandle;
             Driver.Url = url;
+            Driver.SwitchTo().Window(winHandlerBefore);
         }
 
         /// <summary>
