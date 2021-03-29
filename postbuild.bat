@@ -25,7 +25,7 @@ del /Q %ProjectDir%*.nupkg
 
 if "%ConfigurationName%" == %DEBUG% (
 	echo "nuget Dev packing"
-	SET USENUGETSERVER="http://nuget.burnsoft.test"
+	SET USENUGETSERVER="http://nuget.burnsoft.prod"
 	nuget pack
 )
 
@@ -51,8 +51,7 @@ nuget delete %HELPFILENAME% %ver% burnsoft -Source %USENUGETSERVER% -NonInteract
 echo "Uploading %nupak%.%NUGETEXT%"
 nuget push %nupak%.%NUGETEXT% burnsoft -Source %USENUGETSERVER%
 
-if "%ConfigurationName%" == %RELEASE% (
-	echo "nuget guthub push"
-	nuget push %nupak%.%NUGETEXT% -source "github"
-)
+echo "nuget guthub push"
+nuget push %nupak%.%NUGETEXT% -source "github"
+
 cd ..
