@@ -73,6 +73,11 @@ namespace BurnSoft.Testing.Web.Selenium.Types
         /// </summary>
         /// <value>The sleep interval.</value>
         public int SleepInterval { get; set; }
+        /// <summary>
+        /// Gets or sets the CSS value.
+        /// </summary>
+        /// <value>The CSS value.</value>
+        public string CssValue { get; set; }
 
     }
 }

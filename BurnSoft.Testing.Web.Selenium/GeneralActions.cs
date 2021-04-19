@@ -228,13 +228,13 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             GetTextValueAndMustContain,
             /// <summary>
-            /// The get element color
+            /// The get element css color
             /// </summary>
-            GetElementColor,
+            GetElementCssColor,
             /// <summary>
-            /// The get element color and compare
+            /// The get element css color and compare
             /// </summary>
-            GetElementColorAndCompare
+            GetElementCssColorAndCompare
 
         }
 
@@ -565,6 +565,7 @@ namespace BurnSoft.Testing.Web.Selenium
                     string result = @"";
                     string sendkeys = @"";
                     string jumpurl = @"";
+                    string cssValue = @"";
                     try
                     {
                         if (Driver == null) throw new Exception("Error occured and the Driver is not active!");
@@ -598,8 +599,14 @@ namespace BurnSoft.Testing.Web.Selenium
                                     if (!result.Equals(c.ExpectedReturnedValue)) throw new Exception($"Values Did Not Match Up!! got {result} but expected {c.ExpectedReturnedValue}");
                                     result = $"Value MATCH!  Expected {c.ExpectedReturnedValue} and got {result}";
                                     break;
-                                case UseCommand.GetTextValueAndMustContain:
-                                    result = GetTextFromElement(c.ElementName, out errOut);
+                                case UseCommand.GetElementCssColor:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByCss(c.ElementName, out errOut, cssValue);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    break;
+                                case UseCommand.GetElementCssColorAndCompare:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByCss(c.ElementName, out errOut);
                                     if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
                                     if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
                                     result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";
