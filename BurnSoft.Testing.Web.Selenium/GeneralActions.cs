@@ -226,7 +226,15 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// Get the Test value and see if it contains whatever
             /// </summary>
-            GetTextValueAndMustContain
+            GetTextValueAndMustContain,
+            /// <summary>
+            /// The get element color
+            /// </summary>
+            GetElementColor,
+            /// <summary>
+            /// The get element color and compare
+            /// </summary>
+            GetElementColorAndCompare
 
         }
 
