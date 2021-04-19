@@ -234,7 +234,31 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// The get element css color and compare
             /// </summary>
-            GetElementCssColorAndCompare
+            GetElementCssColorAndCompare,
+            /// <summary>
+            /// The get element identifier color
+            /// </summary>
+            GetElementIdColor,
+            /// <summary>
+            /// The get element x path color
+            /// </summary>
+            GetElementXPathColor,
+            /// <summary>
+            /// The get element linked text color
+            /// </summary>
+            GetElementLinkedTextColor,
+            /// <summary>
+            /// The get element identifier color and compare
+            /// </summary>
+            GetElementIdColorAndCompare,
+            /// <summary>
+            /// The get element x path color and compare
+            /// </summary>
+            GetElementXPathColorAndCompare,
+            /// <summary>
+            /// The get element linked text color and compare
+            /// </summary>
+            GetElementLinkedTextColorAndCompare
 
         }
 
@@ -607,6 +631,42 @@ namespace BurnSoft.Testing.Web.Selenium
                                 case UseCommand.GetElementCssColorAndCompare:
                                     cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
                                     result = GetItemBackGroundColorByCss(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
+                                    result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";
+                                    break;
+                                case UseCommand.GetElementIdColor:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorById(c.ElementName, out errOut, cssValue);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    break;
+                                case UseCommand.GetElementIdColorAndCompare:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorById(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
+                                    result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";
+                                    break;
+                                case UseCommand.GetElementXPathColor:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByXPath(c.ElementName, out errOut, cssValue);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    break;
+                                case UseCommand.GetElementXPathColorAndCompare:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByXPath(c.ElementName, out errOut);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
+                                    result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";
+                                    break;
+                                case UseCommand.GetElementLinkedTextColor:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByLinkText(c.ElementName, out errOut, cssValue);
+                                    if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
+                                    break;
+                                case UseCommand.GetElementLinkedTextColorAndCompare:
+                                    cssValue = c.CssValue.Length > 0 ? c.CssValue : "background-color";
+                                    result = GetItemBackGroundColorByLinkText(c.ElementName, out errOut);
                                     if (result?.Length == 0) throw new Exception($"Unable to get value from {c.ElementName}");
                                     if (!result.Contains(c.ExpectedReturnedValue)) throw new Exception($"Value was not found!! got {result} but expected {c.ExpectedReturnedValue}");
                                     result = $"Value FOUND!  Expected {c.ExpectedReturnedValue} and got {result}";

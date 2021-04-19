@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.Types;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
 namespace BurnSoft.Testing.Web.Selenium
@@ -353,6 +352,56 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.TestName = TestName;
             Ga.DoWait(field, fb);
         }
+
+        /// <summary>
+        /// Gets the item back ground color by CSS Element link.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByCss(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            return Ga.GetItemBackGroundColorByCss(elementName, out errOut, cssValue);
+        }
+        /// <summary>
+        /// Gets the item back ground color by x path.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByXPath(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            return Ga.GetItemBackGroundColorByXPath(elementName, out errOut, cssValue);
+        }
+        /// <summary>
+        /// Gets the item back ground color by identifier.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorById(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            return Ga.GetItemBackGroundColorById(elementName, out errOut, cssValue);
+        }
+        /// <summary>
+        /// Gets the item back ground color by link text.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByLinkText(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            return Ga.GetItemBackGroundColorByLinkText(elementName, out errOut, cssValue);
+        }
+
         /// <summary>
         /// Releases the unmanaged resources.
         /// </summary>
