@@ -911,5 +911,93 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             return Driver.FindElement(By.TagName(name)).Text;
         }
+        /// <summary>
+        /// Gets the item back ground color by CSS Element link.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByCss(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.CssSelector(elementName)).GetCssValue(cssValue);
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the item back ground color by x path.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByXPath(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.XPath(elementName)).GetCssValue(cssValue);
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the item back ground color by identifier.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorById(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Id(elementName)).GetCssValue(cssValue);
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the item back ground color by link text.
+        /// </summary>
+        /// <param name="elementName">Name of the element.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+        /// <returns>System.String.</returns>
+        public string GetItemBackGroundColorByLinkText(string elementName, out string errOut,
+            string cssValue = "background-color")
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.LinkText(elementName)).GetCssValue(cssValue);
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
     }
 }
