@@ -140,6 +140,180 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="cmd">The command.</param>
         /// <param name="errOut">The error out.</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        /// <example>
+        /// This is an example from the unit test <br/>
+        /// <br/>
+        /// Ca.TestName = "PublicUIBatch";<br/>
+        /// string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+        /// List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+        /// cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+        ///         ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "My Gun Collection", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = "Click on the My Gun Collection link" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = softwareMenu, <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = @"Click On Windows App Menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "My Loaders Log", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = @"Click on the My Loaders Log Link" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = softwareMenu, <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = @"Click On Windows App Menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "File Renamer Utility", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = "Click on the File Renamer Utility" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = softwareMenu, <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = @"Click On Windows App Menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "BurnPad", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = "Click on BurnPad Link" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = "Click on Support Menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "Contact", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = "Select Contact Option from menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.SendKeys, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "MainContent_txtName", <br/>
+        ///         FindBy = GeneralActions.FindBy.Id, <br/>
+        ///         SendKeys = "Jimmy Pop Corn Batch", <br/>
+        ///         TestName = "Send Name to Text Box" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.SendKeys, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.Find, <br/>
+        ///         ElementName = "MainContent_txteMail", <br/>
+        ///         FindBy = GeneralActions.FindBy.Id, <br/>
+        ///         SendKeys = "joe.mireles@burnsoft.net", <br/>
+        ///         TestName = "Send email to text box" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.SendKeys, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.Find, <br/>
+        ///         ElementName = "MainContent_txtMsg", <br/>
+        ///         FindBy = GeneralActions.FindBy.Id, <br/>
+        ///         SendKeys = "Make Software Great Again in Batch", <br/>
+        ///         TestName = "Send the message to the text box" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.Find, <br/>
+        ///         ElementName = "MainContent_btnSend", <br/>
+        ///         FindBy = GeneralActions.FindBy.Id, <br/>
+        ///         TestName = "Click on the send button" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Nothing, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "MainContent_Label4", <br/>
+        ///         FindBy = GeneralActions.FindBy.Id, <br/>
+        ///         TestName = "Wait for response label" <br/>
+        ///     }); <br/>
+        ///  <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = softwareMenu, <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = @"Click On Windows App Menu" <br/>
+        ///     }); <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Click, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+        ///         ElementName = "My Gun Collection", <br/>
+        ///         FindBy = GeneralActions.FindBy.LinkText, <br/>
+        ///         TestName = "Click on the My Gun Collection link" <br/>
+        ///     }); <br/>
+        ///  <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Nothing, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+        ///         ElementName = "//h3/span", <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = "Get Price of My Gun Collector Software" <br/>
+        ///     }); <br/>
+        ///  <br/>
+        ///     cmd.Add(new BatchCommandList() <br/>
+        /// { <br/>
+        ///     Actions = GeneralActions.MyAction.Nothing, <br/>
+        ///         UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+        ///         ElementName = "//h3/span", <br/>
+        ///         FindBy = GeneralActions.FindBy.XPath, <br/>
+        ///         TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+        ///         ExpectedReturnedValue = "$29.99" <br/>
+        ///     }); <br/>
+        ///  <br/>
+        ///     List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+        ///  <br/>
+        /// int testNumber = 1; <br/>
+        ///     foreach (BatchCommandList v in value) <br/>
+        ///     { <br/>
+        ///         string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+        /// TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+        ///         TestContext.WriteLine(v.ReturnedValue); <br/>
+        ///         testNumber++; <br/>
+        ///     } <br/>
+        /// </example>
         public List<BatchCommandList> RunBatchCommands(List<BatchCommandList> cmd, out string errOut)
         {
             return Ga.RunBatchCommands(cmd, out errOut);
