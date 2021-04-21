@@ -212,15 +212,15 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             Sleep,
             /// <summary>
-            /// The find element and get the text value
+            /// The find element and get the text value, ReturnedValueBlankOk applies to this command
             /// </summary>
             GetTextValue,
             /// <summary>
-            /// The get text value and compare to an expted value
+            /// The get text value and compare to an expted value. ExpectedReturnedValue applies to this comment
             /// </summary>
             GetTextValueAndCompare,
             /// <summary>
-            /// The move a slider
+            /// The move a slider, pairs with SliderMoveTo, SliderMax and SliderMin
             /// </summary>
             MoveSlider,
             /// <summary>
@@ -228,35 +228,35 @@ namespace BurnSoft.Testing.Web.Selenium
             /// </summary>
             GetTextValueAndMustContain,
             /// <summary>
-            /// The get element css color
+            /// The get element css color, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementCssColor,
             /// <summary>
-            /// The get element css color and compare
+            /// The get element css color and compare, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementCssColorAndCompare,
             /// <summary>
-            /// The get element identifier color
+            /// The get element identifier color, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementIdColor,
             /// <summary>
-            /// The get element x path color
+            /// The get element x path color, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementXPathColor,
             /// <summary>
-            /// The get element linked text color
+            /// The get element linked text color, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementLinkedTextColor,
             /// <summary>
-            /// The get element identifier color and compare
+            /// The get element identifier color and compare, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementIdColorAndCompare,
             /// <summary>
-            /// The get element x path color and compare
+            /// The get element x path color and compare, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementXPathColorAndCompare,
             /// <summary>
-            /// The get element linked text color and compare
+            /// The get element linked text color and compare, CssValue can apply to this command if you want to change it
             /// </summary>
             GetElementLinkedTextColorAndCompare
 
