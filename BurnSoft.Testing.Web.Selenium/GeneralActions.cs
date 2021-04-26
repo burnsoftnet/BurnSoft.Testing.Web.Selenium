@@ -363,6 +363,21 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="sendText">the text that you want to send</param>
         public void FindElements(string field, FindBy fb, MyAction ma, string sendText = "")
         {
+            FindElements(field, fb, ma, out var errOut, sendText);
+        }
+        /// <summary>
+        /// Finds the elements.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <param name="fb">The fb.</param>
+        /// <param name="ma">The ma.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="sendText">The send text.</param>
+        /// <returns>IWebElement.</returns>
+        public IWebElement FindElements(string field, FindBy fb, MyAction ma, out string errOut, string sendText = "")
+        {
+            IWebElement wAns = null;
+            errOut = @"";
             try
             {
                 switch (ma)
@@ -393,7 +408,7 @@ namespace BurnSoft.Testing.Web.Selenium
                         Driver.FindElement(SetByType(field, fb)).Submit();
                         break;
                     case MyAction.Nothing:
-                        Driver.FindElement(SetByType(field, fb));
+                        wAns = Driver.FindElement(SetByType(field, fb));
                         break;
                 }
                 if (DoSleep) Thread.Sleep(SleepInterval);
@@ -401,9 +416,12 @@ namespace BurnSoft.Testing.Web.Selenium
             catch (Exception e)
             {
                 Debug.Print(e.Message);
+                errOut = e.Message;
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
+
+            return wAns;
         }
         /// <summary>
         /// Selects the element in page.
