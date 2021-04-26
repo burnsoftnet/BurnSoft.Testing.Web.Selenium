@@ -363,7 +363,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <param name="sendText">the text that you want to send</param>
         public void FindElements(string field, FindBy fb, MyAction ma, string sendText = "")
         {
-            FindElements(field, fb, ma, out var errOut, sendText);
+            FindElements(field, fb, ma, out _, sendText);
         }
         /// <summary>
         /// Finds the elements.

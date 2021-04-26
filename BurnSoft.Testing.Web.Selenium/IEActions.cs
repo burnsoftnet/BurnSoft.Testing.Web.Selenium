@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.Types;
+using OpenQA.Selenium;
 using OpenQA.Selenium.IE;
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
@@ -328,6 +329,20 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.FindElements(field, fb, ma, sendText);
+        }
+        /// <summary>
+        /// Finds the elements.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <param name="fb">The fb.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="sendText">The send text.</param>
+        /// <returns>IWebElement.</returns>
+        public IWebElement FindElements(string field, GeneralActions.FindBy fb, out string errOut, string sendText = "")
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.FindElements(field, fb, GeneralActions.MyAction.Nothing, out errOut, sendText);
         }
 
         /// <summary>
