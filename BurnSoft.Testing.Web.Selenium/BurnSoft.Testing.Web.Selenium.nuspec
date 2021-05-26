@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>$id$</id>
-		<version>$version$-beta</version>
+		<version>$version$</version>
 		<title>$title$</title>
 		<authors>$author$</authors>
 		<owners>burnsoftnet</owners>
@@ -13,7 +13,7 @@
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
-		<releaseNotes>Initial Release.</releaseNotes>
+		<releaseNotes>Added option to run a selenium side file</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>burnsoft web general main testing selenium</tags>
 	</metadata>
