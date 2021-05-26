@@ -67,6 +67,7 @@
     <Compile Include="TestPublicSideEdge.cs" />
     <Compile Include="TestPublicSideIE.cs" />
     <Compile Include="FlexTestingPublicSide.cs" />
+    <Compile Include="SeleniumIdeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

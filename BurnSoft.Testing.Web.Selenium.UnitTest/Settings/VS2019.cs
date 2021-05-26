@@ -33,6 +33,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest.Settings
             ls.Add(new Tuple<string, string>("UsrLogin", ""));
             ls.Add(new Tuple<string, string>("UsrPwd", ""));
             ls.Add(new Tuple<string, string>("SettingsScreenShotLocation", $"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ScreenShots")}"));
+            ls.Add(new Tuple<string, string>("SIDE_FileName", $"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SelSideTest.side")}"));
+            ls.Add(new Tuple<string, string>("SIDE_TestName", "Test1"));
             //ls.Add(new Tuple<string, string>("", ""));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
