@@ -1,0 +1,470 @@
+{
+  "id": "1cba21ae-1489-4d00-a020-23dca3017229",
+  "version": "2.0",
+  "name": "burnsoft",
+  "url": "http://www.burnsoft.net",
+  "tests": [{
+    "id": "4a5840cf-a135-4cee-bdcd-61a35e0bc68c",
+    "name": "MGC",
+    "commands": [{
+      "id": "3cc45a79-73e1-4500-887b-02d8d5e24341",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b27d6f47-50aa-4f2c-8af5-323e844aeac1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ddd1069c-3506-4701-b673-530ea29b58e8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(3) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b614483-5c7e-45bf-985b-5eb0fafb36ca",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Gun Collection",
+      "targets": [
+        ["linkText=My Gun Collection", "linkText"],
+        ["css=li:nth-child(3) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Gun Collection')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/products.aspx?id=104')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Gun Collection')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ed13e32-d174-4e49-93e5-a367134d246a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(4)",
+      "targets": [
+        ["css=.dot:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[4]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6955e3f9-3ad1-4c3f-abf3-fc64042571f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(5)",
+      "targets": [
+        ["css=.dot:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[5]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b48b763-19ed-4e4b-b21a-84196316212a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "29f1438b-df04-4c48-a863-db30740c10f8",
+    "name": "MLL",
+    "commands": [{
+      "id": "8918ccb0-8141-4786-94b3-17dd56712c3c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d709bcc-95d6-46c0-bfc3-a0beea997dc1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b3775100-c4d1-49b9-9e81-fbb45b661288",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(3) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7d20aee-08ee-4f43-b161-94c623929409",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Loaders Log",
+      "targets": [
+        ["linkText=My Loaders Log", "linkText"],
+        ["css=li:nth-child(3) li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Loaders Log')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/products.aspx?id=108')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Loaders Log')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bdcd37a-c280-4146-a58f-3dc253d15236",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(4)",
+      "targets": [
+        ["css=.dot:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[4]", "xpath:idRelative"],
+        ["xpath=//div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbf6ef6d-359c-47ef-b457-0ad2181bd973",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(5)",
+      "targets": [
+        ["css=.dot:nth-child(5)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[5]", "xpath:idRelative"],
+        ["xpath=//div[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "902cf1f2-afc3-4bf4-ad68-d519176480b6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(6)",
+      "targets": [
+        ["css=.dot:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[6]", "xpath:idRelative"],
+        ["xpath=//div[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4aa7ee60-ea7e-463a-a8c7-fbb7f5cb835b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dot:nth-child(7)",
+      "targets": [
+        ["css=.dot:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='main-container']/div[2]/div/div[7]", "xpath:idRelative"],
+        ["xpath=//div[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af9aa956-bb35-4e81-b895-a0bd0bec7ed0",
+      "comment": "",
+      "command": "click",
+      "target": "css=b > .clearfix",
+      "targets": [
+        ["css=b > .clearfix", "css:finder"],
+        ["xpath=//form[@id='ctl01']/div[4]/section[2]/div/div/b/div", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div/b/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f87d2a7-b2b5-4fdc-9b9e-fcca222e8524",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "9afb634a-56eb-4df1-bc48-5639c3b88945",
+    "name": "GeneralNav",
+    "commands": [{
+      "id": "c2e85c87-de58-4b3a-ba44-11671b030272",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a04d461-ad4e-49ee-bfd8-d10b8e0a3915",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74142603-61a0-419f-a5fd-47e5f3a02ce0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Gun Collection",
+      "targets": [
+        ["linkText=My Gun Collection", "linkText"],
+        ["css=li:nth-child(3) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Gun Collection')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/products.aspx?id=104')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Gun Collection')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09e4879a-aae9-45cd-9a19-b899634583e0",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(3) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3dc0163a-7ba8-4603-bc34-713d556babd6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Loaders Log",
+      "targets": [
+        ["linkText=My Loaders Log", "linkText"],
+        ["css=li:nth-child(3) li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Loaders Log')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[3]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/products.aspx?id=108')]", "xpath:href"],
+        ["xpath=//li[3]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Loaders Log')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da1ed33e-8a10-4f56-ae9b-90fae12f8fc0",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(4) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "567f4b05-7447-4981-bfbd-ee88e4dfd9bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(5) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[5]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07b10cba-36f3-4a77-89a4-cbac64cef20a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Local Archive",
+      "targets": [
+        ["linkText=Local Archive", "linkText"],
+        ["css=li:nth-child(5) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Local Archive')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[5]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/Software_OpenSource.aspx')]", "xpath:href"],
+        ["xpath=//li[5]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Local Archive')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d23ffc23-c533-45e1-b33a-97e4acd75d09",
+      "comment": "",
+      "command": "click",
+      "target": "css=#jetmenu > li:nth-child(5) > a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[5]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[3]", "xpath:href"],
+        ["xpath=//div/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acb4445c-9d28-47a8-acbc-b06633ef321f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=LOGIN",
+      "targets": [
+        ["linkText=LOGIN", "linkText"],
+        ["css=li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'LOGIN')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/login.aspx')]", "xpath:href"],
+        ["xpath=//li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3412d46-00d6-4420-be06-6034c4d82851",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(7) > a",
+      "targets": [
+        ["css=li:nth-child(7) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[7]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8269fb32-4e22-4fdd-819c-7a33a2c390f9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Knowledge Base",
+      "targets": [
+        ["linkText=Knowledge Base", "linkText"],
+        ["css=li:nth-child(7) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Knowledge Base')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://wiki.burnsoft.net']", "xpath:href"],
+        ["xpath=//li[7]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Knowledge Base')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win988",
+      "windowTimeout": 2000
+    }, {
+      "id": "0bc8dab5-af7e-4798-8f2d-56d99076756f",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "61127902-8a2f-4d60-abde-0f59ec4ed858",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win988}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d25a5acb-b12f-474d-8ed0-9715efaa669b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "91f16723-ac2b-4041-bd7c-c2d198b523a6",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46c988f6-3501-48fe-b56c-2f7cfe127773",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Youtube Videos",
+      "targets": [
+        ["linkText=Youtube Videos", "linkText"],
+        ["css=li:nth-child(7) li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Youtube Videos')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://www.youtube.com/channel/UC-GfNe4DNRmmSp93CnHBBMQ')])[2]", "xpath:href"],
+        ["xpath=//li[7]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Youtube Videos')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win5614",
+      "windowTimeout": 2000
+    }, {
+      "id": "75a6d533-f9b1-437d-b129-dedb8afc9f78",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win5614}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "db4b75cb-3ae3-4181-b754-1b387fa335d1",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "530a2751-7f5d-4269-aa4b-c81edf914f95",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be94a1f8-b289-4459-bc60-19366e4834cf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Report a Bug",
+      "targets": [
+        ["linkText=Report a Bug", "linkText"],
+        ["css=li:nth-child(7) li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Report a Bug')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/report_bug.aspx')]", "xpath:href"],
+        ["xpath=//li[7]/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Report a Bug')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86208898-a91a-46c6-acba-0deb6f940c0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(7) > a",
+      "targets": [
+        ["css=li:nth-child(7) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[4]", "xpath:href"],
+        ["xpath=//li[7]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6aa85a74-c687-4500-b762-82dd9436886c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Contact",
+      "targets": [
+        ["linkText=Contact", "linkText"],
+        ["css=li:nth-child(7) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Contact')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[7]/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/Pages/Support.aspx')]", "xpath:href"],
+        ["xpath=//li[7]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Contact')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3493b2d6-a8d5-45e0-a692-8fe8291149e8",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0641e0f0-6502-458f-a2a8-6e144be8d5e5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4a5840cf-a135-4cee-bdcd-61a35e0bc68c"]
+  }],
+  "urls": [],
+  "plugins": []
+}
