@@ -811,7 +811,11 @@ namespace BurnSoft.Testing.Web.Selenium
                                     {
                                         if (result?.Length == 0) result = "Nothing was returned, but we expected that.";
                                     }
-                                    
+                                    break;
+                                case UseCommand.GetUrlAndGoTo:
+                                    result = GetTextFromElement(c.ElementName, out errOut);
+                                    if (result.Length == 0) throw new Exception($"No URL Found in {c.ElementName}");
+                                    GoToAnotherPage(result);
                                     break;
                                 case UseCommand.GetTextValueAndCompare:
                                     result = GetTextFromElement(c.ElementName, out errOut);
