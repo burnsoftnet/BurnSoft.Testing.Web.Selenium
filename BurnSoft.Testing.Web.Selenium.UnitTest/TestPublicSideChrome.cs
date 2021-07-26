@@ -266,12 +266,12 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 cmd.AddRange(BatchCmdHelper.Sleep500());
                 cmd.AddRange(BatchCmdHelper.ClickOnElement("//ul[@id='jetmenu']/li[4]/a","iOS App Menu"));
                 cmd.AddRange(BatchCmdHelper.Sleep500());
-                //cmd.Add(new BatchCommandList()
-                //{
-                //    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
-                //    ElementName = "//a[contains(.,'My Essential Oil Remedies')]",
-                //    TestName = "Get Link Text and GOto url"
-                //});
+                cmd.Add(new BatchCommandList()
+                {
+                    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
+                    ElementName = "//a[contains(.,'My Essential Oil Remedies')]",
+                    TestName = "Get Link Text and GOto url"
+                });
 
                 List<BatchCommandList> value = Ca.RunBatchCommands(cmd, out var errOut);
 
