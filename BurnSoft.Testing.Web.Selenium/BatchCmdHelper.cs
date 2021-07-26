@@ -79,5 +79,36 @@ namespace BurnSoft.Testing.Web.Selenium
             });
             return cmd;
         }
+
+        /// <summary>
+        /// Sleep for half a second
+        /// </summary>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public static List<BatchCommandList> Sleep500()
+        {
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.Add(new BatchCommandList()
+            {
+                SleepInterval = 500,
+                UseCommand = GeneralActions.UseCommand.Sleep
+            });
+
+            return cmd;
+        }
+        /// <summary>
+        /// Sleep for 1 second
+        /// </summary>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public static List<BatchCommandList> Sleep(int useInterval = 1000)
+        {
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.Add(new BatchCommandList()
+            {
+                SleepInterval = useInterval,
+                UseCommand = GeneralActions.UseCommand.Sleep
+            });
+
+            return cmd;
+        }
     }
 }
