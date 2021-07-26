@@ -90,7 +90,7 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                _driver.Quit();
+                if (_driver != null) _driver.Quit();
             }
         }
         /// <summary>
@@ -614,8 +614,12 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Url = @"";
             TestName = @"";
-            _driver.Close();
-            _driver.Dispose();
+            if (_driver != null)
+            {
+                _driver.Close();
+                _driver.Dispose();
+            }
+            
             Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);

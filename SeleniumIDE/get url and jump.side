@@ -24,7 +24,7 @@
       "id": "68e1213f-a742-424b-9328-55408abf00c2",
       "comment": "",
       "command": "click",
-      "target": "xpath=//li[4]/a",
+      "target": "xpath=//ul[@id='jetmenu']/li[4]/a",
       "targets": [
         ["css=#jetmenu > li:nth-child(4) > a", "css:finder"],
         ["xpath=//ul[@id='jetmenu']/li[4]/a", "xpath:idRelative"],
@@ -36,7 +36,7 @@
       "id": "21136466-32e3-4ed8-b39b-4b1ebc4dc768",
       "comment": "",
       "command": "click",
-      "target": "linkText=My Essential Oil Remedies",
+      "target": "xpath=//a[contains(.,'My Essential Oil Remedies')]",
       "targets": [
         ["linkText=My Essential Oil Remedies", "linkText"],
         ["css=li:nth-child(4) li:nth-child(1) > a", "css:finder"],
@@ -55,6 +55,61 @@
       "comment": "",
       "command": "selectWindow",
       "target": "handle=${win2727}",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "907604c1-9c0f-43a5-9cdb-58acb131e7dc",
+    "name": "Test2",
+    "commands": [{
+      "id": "611aea18-98fc-429a-add8-62704f702c65",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.burnsoft.net/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19e15bd1-6178-4ea0-8fed-7aecabc9842d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "defb4916-9b28-4388-b2d3-80eb14e16b50",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//ul[@id='jetmenu']/li[4]/a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5ab88d8-eb5c-4e59-af88-fbda134f11cb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Destiny Numbers",
+      "targets": [
+        ["linkText=Destiny Numbers", "linkText"],
+        ["css=.dropdown > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Destiny Numbers')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[4]/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://itunes.apple.com/us/app/destiny-numbe rs/id1187908559?ls=1&mt=8')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Destiny Numbers')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win8585",
+      "windowTimeout": 2000
+    }, {
+      "id": "cb8523ad-bd56-42b4-bd92-6ff925ae2f51",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win8585}",
       "targets": [],
       "value": ""
     }]

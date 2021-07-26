@@ -311,17 +311,16 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 {
                     Actions = GeneralActions.MyAction.Click,
                     UseCommand = GeneralActions.UseCommand.WaitFound,
-                    ElementName = "//li[4]/a",
+                    ElementName = "//ul[@id='jetmenu']/li[4]/a",
                     FindBy = GeneralActions.FindBy.XPath,
                     TestName = @"Click On iOS App Menu"
                 });
-                cmd.Add(new BatchCommandList()
-                {
-                    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
-                    ElementName = "My Essential Oil Remedies",
-                    FindBy = GeneralActions.FindBy.LinkText,
-                    TestName = "Get Link Text and GOto url"
-                });
+                //cmd.Add(new BatchCommandList()
+                //{
+                //    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
+                //    ElementName = "//a[contains(.,'My Essential Oil Remedies')]",
+                //    TestName = "Get Link Text and GOto url"
+                //});
 
                 List<BatchCommandList> value = Ca.RunBatchCommands(cmd, out var errOut);
 
@@ -334,7 +333,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                     testNumber++;
                 }
 
-                didPass = true;
+                didPass = Ca.AllTestsPassed(value);
             }
             catch (Exception e)
             {

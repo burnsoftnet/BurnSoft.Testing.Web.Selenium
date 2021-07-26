@@ -1,0 +1,30 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="BurnSoft.Testing.Web.Selenium.UnitTest" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="BurnSoft.Testing.Web.Selenium.UnitTest" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="TestPublicSideChrome" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BurnSoft.Testing.Web.Selenium.UnitTest.TestPublicSideChrome.UseCommandListGetAndJumpToTest" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="UseCommandListGetAndJumpToTest" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>
