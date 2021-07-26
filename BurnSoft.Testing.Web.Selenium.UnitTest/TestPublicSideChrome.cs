@@ -307,14 +307,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 Ca.TestName = "UseCommandListGetAndJumpToTest";
 
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                cmd.Add(new BatchCommandList()
-                {
-                    Actions = GeneralActions.MyAction.Click,
-                    UseCommand = GeneralActions.UseCommand.WaitFound,
-                    ElementName = "//ul[@id='jetmenu']/li[4]/a",
-                    FindBy = GeneralActions.FindBy.XPath,
-                    TestName = @"Click On iOS App Menu"
-                });
+                cmd.AddRange(BatchCmdHelper.ClickOnElement("software app menu", "//li[3]/a"));
+                cmd.AddRange(BatchCmdHelper.ClickOnElement("iOS App Menu", "//ul[@id='jetmenu']/li[4]/a"));
                 //cmd.Add(new BatchCommandList()
                 //{
                 //    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
