@@ -1,0 +1,72 @@
+{
+  "id": "802a14fa-be82-45a1-a76c-6423e25691fe",
+  "version": "2.0",
+  "name": "get url and jump",
+  "url": "https://www.burnsoft.net/",
+  "tests": [{
+    "id": "085f4214-aad7-4b3a-8a18-31d1ffb5571a",
+    "name": "test 1",
+    "commands": [{
+      "id": "f3a2a5b4-153a-4cde-9f23-cbfe26d16b3d",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.burnsoft.net/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc6b9522-c53d-4f2f-a106-d2a51eddb602",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68e1213f-a742-424b-9328-55408abf00c2",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//li[4]/a",
+      "targets": [
+        ["css=#jetmenu > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//ul[@id='jetmenu']/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[2]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21136466-32e3-4ed8-b39b-4b1ebc4dc768",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Essential Oil Remedies",
+      "targets": [
+        ["linkText=My Essential Oil Remedies", "linkText"],
+        ["css=li:nth-child(4) li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Essential Oil Remedies')]", "xpath:link"],
+        ["xpath=//ul[@id='jetmenu']/li[4]/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://itunes.apple.com/us/app/my-essential- oil-remedies/id1188303079?ls=1&mt=8')]", "xpath:href"],
+        ["xpath=//li[4]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Essential Oil Remedies')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win2727",
+      "windowTimeout": 2000
+    }, {
+      "id": "d50dd59a-7da8-4f2c-ac46-2a9cbfc306c0",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win2727}",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f77d42d0-0fbe-4263-bf6c-152ebde72302",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["085f4214-aad7-4b3a-8a18-31d1ffb5571a"]
+  }],
+  "urls": [],
+  "plugins": []
+}
