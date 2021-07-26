@@ -5,6 +5,7 @@ using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.Types;
 using BurnSoft.Testing.Web.Selenium.UnitTest.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+// ReSharper disable UnusedVariable
 
 namespace BurnSoft.Testing.Web.Selenium.UnitTest
 {
@@ -143,54 +144,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 FindBy = GeneralActions.FindBy.LinkText,
                 TestName = "Click on the My Gun Collection link"
             });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = softwareMenu,
-                FindBy = GeneralActions.FindBy.XPath,
-                TestName = @"Click On Windows App Menu"
-            });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "My Loaders Log",
-                FindBy = GeneralActions.FindBy.LinkText,
-                TestName = @"Click on the My Loaders Log Link"
-            });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = softwareMenu,
-                FindBy = GeneralActions.FindBy.XPath,
-                TestName = @"Click On Windows App Menu"
-            });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "File Renamer Utility",
-                FindBy = GeneralActions.FindBy.LinkText,
-                TestName = "Click on the File Renamer Utility"
-            });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = softwareMenu,
-                FindBy = GeneralActions.FindBy.XPath,
-                TestName = @"Click On Windows App Menu"
-            });
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Click,
-                UseCommand = GeneralActions.UseCommand.WaitFound,
-                ElementName = "BurnPad",
-                FindBy = GeneralActions.FindBy.LinkText,
-                TestName = "Click on BurnPad Link"
-            });
+            
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
@@ -308,8 +262,10 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
 
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(BatchCmdHelper.Sleep500());
-                cmd.AddRange(BatchCmdHelper.ClickOnElement("software app menu", "//div/ul/li[5]/a"));
-                cmd.AddRange(BatchCmdHelper.ClickOnElement("iOS App Menu", "//ul[@id='jetmenu']/li[4]/a"));
+                cmd.AddRange(BatchCmdHelper.ClickOnElement("//ul[@id='jetmenu']/li[3]/a","software app menu"));
+                cmd.AddRange(BatchCmdHelper.Sleep500());
+                cmd.AddRange(BatchCmdHelper.ClickOnElement("//ul[@id='jetmenu']/li[4]/a","iOS App Menu"));
+                cmd.AddRange(BatchCmdHelper.Sleep500());
                 //cmd.Add(new BatchCommandList()
                 //{
                 //    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,

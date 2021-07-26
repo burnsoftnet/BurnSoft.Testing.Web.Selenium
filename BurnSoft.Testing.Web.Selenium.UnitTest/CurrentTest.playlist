@@ -18,6 +18,12 @@
                         <Property Name="DisplayName" Value="UseCommandListGetAndJumpToTest" />
                       </Rule>
                     </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="BurnSoft.Testing.Web.Selenium.UnitTest.TestPublicSideChrome.PublicSideBatch" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="PublicSideBatch" />
+                      </Rule>
+                    </Rule>
                   </Rule>
                 </Rule>
               </Rule>

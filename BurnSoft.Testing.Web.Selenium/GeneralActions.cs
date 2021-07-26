@@ -813,7 +813,7 @@ namespace BurnSoft.Testing.Web.Selenium
                                     }
                                     break;
                                 case UseCommand.GetUrlAndGoTo:
-                                    result = GetTextFromElement(c.ElementName, out errOut);
+                                    result = GetLinkFromElement(c.ElementName, out errOut);
                                     if (result.Length == 0) throw new Exception($"No URL Found in {c.ElementName}");
                                     GoToAnotherPage(result);
                                     break;
@@ -987,6 +987,132 @@ namespace BurnSoft.Testing.Web.Selenium
                 errOut = e.Message;
             }
             return bAns;
+        }
+        private string GetUrlFromElementByXPath(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.XPath(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementById(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Id(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementByClassName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.ClassName(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementByCssSelector(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.CssSelector(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementByName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.Name(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementByTagName(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.TagName(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        private string GetUrlFromElementByLinkText(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.LinkText(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+
+        public string GetLinkFromElement(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = GetUrlFromElementById(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByXPath(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByClassName(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByCssSelector(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByName(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByTagName(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByLinkText(name, out _);
+                if (sAns?.Length == 0) sAns = GetTextFromElementByPartialLinkText(name, out _);
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
         }
         /// <summary>
         /// Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
