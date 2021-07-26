@@ -62,5 +62,22 @@ namespace BurnSoft.Testing.Web.Selenium
             });
             return cmd;
         }
+        /// <summary>
+        /// Gets the link and go to.
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <param name="name">The name.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
+        public static List<BatchCommandList> GetLinkAndGoTo(string element, string name)
+        {
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.Add(new BatchCommandList()
+            {
+                UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
+                ElementName = element,
+                TestName = name
+            });
+            return cmd;
+        }
     }
 }
