@@ -590,7 +590,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <returns></returns>
         public bool AllTestsPassed(List<BatchCommandList> results)
         {
-            return !results.Any(r => !r.PassedFailed);
+            return results.All(r => r.PassedFailed);
         }
 
         /// <summary>
@@ -785,7 +785,6 @@ namespace BurnSoft.Testing.Web.Selenium
                     string result = @"";
                     string sendkeys = @"";
                     string jumpurl = @"";
-                    string cssValue = @"";
                     try
                     {
                         if (Driver == null) throw new Exception("Error occured and the Driver is not active!");
@@ -794,6 +793,7 @@ namespace BurnSoft.Testing.Web.Selenium
 
                         if (sendkeys?.Length == 0 && jumpurl?.Length ==0)
                         {
+                            var cssValue = @"";
                             switch (c.UseCommand)
                             {
                                 case UseCommand.Find:
@@ -988,6 +988,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return bAns;
         }
+        /// <summary>
+        /// Gets the URL from element by x path.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByXPath(string name, out string errOut)
         {
             string sAns = @"";
@@ -1002,7 +1008,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the URL from element by identifier.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementById(string name, out string errOut)
         {
             string sAns = @"";
@@ -1017,7 +1028,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the name of the URL from element by class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByClassName(string name, out string errOut)
         {
             string sAns = @"";
@@ -1032,7 +1048,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the URL from element by CSS selector.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByCssSelector(string name, out string errOut)
         {
             string sAns = @"";
@@ -1047,7 +1068,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the name of the URL from element by.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByName(string name, out string errOut)
         {
             string sAns = @"";
@@ -1062,7 +1088,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the name of the URL from element by tag.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByTagName(string name, out string errOut)
         {
             string sAns = @"";
@@ -1077,7 +1108,12 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the URL from element by link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         private string GetUrlFromElementByLinkText(string name, out string errOut)
         {
             string sAns = @"";
@@ -1092,7 +1128,32 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             return sAns;
         }
-
+        /// <summary>
+        /// Gets the URL from element by partial link text.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        private string GetUrlFromElementByPartialLinkText(string name, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                sAns = Driver.FindElement(By.PartialLinkText(name)).GetAttribute("href");
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the link from element.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
         public string GetLinkFromElement(string name, out string errOut)
         {
             string sAns = @"";
@@ -1105,8 +1166,8 @@ namespace BurnSoft.Testing.Web.Selenium
                 if (sAns?.Length == 0) sAns = GetUrlFromElementByCssSelector(name, out _);
                 if (sAns?.Length == 0) sAns = GetUrlFromElementByName(name, out _);
                 if (sAns?.Length == 0) sAns = GetUrlFromElementByTagName(name, out _);
-                if (sAns?.Length == 0) sAns = GetTextFromElementByLinkText(name, out _);
-                if (sAns?.Length == 0) sAns = GetTextFromElementByPartialLinkText(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByLinkText(name, out _);
+                if (sAns?.Length == 0) sAns = GetUrlFromElementByPartialLinkText(name, out _);
             }
             catch (Exception e)
             {
