@@ -308,7 +308,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
 
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(BatchCmdHelper.Sleep500());
-                cmd.AddRange(BatchCmdHelper.ClickOnElement("software app menu", "//li[3]/a"));
+                cmd.AddRange(BatchCmdHelper.ClickOnElement("software app menu", "//div/ul/li[5]/a"));
                 cmd.AddRange(BatchCmdHelper.ClickOnElement("iOS App Menu", "//ul[@id='jetmenu']/li[4]/a"));
                 //cmd.Add(new BatchCommandList()
                 //{
