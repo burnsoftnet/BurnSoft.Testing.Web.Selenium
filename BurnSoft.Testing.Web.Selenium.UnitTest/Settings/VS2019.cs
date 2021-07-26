@@ -28,8 +28,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest.Settings
         private static List<Tuple<string, string>> GeneralSettings()
         {
             List<Tuple<string,string>> ls = new List<Tuple<string, string>>();
-            ls.Add(new Tuple<string, string>("url_main","http://www.burnsoft.test"));
-            ls.Add(new Tuple<string, string>("url_login", "http://www.burnsoft.test/login.aspx"));
+            ls.Add(new Tuple<string, string>("url_main","http://www.burnsoft.net"));
+            ls.Add(new Tuple<string, string>("url_login", "http://www.burnsoft.net/login.aspx"));
             ls.Add(new Tuple<string, string>("UsrLogin", ""));
             ls.Add(new Tuple<string, string>("UsrPwd", ""));
             ls.Add(new Tuple<string, string>("SettingsScreenShotLocation", $"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ScreenShots")}"));

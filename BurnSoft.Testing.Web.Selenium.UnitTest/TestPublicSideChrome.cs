@@ -298,6 +298,51 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 testNumber++;
             }
         }
+        [TestMethod]
+        public void UseCommandListGetAndJumpToTest()
+        {
+            bool didPass = false;
+            try
+            {
+                Ca.TestName = "UseCommandListGetAndJumpToTest";
+
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.Add(new BatchCommandList()
+                {
+                    Actions = GeneralActions.MyAction.Click,
+                    UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = "//li[4]/a",
+                    FindBy = GeneralActions.FindBy.XPath,
+                    TestName = @"Click On iOS App Menu"
+                });
+                cmd.Add(new BatchCommandList()
+                {
+                    UseCommand = GeneralActions.UseCommand.GetUrlAndGoTo,
+                    ElementName = "My Essential Oil Remedies",
+                    FindBy = GeneralActions.FindBy.LinkText,
+                    TestName = "Get Link Text and GOto url"
+                });
+
+                List<BatchCommandList> value = Ca.RunBatchCommands(cmd, out var errOut);
+
+                int testNumber = 1;
+                foreach (BatchCommandList v in value)
+                {
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED";
+                    TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}");
+                    TestContext.WriteLine(v.ReturnedValue);
+                    testNumber++;
+                }
+
+                didPass = true;
+            }
+            catch (Exception e)
+            {
+                TestContext.WriteLine(e.Message);
+            }
+            Assert.IsTrue(didPass);
+
+        }
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
         /// </summary>
