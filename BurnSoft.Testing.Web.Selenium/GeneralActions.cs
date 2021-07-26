@@ -258,7 +258,11 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// The get element linked text color and compare, CssValue can apply to this command if you want to change it
             /// </summary>
-            GetElementLinkedTextColorAndCompare
+            GetElementLinkedTextColorAndCompare,
+            /// <summary>
+            /// The get URL and go to
+            /// </summary>
+            GetUrlAndGoTo
 
         }
 
