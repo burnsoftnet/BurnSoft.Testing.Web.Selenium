@@ -357,7 +357,16 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.TestName = TestName;
             return Ga.GetContentsOfTag(name);
         }
-
+        /// <summary>
+        /// Gets the link from element.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetLinkFromElement(string name, out string errOut)
+        {
+            return Ga.GetLinkFromElement(name, out errOut);
+        }
         /// <summary>
         /// Selects the element in page.
         /// </summary>

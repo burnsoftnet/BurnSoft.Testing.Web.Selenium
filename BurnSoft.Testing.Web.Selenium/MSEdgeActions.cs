@@ -344,6 +344,16 @@ namespace BurnSoft.Testing.Web.Selenium
             return Ga.AllTestsPassed(results);
         }
         /// <summary>
+        /// Gets the link from element.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        public string GetLinkFromElement(string name, out string errOut)
+        {
+            return Ga.GetLinkFromElement(name, out errOut);
+        }
+        /// <summary>
         /// Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
         /// if it failed, to return the element name that it failed at.
         /// </summary>
