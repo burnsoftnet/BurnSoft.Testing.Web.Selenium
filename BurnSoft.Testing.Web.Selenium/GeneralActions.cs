@@ -8,6 +8,9 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
+
 // ReSharper disable EmptyDestructor
 // ReSharper disable UnusedMember.Global
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
