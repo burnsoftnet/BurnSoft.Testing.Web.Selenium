@@ -6,10 +6,10 @@ using System.Threading;
 using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.PageObjects;
+//using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
+//using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
 
 // ReSharper disable EmptyDestructor
 // ReSharper disable UnusedMember.Global
@@ -321,35 +321,26 @@ namespace BurnSoft.Testing.Web.Selenium
         /// <returns>By.</returns>
         private By SetByType(string field, FindBy fb)
         {
-            By b = new ByAll();
             try
             {
                 switch (fb)
                 {
                     case FindBy.ClassName:
-                        b = By.ClassName(field);
-                        break;
+                        return By.ClassName(field);
                     case FindBy.Id:
-                        b = By.Id(field);
-                        break;
+                        return By.Id(field);
                     case FindBy.XPath:
-                        b = By.XPath(field);
-                        break;
+                        return By.XPath(field);
                     case FindBy.CssSelector:
-                        b = By.CssSelector(field);
-                        break;
+                        return By.CssSelector(field);
                     case FindBy.LinkText:
-                        b = By.LinkText(field);
-                        break;
+                        return By.LinkText(field);
                     case FindBy.PartialLinkText:
-                        b = By.PartialLinkText(field);
-                        break;
+                        return By.PartialLinkText(field);
                     case FindBy.Name:
-                        b = By.Name(field);
-                        break;
+                        return By.Name(field);
                     case FindBy.TagName:
-                        b = By.TagName(field);
-                        break;
+                        return By.TagName(field);
                 }
             }
             catch (Exception e)
@@ -358,7 +349,7 @@ namespace BurnSoft.Testing.Web.Selenium
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
-            return b;
+            return By.ClassName(field);
         }
 
         /// <summary>
@@ -390,6 +381,7 @@ namespace BurnSoft.Testing.Web.Selenium
                 switch (ma)
                 {
                     case MyAction.Click:
+                        Driver.FindElement(By.Name(""));
                         Driver.FindElement(SetByType(field, fb)).Click();
                         break;
                     case MyAction.Clear:
