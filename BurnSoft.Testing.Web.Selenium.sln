@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Seleni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.Ns", "BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.Ns.csproj", "{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNet5", "DotNet5", "{A29D702F-B167-4B68-AEC9-259630AA796F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E} = {A29D702F-B167-4B68-AEC9-259630AA796F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {043DBE6A-EC3B-4E1A-B18F-BB8B8CAF671C}
