@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Seleni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.UnitTest", "BurnSoft.Testing.Web.Selenium.UnitTest\BurnSoft.Testing.Web.Selenium.UnitTest.csproj", "{9995E183-2FAC-4001-BE76-37D98F3142E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.Ns", "BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.Ns.csproj", "{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9995E183-2FAC-4001-BE76-37D98F3142E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
