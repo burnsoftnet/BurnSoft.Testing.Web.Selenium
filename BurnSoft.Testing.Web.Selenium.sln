@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Seleni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.UnitTest", "BurnSoft.Testing.Web.Selenium.UnitTest\BurnSoft.Testing.Web.Selenium.UnitTest.csproj", "{9995E183-2FAC-4001-BE76-37D98F3142E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.Ns", "BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.Ns.csproj", "{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BurnSoft.Testing.Web.Selenium.Ns", "BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.Ns.csproj", "{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNet5", "DotNet5", "{A29D702F-B167-4B68-AEC9-259630AA796F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.Ns.UnitTest", "BurnSoft.Testing.Web.Selenium.Ns.UnitTest\BurnSoft.Testing.Web.Selenium.Ns.UnitTest.csproj", "{BCF33881-C2E5-4BE6-947B-775CFA31E4D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +31,17 @@ Global
 		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF33881-C2E5-4BE6-947B-775CFA31E4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF33881-C2E5-4BE6-947B-775CFA31E4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF33881-C2E5-4BE6-947B-775CFA31E4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF33881-C2E5-4BE6-947B-775CFA31E4D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E} = {A29D702F-B167-4B68-AEC9-259630AA796F}
+		{BCF33881-C2E5-4BE6-947B-775CFA31E4D6} = {A29D702F-B167-4B68-AEC9-259630AA796F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {043DBE6A-EC3B-4E1A-B18F-BB8B8CAF671C}
