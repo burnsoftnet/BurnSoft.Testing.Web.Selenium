@@ -697,6 +697,10 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public static List<string> DriverList = new List<string>{ "Chrome", "Edge", "IE", "FireFox"};
         /// <summary>
+        /// The driver list
+        /// </summary>
+        public List<string> DriverListObj = new List<string> { "Chrome", "Edge", "IE", "FireFox" };
+        /// <summary>
         /// Selects the driver mased on the string selection for th driver using adrop down or something from the driver list
         /// </summary>
         /// <param name="driver">The driver.</param>
