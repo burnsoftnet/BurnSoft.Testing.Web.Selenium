@@ -104,3 +104,7 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.Ns.interfaces.iGeneral")]
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.Ns.interfaces.iIEActions")]
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:BurnSoft.Testing.Web.Selenium.Ns.interfaces.iMsEdgeActions")]
+[assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.DriverList")]
+[assembly: SuppressMessage("Style", "IDE0090:Use 'new(...)'", Justification = "<Pending>", Scope = "member", Target = "~F:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.DriverList")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~M:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.SelectDriver(System.String)~BurnSoft.Testing.Web.Selenium.Ns.FlexAction.UseDriver")]
+[assembly: SuppressMessage("Style", "IDE0066:Convert switch statement to expression", Justification = "<Pending>", Scope = "member", Target = "~M:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.SelectDriver(System.String)~BurnSoft.Testing.Web.Selenium.Ns.FlexAction.UseDriver")]
