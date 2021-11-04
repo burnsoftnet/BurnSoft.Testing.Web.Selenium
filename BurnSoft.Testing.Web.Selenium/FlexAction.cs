@@ -691,7 +691,33 @@ namespace BurnSoft.Testing.Web.Selenium
             Driver = null;
         }
         #endregion
-        #region "Initialize Section"
+        #region "Initialize Section"                
+        /// <summary>
+        /// The driver list
+        /// </summary>
+        public static List<string> DriverList = new List<string>{ "Chrome", "Edge", "IE", "FireFox"};
+        /// <summary>
+        /// Selects the driver mased on the string selection for th driver using adrop down or something from the driver list
+        /// </summary>
+        /// <param name="driver">The driver.</param>
+        /// <returns>UseDriver.</returns>
+        public UseDriver SelectDriver(string driver)
+        {
+            switch (driver.ToLower())
+            {
+                case "chrome":
+                    return UseDriver.Chrome;
+                case "edge":
+                    return UseDriver.Edge;
+                case "ie":
+                    return UseDriver.IE;
+                case "firefox":
+                    return UseDriver.FireFox;
+                default:
+                    return UseDriver.Chrome;
+
+            }
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexAction"/> class.
         /// </summary>
