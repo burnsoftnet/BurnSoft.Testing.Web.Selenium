@@ -127,3 +127,31 @@ If there is an error, it will perform a screen shot capture and store it in a di
 Happy Testing!
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JSW8XEMQVH4BE)]
+
+## Release Log
+
+### v.1.0.0.35
+
+- Fixed Driver Select for flex actions
+
+### v1.0.0.34
+
+- Added cheat sheet for documentation and added flex action stain gto driver function and options list
+
+### v1.0.0.33
+
+- Updated selenium libraries and unit test, fixed glitch with newer selenium project
+
+### v1.0.0.26
+
+- new release with addition command functions, flex action, and the ability to run a selenium side ( .side ) file for the test
+
+### v1.0.0.5
+
+- Added Flex Command to switch between Firefox, chrome and edge
+- Added Batch Command function so you can seed you element commands and option through a list and it will run that batch command
+- Added/ Simplified get element value function to just pass the element and we will guess the rest 
+
+### v1.0.0.0
+
+Initial Release
