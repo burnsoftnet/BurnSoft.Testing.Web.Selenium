@@ -706,7 +706,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         /// <param name="driver">The driver.</param>
         /// <returns>UseDriver.</returns>
-        public UseDriver SelectDriver(string driver)
+        public static UseDriver SelectDriver(string driver)
         {
             switch (driver.ToLower())
             {
