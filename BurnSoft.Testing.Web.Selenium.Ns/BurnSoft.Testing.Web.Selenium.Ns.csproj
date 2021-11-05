@@ -9,7 +9,7 @@
     <RepositoryType>git</RepositoryType>
     <Description>Web Testing library using Selenium to test any of the websites, just simplifying the process to to a unit test on your website</Description>
     <Copyright>www.burnsoft.net</Copyright>
-    <AssemblyVersion>1.0.0.34</AssemblyVersion>
+    <AssemblyVersion>1.0.0.35</AssemblyVersion>
     <FileVersion>1.0.0.34</FileVersion>
     <PackageReleaseNotes>init release of .net5</PackageReleaseNotes>
   </PropertyGroup>
@@ -31,6 +31,7 @@
     <PackageReference Include="Selenium.Support" Version="4.0.1" />
     <PackageReference Include="Selenium.WebDriver" Version="4.0.1" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="95.0.4638.5401" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0.1" />
     <PackageReference Include="Selenium.WebDriver.IEDriver" Version="3.150.1.2" />
   </ItemGroup>
 

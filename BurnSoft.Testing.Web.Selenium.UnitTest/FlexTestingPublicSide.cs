@@ -62,7 +62,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             FullExceptionPath = SettingsScreenShotLocation;
             if (!Directory.Exists(FullExceptionPath)) Directory.CreateDirectory(FullExceptionPath);
 
-            Ca = new FlexAction(FlexAction.SelectDriver("chrome"));
+            Ca = new FlexAction(FlexAction.SelectDriver("firefox"));
            
             Ca.TestName = "Init";
             Ca.Url = MainUrl;
