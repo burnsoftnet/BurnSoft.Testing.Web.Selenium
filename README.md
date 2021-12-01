@@ -130,6 +130,9 @@ Happy Testing!
 
 ## Release Log
 
+### v.1.0.0.36
+- Updated drivers
+
 ### v.1.0.0.35
 
 - Fixed Driver Select for flex actions
