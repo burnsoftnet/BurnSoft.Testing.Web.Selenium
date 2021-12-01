@@ -13,7 +13,7 @@
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
-		<releaseNotes>Added option to run a selenium side file</releaseNotes>
+		<releaseNotes>Updated Selenium Libraries</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>burnsoft web general main testing selenium</tags>
 	</metadata>
