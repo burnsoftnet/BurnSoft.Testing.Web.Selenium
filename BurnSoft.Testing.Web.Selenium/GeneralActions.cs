@@ -58,6 +58,10 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         private int _sleepInterval;
         /// <summary>
+        /// The screen shot location/
+        /// </summary>
+        public List<string> ScreenShotLocation;
+        /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
         /// <value>The sleep interval.</value>
@@ -86,6 +90,7 @@ namespace BurnSoft.Testing.Web.Selenium
                 Driver.Manage().Window.Maximize();
                 Driver.Navigate().GoToUrl($"{Url}");
                 Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 15));
+                ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
             {
@@ -106,7 +111,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public GeneralActions()
         {
-
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneralActions"/> class.
@@ -115,6 +120,7 @@ namespace BurnSoft.Testing.Web.Selenium
         public GeneralActions(string url)
         {
             Url = url;
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Enum My Actions to do on the web page
@@ -282,7 +288,9 @@ namespace BurnSoft.Testing.Web.Selenium
                 {
                     if (TestName == null || TestName?.Length ==0) TestName = "UnMarked";
                     Screenshot screenShot = screenShotDriver.GetScreenshot();
-                    screenShot.SaveAsFile($"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png", ScreenshotImageFormat.Png);
+                    string savePath = $"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png";
+                    screenShot.SaveAsFile(savePath, ScreenshotImageFormat.Png);
+                    ScreenShotLocation.Add(savePath);
                 }
                 else
                 {
