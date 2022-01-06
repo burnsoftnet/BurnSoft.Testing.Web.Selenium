@@ -130,6 +130,10 @@ Happy Testing!
 
 ## Release Log
 
+### v.1.0.0.37
+- Updated drivers
+- Added exposed variable to get the screen shot locations and added it to the results
+
 ### v.1.0.0.36
 - Updated drivers
 
