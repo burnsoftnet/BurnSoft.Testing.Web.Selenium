@@ -910,7 +910,19 @@ namespace BurnSoft.Testing.Web.Selenium
                     catch (Exception e)
                     {
                         didpass = false;
-                        result = e.Message;
+                        if (ScreenShotLocation.Count > 0)
+                        {
+                            result = $"{e.Message}{Environment.NewLine}";
+                            foreach (string s in ScreenShotLocation)
+                            {
+                                result = $"{s}{Environment.NewLine}";
+                            }
+                        }
+                        else
+                        {
+                            result = e.Message;
+                        } 
+                        
                     }
                     theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result, JumpToUrl = c.JumpToUrl, TestName = c.TestName});
                 }
