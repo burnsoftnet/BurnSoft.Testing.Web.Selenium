@@ -58,6 +58,10 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         private int _sleepInterval;
         /// <summary>
+        /// The screen shot location/
+        /// </summary>
+        public List<string> ScreenShotLocation;
+        /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
         /// <value>The sleep interval.</value>
@@ -86,6 +90,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                 Driver.Manage().Window.Maximize();
                 Driver.Navigate().GoToUrl($"{Url}");
                 Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 15));
+                ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
             {
@@ -106,7 +111,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         public GeneralActions()
         {
-
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneralActions"/> class.
@@ -115,6 +120,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         public GeneralActions(string url)
         {
             Url = url;
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Enum My Actions to do on the web page
@@ -280,9 +286,11 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                 ITakesScreenshot screenShotDriver = (ITakesScreenshot)Driver;
                 if (screenShotDriver.GetScreenshot() != null)
                 {
-                    if (TestName == null || TestName?.Length ==0) TestName = "UnMarked";
+                    if (TestName == null || TestName?.Length == 0) TestName = "UnMarked";
                     Screenshot screenShot = screenShotDriver.GetScreenshot();
-                    screenShot.SaveAsFile($"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png", ScreenshotImageFormat.Png);
+                    string savePath = $"{SettingsScreenShotLocation}\\{TestName}-{DateTime.Now.Ticks}.png";
+                    screenShot.SaveAsFile(savePath, ScreenshotImageFormat.Png);
+                    ScreenShotLocation.Add(savePath);
                 }
                 else
                 {
@@ -471,7 +479,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
             {
                 Debug.Print(e.Message);
                 ScreenShotIt();
-                if(Driver !=null) Driver.Quit();
+                if (Driver != null) Driver.Quit();
             }
         }
         /// <summary>
@@ -786,7 +794,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                         if (c.SendKeys != null) sendkeys = c.SendKeys;
                         if (c.JumpToUrl != null) jumpurl = c.JumpToUrl;
 
-                        if (sendkeys?.Length == 0 && jumpurl?.Length ==0)
+                        if (sendkeys?.Length == 0 && jumpurl?.Length == 0)
                         {
                             var cssValue = @"";
                             switch (c.UseCommand)
@@ -881,7 +889,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                                     break;
                             }
                         }
-                        else if (sendkeys?.Length > 0 && jumpurl?.Length ==0)
+                        else if (sendkeys?.Length > 0 && jumpurl?.Length == 0)
                         {
                             switch (c.UseCommand)
                             {
@@ -892,7 +900,8 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                                     WaitTillElementFound(c.ElementName, c.FindBy, c.Actions, c.SendKeys);
                                     break;
                             }
-                        } else if (jumpurl.Length > 0)
+                        }
+                        else if (jumpurl.Length > 0)
                         {
                             GoToAnotherPage(c.JumpToUrl);
                         }
@@ -904,7 +913,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                         didpass = false;
                         result = e.Message;
                     }
-                    theReturned.Add( new BatchCommandList(){SleepInterval = c.SleepInterval ,Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result, JumpToUrl = c.JumpToUrl, TestName = c.TestName});
+                    theReturned.Add(new BatchCommandList() { SleepInterval = c.SleepInterval, Actions = c.Actions, ElementName = c.ElementName, SendKeys = c.SendKeys, UseCommand = c.UseCommand, FindBy = c.FindBy, PassedFailed = didpass, SliderMax = c.SliderMax, SliderMin = c.SliderMin, SliderMoveTo = c.SliderMoveTo, ReturnedValue = result, JumpToUrl = c.JumpToUrl, TestName = c.TestName });
                 }
             }
             catch (Exception e)

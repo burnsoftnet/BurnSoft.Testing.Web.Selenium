@@ -18,6 +18,10 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
     public class MsEdgeActions : IDisposable, iGeneral
     {
         /// <summary>
+        /// The screen shot location/
+        /// </summary>
+        public List<string> ScreenShotLocation;
+        /// <summary>
         /// The driver
         /// </summary>
         private EdgeDriver _driver;
@@ -83,6 +87,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                 _driver = new EdgeDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
+                ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
             {
@@ -99,6 +104,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.ScreenShotIt();
+            ScreenShotLocation.AddRange(Ga.ScreenShotLocation);
         }
         /// <summary>
         /// Goes to another page.
@@ -647,7 +653,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         public MsEdgeActions()
         {
-
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="ChromeActions"/> class.
@@ -656,6 +662,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         public MsEdgeActions(string url)
         {
             Url = url;
+            ScreenShotLocation = new List<string>();
         }
     }
 }

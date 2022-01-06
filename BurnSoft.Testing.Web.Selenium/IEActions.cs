@@ -33,7 +33,10 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         /// <value>The sleep interval.</value>
         public int _sleepInterval { get; set; }
-
+        /// <summary>
+        /// The screen shot location/
+        /// </summary>
+        public List<string> ScreenShotLocation;
         /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
@@ -85,6 +88,7 @@ namespace BurnSoft.Testing.Web.Selenium
                 _driver = new InternetExplorerDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
+                ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
             {
@@ -101,6 +105,7 @@ namespace BurnSoft.Testing.Web.Selenium
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.ScreenShotIt();
+            ScreenShotLocation.AddRange(Ga.ScreenShotLocation);
         }
         /// <summary>
         /// Goes to another page.
@@ -649,7 +654,7 @@ namespace BurnSoft.Testing.Web.Selenium
         /// </summary>
         public IEActions()
         {
-
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="ChromeActions"/> class.
@@ -658,6 +663,7 @@ namespace BurnSoft.Testing.Web.Selenium
         public IEActions(string url)
         {
             Url = url;
+            ScreenShotLocation = new List<string>();
         }
     }
 }

@@ -110,3 +110,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Style", "IDE0066:Convert switch statement to expression", Justification = "<Pending>", Scope = "member", Target = "~M:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.SelectDriver(System.String)~BurnSoft.Testing.Web.Selenium.Ns.FlexAction.UseDriver")]
 [assembly: SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>", Scope = "member", Target = "~M:BurnSoft.Testing.Web.Selenium.Ns.CheatSheet.Article")]
 [assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~M:BurnSoft.Testing.Web.Selenium.Ns.CheatSheet.Article")]
+[assembly: SuppressMessage("Style", "IDE0090:Use 'new(...)'", Justification = "<Pending>", Scope = "member", Target = "~F:BurnSoft.Testing.Web.Selenium.Ns.FlexAction.DriverListObj")]

@@ -17,7 +17,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
     /// Implements the <see cref="System.IDisposable" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    public class ChromeActions :IDisposable, iGeneral
+    public class ChromeActions : IDisposable, iGeneral
     {
         /// <summary>
         /// The driver
@@ -34,7 +34,10 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         /// <value>The sleep interval.</value>
         public int _sleepInterval { get; set; }
-
+        /// <summary>
+        /// The screen shot location/
+        /// </summary>
+        public List<string> ScreenShotLocation;
         /// <summary>
         /// Gets or sets the sleep interval.
         /// </summary>
@@ -82,10 +85,11 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         {
             try
             {
-                Ga = new GeneralActions(Url) {SettingsScreenShotLocation = SettingsScreenShotLocation};
+                Ga = new GeneralActions(Url) { SettingsScreenShotLocation = SettingsScreenShotLocation };
                 _driver = new ChromeDriver();
                 Ga.Driver = _driver;
                 Ga.Initializer();
+                ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
             {
@@ -102,6 +106,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
             Ga.Driver = _driver;
             Ga.TestName = TestName;
             Ga.ScreenShotIt();
+            ScreenShotLocation.AddRange(Ga.ScreenShotLocation);
         }
         /// <summary>
         /// Goes to another page.
@@ -322,7 +327,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         {
             Ga.Driver = _driver;
             Ga.TestName = TestName;
-            Ga.SelectElementInPage(field, fb,textToSelect);
+            Ga.SelectElementInPage(field, fb, textToSelect);
         }
 
         /// <summary>
@@ -607,7 +612,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         private void ReleaseUnmanagedResources()
         {
-           
+
         }
         /// <summary>
         /// Releases unmanaged and - optionally - managed resources.
@@ -632,7 +637,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
                 _driver.Close();
                 _driver.Dispose();
             }
-            
+
             Ga.Dispose();
             Dispose(true);
             GC.SuppressFinalize(this);
@@ -649,7 +654,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         /// </summary>
         public ChromeActions()
         {
-
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="ChromeActions"/> class.
@@ -658,6 +663,7 @@ namespace BurnSoft.Testing.Web.Selenium.Ns
         public ChromeActions(string url)
         {
             Url = url;
+            ScreenShotLocation = new List<string>();
         }
     }
 }

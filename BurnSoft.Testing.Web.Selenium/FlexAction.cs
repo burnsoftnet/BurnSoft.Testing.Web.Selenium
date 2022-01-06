@@ -733,6 +733,7 @@ namespace BurnSoft.Testing.Web.Selenium
         public FlexAction()
         {
             ErrorList = new List<string>();
+            ScreenShotLocation = new List<string>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="FlexAction"/> class.
@@ -741,6 +742,7 @@ namespace BurnSoft.Testing.Web.Selenium
         public FlexAction(UseDriver ud)
         {
             ErrorList = new List<string>();
+            ScreenShotLocation = new List<string>();
             InitDriver(ud);
         }
         /// <summary>
