@@ -13,7 +13,7 @@
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
-		<releaseNotes>Updated Selenium Libraries</releaseNotes>
+		<releaseNotes>Updated Selenium Libraries, and increased wait time based on cpu speed</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>burnsoft web general main testing selenium</tags>
 	</metadata>
