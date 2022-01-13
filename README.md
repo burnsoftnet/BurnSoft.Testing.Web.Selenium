@@ -130,6 +130,10 @@ Happy Testing!
 
 ## Release Log
 
+### v.1.0.0.38
+- Updated drivers
+- Added the ability to increase the Wait Till Found based on the cpu speed of the machine, slower older machines will increase to 40 seconds max wait while newer machines will be at 15 seconds max wait
+
 ### v.1.0.0.37
 - Updated drivers
 - Added exposed variable to get the screen shot locations and added it to the results
