@@ -69,5 +69,10 @@ if NOT "%~5"=="-g" goto END
 echo "nuget guthub push"
 nuget push %nupak%.%NUGETEXT% -source "github"
 
+:NUGET
+
+if NOT "%~5"=="-n" goto END
+echo "Push to Nuget.org"
+nuget push %nupak%.%NUGETEXT% -Source https://api.nuget.org/v3/index.json
 :END
 cd ..
