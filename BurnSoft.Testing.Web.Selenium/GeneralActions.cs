@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Management;
 using System.Threading;
 using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
@@ -81,6 +82,32 @@ namespace BurnSoft.Testing.Web.Selenium
             set => _sleepInterval = value;
         }
         /// <summary>
+        /// Uses the wait seconds.
+        /// </summary>
+        /// <returns>System.Int32.</returns>
+        private int UseWaitSeconds()
+        {
+            int iAns = 15;
+            try
+            {
+                var clockSpeed = 0.0;
+                var searcher = new ManagementObjectSearcher(
+                    "select MaxClockSpeed from Win32_Processor");
+                foreach (var item in searcher.Get())
+                {
+                    clockSpeed = (uint)item["MaxClockSpeed"];
+                }
+
+                if (clockSpeed < 2000) iAns = 40;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            return iAns;
+        }
+        /// <summary>
         /// Initialize this instance.
         /// </summary>
         public void Initializer()
@@ -89,7 +116,8 @@ namespace BurnSoft.Testing.Web.Selenium
             {
                 Driver.Manage().Window.Maximize();
                 Driver.Navigate().GoToUrl($"{Url}");
-                Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, 15));
+                int seconds = UseWaitSeconds();
+                Wait = new WebDriverWait(Driver, new TimeSpan(0, 0, seconds));
                 ScreenShotLocation = new List<string>();
             }
             catch (Exception e)
