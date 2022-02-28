@@ -2,9 +2,9 @@
 <package >
 	<metadata>
 		<id>$id$</id>
-		<version>$version$-alpha</version>
+		<version>1.0.0.39-alpha</version>
 		<title>$title$</title>
-		<authors>$author$</authors>
+		<authors>burnsoftnet</authors>
 		<owners>burnsoftnet</owners>
 		<projectUrl>https://github.com/burnsoftnet/BurnSoft.Testing.Web.Selenium.git</projectUrl>
 		<repository type="git" url="https://github.com/burnsoftnet/BurnSoft.Testing.Web.Selenium.git" />
@@ -12,7 +12,7 @@
 		<icon>bswtsicon.png</icon>
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>$description$</description>
+		<description>Web Testing library using Selenium to test any of the websites, just simplifying the process to to a unit test on your website</description>
 		<releaseNotes>Updated Selenium Libraries, and increased wait time based on cpu speed</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>burnsoft web general main testing selenium</tags>
