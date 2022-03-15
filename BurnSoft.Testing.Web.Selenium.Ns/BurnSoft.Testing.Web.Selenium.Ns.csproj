@@ -9,10 +9,10 @@
     <RepositoryType>git</RepositoryType>
     <Description>Web Testing library using Selenium to test any of the websites, just simplifying the process to to a unit test on your website</Description>
     <Copyright>www.burnsoft.net</Copyright>
-    <AssemblyVersion>1.0.0.37</AssemblyVersion>
-    <FileVersion>1.0.0.37</FileVersion>
+    <AssemblyVersion>1.0.0.40</AssemblyVersion>
+    <FileVersion>1.0.0.40</FileVersion>
     <PackageReleaseNotes>init release of .net5</PackageReleaseNotes>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -130,6 +130,12 @@ Happy Testing!
 
 ## Release Log
 
+### v.1.0.0.40
+- Updated drivers
+
+### v.1.0.0.39
+- Updated drivers
+
 ### v.1.0.0.38
 - Updated drivers
 - Added the ability to increase the Wait Till Found based on the cpu speed of the machine, slower older machines will increase to 40 seconds max wait while newer machines will be at 15 seconds max wait
