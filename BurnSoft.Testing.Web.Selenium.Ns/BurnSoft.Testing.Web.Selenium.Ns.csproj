@@ -13,17 +13,40 @@
     <FileVersion>1.0.0.40</FileVersion>
     <PackageReleaseNotes>init release of .net5</PackageReleaseNotes>
     <Version>1.0.3</Version>
+    <RootNamespace>BurnSoft.Testing.Web.Selenium</RootNamespace>
+    <AssemblyName>BurnSoft.Testing.Web.Selenium</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>C:\Source\Repos\BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.xml</DocumentationFile>
+    <OutputPath>C:\Source\Repos\BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium\bin\Debug\net50\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
+    <DocumentationFile>C:\Source\Repos\BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium.Ns\BurnSoft.Testing.Web.Selenium.xml</DocumentationFile>
+    <OutputPath>C:\Source\Repos\BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium\bin\Release\net50\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\BatchCmdHelper.cs" Link="BatchCmdHelper.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\CheatSheet.cs" Link="CheatSheet.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\ChromeActions.cs" Link="ChromeActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\FlexAction.cs" Link="FlexAction.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\GeneralActions.cs" Link="GeneralActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\IEActions.cs" Link="IEActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iChromeActions.cs" Link="interfaces\iChromeActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iGeneral.cs" Link="interfaces\iGeneral.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iIEActions.cs" Link="interfaces\iIEActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iMsEdgeActions.cs" Link="interfaces\iMsEdgeActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\MSEdgeActions.cs" Link="MSEdgeActions.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\SeleniumIde.cs" Link="SeleniumIde.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\Types\BatchCommandList.cs" Link="Types\BatchCommandList.cs" />
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\Types\SideFile.cs" Link="Types\SideFile.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
@@ -35,6 +58,7 @@
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0.1" />
     <PackageReference Include="Selenium.WebDriver.IEDriver" Version="4.0.0" />
     <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="99.0.1150.25" />
+    <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +66,11 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="interfaces\" />
+    <Folder Include="Types\" />
   </ItemGroup>
 
 </Project>
