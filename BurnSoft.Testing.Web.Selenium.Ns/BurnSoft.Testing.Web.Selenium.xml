@@ -1,0 +1,3709 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BurnSoft.Testing.Web.Selenium</name>
+    </assembly>
+    <members>
+        <member name="T:BurnSoft.Testing.Web.Selenium.BatchCmdHelper">
+            <summary>
+            Class BatchCmdHelper. A simpified verstion to add commands to the batch command list
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.BatchCmdHelper.ClickOnElement(System.String,System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.Boolean)">
+            <summary>
+            Clicks the on element., Just pass the basic name and the verification option switch will
+            tag on Click on or Verify to the main test name, by default we are looking for xpath, but you can change that.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="name">The name.</param>
+            <param name="fb">The fb.</param>
+            <param name="verify">if set to <c>true</c> [verify].</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.BatchCmdHelper.SetTextBox(System.String,System.String,System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.Boolean)">
+            <summary>
+            Sets the text box.Just pass the basic name and the verification option switch will
+            tag on Click on or Verify to the main test name, by default we are looking for xpath, but you can change that.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="name">The name.</param>
+            <param name="newValue">The new value.</param>
+            <param name="fb">The fb.</param>
+            <param name="verify">if set to <c>true</c> [verify].</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.BatchCmdHelper.GetLinkAndGoTo(System.String,System.String)">
+            <summary>
+            Gets the link and go to.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="name">The name.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.BatchCmdHelper.Sleep500">
+            <summary>
+            Sleep for half a second
+            </summary>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.BatchCmdHelper.Sleep(System.Int32)">
+            <summary>
+            Sleep for 1 second
+            </summary>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.CheatSheet">
+            <summary>
+            Private class for documentation based on the Most Complete Selenium WebDriver C# Cheat Sheet @ https://www.automatetheplanet.com/selenium-webdriver-csharp-cheat-sheet/
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.CheatSheet.Article">
+             <summary>
+             <h1>Initialize</h1> <br/>
+             <br/>
+             //NuGet: Selenium.WebDriver.ChromeDriver <br/>
+             using OpenQA.Selenium.Chrome; <br/>
+             IWebDriver driver = new ChromeDriver(); <br/>
+             // NuGet: Selenium.Mozilla.Firefox.Webdriver <br/>
+             using OpenQA.Selenium.Firefox; <br/>
+             IWebDriver driver = new FirefoxDriver(); <br/>
+             // NuGet: Selenium.WebDriver.PhantomJS <br/>
+             using OpenQA.Selenium.PhantomJS; <br/>
+             IWebDriver driver = new PhantomJSDriver(); <br/>
+             // NuGet: Selenium.WebDriver.IEDriver <br/>
+             using OpenQA.Selenium.IE; <br/>
+             IWebDriver driver = new InternetExplorerDriver(); <br/>
+             // NuGet: Selenium.WebDriver.EdgeDriver <br/>
+             using OpenQA.Selenium.Edge; <br/>
+             IWebDriver driver = new EdgeDriver(); <br/>
+             <br/>
+            <h1>Locators</h1> <br/>
+             <br/>
+             this.driver.FindElement(By.ClassName("className")); <br/>
+             this.driver.FindElement(By.CssSelector("css")); <br/>
+             this.driver.FindElement(By.Id("id")); <br/>
+             this.driver.FindElement(By.LinkText("text")); <br/>
+             this.driver.FindElement(By.Name("name")); <br/>
+             this.driver.FindElement(By.PartialLinkText("pText")); <br/>
+             this.driver.FindElement(By.TagName("input")); <br/>
+             this.driver.FindElement(By.XPath("//*[@id='editor']")); <br/>
+             // Find multiple elements <br/>
+             IReadOnlyCollection&lt;IWebElement&gt; anchors = this.driver.FindElements(By.TagName("a")); <br/>
+             // Search for an element inside another <br/>
+             var div = this.driver.FindElement(By.TagName("div")).FindElement(By.TagName("a")); <br/>
+             <br/>
+             <h1>Basic Elements Operations</h1> <br/>
+             <br/>
+             IWebElement element = driver.FindElement(By.Id("id")); <br/>
+             element.Click(); <br/>
+             element.SendKeys("someText"); <br/>
+             element.Clear(); <br/>
+             element.Submit(); <br/>
+             string innerText = element.Text; <br/>
+             bool isEnabled = element.Enabled; <br/>
+             bool isDisplayed = element.Displayed; <br/>
+             bool isSelected = element.Selected; <br/>
+             IWebElement element = driver.FindElement(By.Id("id")); <br/>
+             SelectElement select = new SelectElement(element); <br/>
+             select.SelectByIndex(1); <br/>
+             select.SelectByText("Ford"); <br/>
+             select.SelectByValue("ford"); <br/>
+             select.DeselectAll(); <br/>
+             select.DeselectByIndex(1); <br/>
+             select.DeselectByText("Ford"); <br/>
+             select.DeselectByValue("ford"); <br/>
+             IWebElement selectedOption = select.SelectedOption; <br/>
+             IList&lt;IWebElement&gt; allSelected = select.AllSelectedOptions; <br/>
+             bool isMultipleSelect = select.IsMultiple; <br/>
+             <br/>
+             <h1>Advanced Elements Operations</h1> <br/>
+             <br/>
+             // Drag and Drop <br/>
+             IWebElement element = <br/>
+             /// driver.FindElement(By.XPath("//*[@id='project']/p[1]/div/div[2]")); &lt;br/&gt;
+             /// Actions move = new Actions(driver); &lt;br/&gt;
+             /// move.DragAndDropToOffset(element, 30, 0).Perform(); &lt;br/&gt;
+             /// // How to check if an element is visible &lt;br/&gt;
+             /// Assert.IsTrue(driver.FindElement(By.XPath("//*[@id='tve_editor']/div")).Displayed); &lt;br/&gt;
+             /// // Upload a file &lt;br/&gt;
+             /// IWebElement element = driver.FindElement(By.Id("RadUpload1file0")); &lt;br/&gt;
+             /// String filePath = @"D:WebDriver.Series.TestsWebDriver.xml"; &lt;br/&gt;
+             /// element.SendKeys(filePath); &lt;br/&gt;
+             /// // Scroll focus to control &lt;br/&gt;
+             /// IWebElement link = driver.FindElement(By.PartialLinkText("Previous post")); &lt;br/&gt;
+             /// string js = string.Format("window.scroll(0, {0});", link.Location.Y); &lt;br/&gt;
+             /// ((IJavaScriptExecutor)driver).ExecuteScript(js); &lt;br/&gt;
+             /// link.Click(); &lt;br/&gt;
+             /// // Taking an element screenshot &lt;br/&gt;
+             /// IWebElement element = driver.FindElement(By.XPath("//*[@id='tve_editor']/div")); &lt;br/&gt;
+             /// var cropArea = new Rectangle(element.Location, element.Size); &lt;br/&gt;
+             /// var bitmap = bmpScreen.Clone(cropArea, bmpScreen.PixelFormat); &lt;br/&gt;
+             /// bitmap.Save(fileName); &lt;br/&gt;
+             /// // Focus on a control &lt;br/&gt;
+             /// IWebElement link = driver.FindElement(By.PartialLinkText("Previous post")); &lt;br/&gt;
+             /// // Wait for visibility of an element &lt;br/&gt;
+             /// WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30)); &lt;br/&gt;
+             /// wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy( &lt;br/&gt;
+             /// By.XPath("//*[@id='tve_editor']/div[2]/div[2]/div/div"))); &lt;br/&gt;
+             /// &lt;br/&gt;
+             /// &lt;h1&gt;Basic Browser Operations&lt;/h1&gt; &lt;br/&gt;
+             /// &lt;br/&gt;
+             /// // Navigate to a page  &lt;br/&gt;
+             /// this.driver.Navigate().GoToUrl(@"http://google.com"); &lt;br/&gt;
+             /// // Get the title of the page &lt;br/&gt;
+             /// string title = this.driver.Title; &lt;br/&gt;
+             /// // Get the current URL &lt;br/&gt;
+             /// string url = this.driver.Url; &lt;br/&gt;
+             /// // Get the current page HTML source &lt;br/&gt;
+             /// string html = this.driver.PageSource; &lt;br/&gt;
+             /// &lt;br/&gt;
+             /// &lt;h1&gt;Advanced Browser Operations&lt;/h1&gt; &lt;br/&gt;
+             /// &lt;br/&gt;
+             /// // Handle JavaScript pop-ups &lt;br/&gt;
+             ///        IAlert a = driver.SwitchTo().Alert(); &lt;br/&gt;
+             ///        a.Accept(); &lt;br/&gt;
+             ///        a.Dismiss(); &lt;br/&gt;
+             /// // Switch between browser windows or tabs &lt;br/&gt;
+             ///        ReadOnlyCollection&lt;string&gt; windowHandles = driver.WindowHandles; &lt;br/&gt;
+             ///        string firstTab = windowHandles.First(); &lt;br/&gt;
+             ///        string lastTab = windowHandles.Last(); &lt;br/&gt;
+             ///        driver.SwitchTo().Window(lastTab); &lt;br/&gt;
+             /// // Navigation history &lt;br/&gt;
+             ///            this.driver.Navigate().Back(); &lt;br/&gt;
+             ///            this.driver.Navigate().Refresh(); &lt;br/&gt;
+             ///            this.driver.Navigate().Forward(); &lt;br/&gt;
+             ///        // Option 1. &lt;br/&gt;
+             ///        link.SendKeys(string.Empty); &lt;br/&gt;
+             /// // Option 2. &lt;br/&gt;
+             ///        ((IJavaScriptExecutor) driver).ExecuteScript("arguments[0].focus();", link); &lt;br/&gt;
+             /// // Maximize window &lt;br/&gt;
+             ///        this.driver.Manage().Window.Maximize(); &lt;br/&gt;
+             /// // Add a new cookie &lt;br/&gt;
+             ///        Cookie cookie = new OpenQA.Selenium.Cookie("key", "value"); &lt;br/&gt;
+             ///            this.driver.Manage().Cookies.AddCookie(cookie); &lt;br/&gt;
+             /// // Get all cookies &lt;br/&gt;
+             ///         var cookies = this.driver.Manage().Cookies.AllCookies; &lt;br/&gt;
+             /// // Delete a cookie by name &lt;br/&gt;
+             ///             this.driver.Manage().Cookies.DeleteCookieNamed("CookieName"); &lt;br/&gt;
+             /// // Delete all cookies &lt;br/&gt;
+             ///         this.driver.Manage().Cookies.DeleteAllCookies(); &lt;br/&gt;
+             /// //Taking a full-screen screenshot &lt;br/&gt;
+             ///         Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot(); &lt;br/&gt;
+             ///         screenshot.SaveAsFile(@"pathToImage", ImageFormat.Png); &lt;br/&gt;
+             /// // Wait until a page is fully loaded via JavaScript &lt;br/&gt;
+             ///        WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(30)); &lt;br/&gt;
+             ///        wait.Until((x) =&gt; &lt;br/&gt;
+             ///        { &lt;br/&gt;
+             ///            return ((IJavaScriptExecutor)this.driver).ExecuteScript("return document.readyState").Equals("complete"); &lt;br/&gt;
+             ///        }); &lt;br/&gt;
+             /// // Switch to frames &lt;br/&gt;
+             ///        this.driver.SwitchTo().Frame(1); &lt;br/&gt;
+             ///    this.driver.SwitchTo().Frame("frameName"); &lt;br/&gt;
+             ///    IWebElement element = this.driver.FindElement(By.Id("id")); &lt;br/&gt;
+             ///    this.driver.SwitchTo().Frame(element); &lt;br/&gt;
+             /// // Switch to the default document &lt;br/&gt;
+             ///    this.driver.SwitchTo().DefaultContent(); &lt;br/&gt;
+             ///  &lt;br/&gt;
+             &lt;h1&gt;Advanced Browser Configurations&lt;/h1&gt; &lt;br/&gt;
+             /// &lt;br/&gt;
+             /// // Use a specific Firefox profile &lt;br/&gt;
+             /// FirefoxProfileManager profileManager = new FirefoxProfileManager(); &lt;br/&gt;
+             /// FirefoxProfile profile = profileManager.GetProfile("HARDDISKUSER"); &lt;br/&gt;
+             /// IWebDriver driver = new FirefoxDriver(profile); &lt;br/&gt;
+             /// // Set a HTTP proxy Firefox &lt;br/&gt;
+             /// FirefoxProfile firefoxProfile = new FirefoxProfile(); &lt;br/&gt;
+             /// firefoxProfile.SetPreference("network.proxy.type", 1); &lt;br/&gt;
+             /// firefoxProfile.SetPreference("network.proxy.http", "myproxy.com"); &lt;br/&gt;
+             /// firefoxProfile.SetPreference("network.proxy.http_port", 3239); &lt;br/&gt;
+             /// IWebDriver driver = new FirefoxDriver(firefoxProfile); &lt;br/&gt;
+             /// // Set a HTTP proxy Chrome &lt;br/&gt;
+             /// ChromeOptions options = new ChromeOptions(); &lt;br/&gt;
+             /// var proxy = new Proxy(); &lt;br/&gt;
+             /// proxy.Kind = ProxyKind.Manual; &lt;br/&gt;
+             /// proxy.IsAutoDetect = false; &lt;br/&gt;
+             /// proxy.HttpProxy = &lt;br/&gt;
+             /// proxy.SslProxy = "127.0.0.1:3239"; &lt;br/&gt;
+             /// options.Proxy = proxy; &lt;br/&gt;
+             /// options.AddArgument("ignore-certificate-errors"); &lt;br/&gt;
+             /// IWebDriver driver = new ChromeDriver(options); &lt;br/&gt;
+             /// // Accept all certificates Firefox v
+             /// FirefoxProfile firefoxProfile = new FirefoxProfile(); &lt;br/&gt;
+             /// firefoxProfile.AcceptUntrustedCertificates = true; &lt;br/&gt;
+             /// firefoxProfile.AssumeUntrustedCertificateIssuer = false; &lt;br/&gt;
+             /// IWebDriver driver = new FirefoxDriver(firefoxProfile); &lt;br/&gt;
+             /// // Accept all certificates Chrome  &lt;br/&gt;
+             /// DesiredCapabilities capability = DesiredCapabilities.Chrome(); &lt;br/&gt;
+             /// Environment.SetEnvironmentVariable("webdriver.chrome.driver", "C:PathToChromeDriver.exe"); &lt;br/&gt;
+             /// capability.SetCapability(CapabilityType.AcceptSslCertificates, true); &lt;br/&gt;
+             /// IWebDriver driver = new RemoteWebDriver(capability); &lt;br/&gt;
+             /// // Set Chrome options. &lt;br/&gt;
+             /// ChromeOptions options = new ChromeOptions(); &lt;br/&gt; &lt;br/&gt;
+             /// DesiredCapabilities dc = DesiredCapabilities.Chrome(); &lt;br/&gt;
+             /// dc.SetCapability(ChromeOptions.Capability, options); &lt;br/&gt;
+             /// IWebDriver driver = new RemoteWebDriver(dc); &lt;br/&gt;
+             /// // Turn off the JavaScript Firefox &lt;br/&gt;
+             /// FirefoxProfileManager profileManager = new FirefoxProfileManager(); &lt;br/&gt;
+             /// FirefoxProfile profile = profileManager.GetProfile("HARDDISKUSER"); &lt;br/&gt;
+             /// profile.SetPreference("javascript.enabled", false); &lt;br/&gt;
+             /// IWebDriver driver = new FirefoxDriver(profile); &lt;br/&gt;
+             /// // Set the default page load timeout &lt;br/&gt;
+             /// driver.Manage().Timeouts().SetPageLoadTimeout(new TimeSpan(10)); &lt;br/&gt;
+             /// // Start Firefox with plugins &lt;br/&gt;
+             /// FirefoxProfile profile = new FirefoxProfile(); &lt;br/&gt;
+             /// profile.AddExtension(@"C:extensionsLocationextension.xpi"); &lt;br/&gt;
+             /// IWebDriver driver = new FirefoxDriver(profile); &lt;br/&gt;
+             /// // Start Chrome with an unpacked extension &lt;br/&gt;
+             /// ChromeOptions options = new ChromeOptions(); &lt;br/&gt;
+             /// options.AddArguments("load-extension=/pathTo/extension"); &lt;br/&gt;
+             /// DesiredCapabilities capabilities = new DesiredCapabilities(); &lt;br/&gt;
+             /// capabilities.SetCapability(ChromeOptions.Capability, options); &lt;br/&gt;
+             /// DesiredCapabilities dc = DesiredCapabilities.Chrome(); &lt;br/&gt;
+             /// dc.SetCapability(ChromeOptions.Capability, options); &lt;br/&gt;
+             /// IWebDriver driver = new RemoteWebDriver(dc); &lt;br/&gt;
+             /// // Start Chrome with a packed extension &lt;br/&gt;
+             /// ChromeOptions options = new ChromeOptions(); &lt;br/&gt;
+             /// options.AddExtension(Path.GetFullPath("localpathto/extension.crx")); &lt;br/&gt;
+             /// DesiredCapabilities capabilities = new DesiredCapabilities(); &lt;br/&gt;
+             /// capabilities.SetCapability(ChromeOptions.Capability, options); &lt;br/&gt;
+             /// DesiredCapabilities dc = DesiredCapabilities.Chrome(); &lt;br/&gt;
+             /// dc.SetCapability(ChromeOptions.Capability, options); &lt;br/&gt;
+             /// IWebDriver driver = new RemoteWebDriver(dc); &lt;br/&gt;
+             /// // Change the default files’ save location &lt;br/&gt;
+             /// String downloadFolderPath = @"c:temp"; &lt;br/&gt;
+             /// FirefoxProfile profile = new FirefoxProfile(); &lt;br/&gt;
+             /// profile.SetPreference("browser.download.folderList", 2); &lt;br/&gt;
+             /// profile.SetPreference("browser.download.dir", downloadFolderPath); &lt;br/&gt;
+             /// profile.SetPreference("browser.download.manager.alertOnEXEOpen", false); &lt;br/&gt;
+             /// profile.SetPreference("browser.helperApps.neverAsk.saveToDisk",  &lt;br/&gt; 
+             /// "application/msword, application/binary, application/ris, text/csv, image/png, application/pdf,  &lt;br/&gt;
+             /// text/html, text/plain, application/zip, application/x-zip, application/x-zip-compressed, application/download, &lt;br/&gt;
+             /// application/octet-stream");&lt;br/&gt;
+             /// this.driver = new FirefoxDriver(profile);&lt;br/&gt;
+             
+             </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.ChromeActions">
+            <summary>
+            Class ChromeActions.
+            Implements the <see cref="T:System.IDisposable" />
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.ChromeActions._driver">
+            <summary>
+            The driver
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.Ga">
+            <summary>
+            Gets or sets the ga.
+            </summary>
+            <value>The ga.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions._sleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.ChromeActions.ScreenShotLocation">
+            <summary>
+            The screen shot location/
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.SettingsScreenShotLocation">
+            <summary>
+            Gets or sets the settings screen shot location.
+            </summary>
+            <value>The settings screen shot location.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.DoSleep">
+            <summary>
+            Gets or sets a value indicating whether [do sleep].
+            </summary>
+            <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.ChromeActions.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.Initializer">
+            <summary>
+            Initialize this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
+            <param name="sendText">the text that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <param name="sendText">The send text.</param>
+            <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetContentsOfTag(System.String)">
+            <summary>
+            Gets the contents of tag.  If you ask for the <br/>
+            Body tag it will return only the text of the entire webpage.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
+            <summary>
+            Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">Error out if results return false or exception</param>
+            <param name="expectedCount">The expected count.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.LinkIsPresentByLinkText(System.String,System.String@)">
+            <summary>
+            Links the is present by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.LinkIsPresentById(System.String,System.String@)">
+            <summary>
+            Links the is present by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetLinkFromElement(System.String,System.String@)">
+            <summary>
+            Gets the link from element.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the text from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the text from element by x path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by partial link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the text from element by CSS selector.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by tag.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElementByName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetTextFromElement(System.String,System.String@)">
+            <summary>
+            Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">Actions to so, click clear, send keys etc</param>
+            <param name="sendKeys">keys that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Runs the batch commands.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="errOut">The error out.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+            <example>
+            This is an example from the unit test <br/>
+            <br/>
+            Ca.TestName = "PublicUIBatch";<br/>
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+            List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+            cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Loaders Log", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = @"Click on the My Loaders Log Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "File Renamer Utility", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the File Renamer Utility" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "BurnPad", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on BurnPad Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Click on Support Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "Contact", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Select Contact Option from menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_txtName", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Jimmy Pop Corn Batch", <br/>
+                    TestName = "Send Name to Text Box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txteMail", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "joe.mireles@burnsoft.net", <br/>
+                    TestName = "Send email to text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txtMsg", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Make Software Great Again in Batch", <br/>
+                    TestName = "Send the message to the text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_btnSend", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Click on the send button" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_Label4", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Wait for response label" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+                    ExpectedReturnedValue = "$29.99" <br/>
+                }); <br/>
+             <br/>
+                List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+             <br/>
+            int testNumber = 1; <br/>
+                foreach (BatchCommandList v in value) <br/>
+                { <br/>
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+            TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+                    TestContext.WriteLine(v.ReturnedValue); <br/>
+                    testNumber++; <br/>
+                } <br/>
+            </example>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.AllTestsPassed(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList})">
+            <summary>
+            Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+            if some show up as failed then it will return false, else everything passed and it is true.
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GenerateResults(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+            if it failed, to return the element name that it failed at.
+            </summary>
+            <param name="cmdResults">The command results.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetItemBackGroundColorByCss(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by CSS Element link.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetItemBackGroundColorByXPath(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by x path.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetItemBackGroundColorById(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by identifier.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.GetItemBackGroundColorByLinkText(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by link text.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.ReleaseUnmanagedResources">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.FlexAction">
+            <summary>
+            Class FlexAction.  The flex action class is allows a quick and easy way to
+            run test against seperate browsers just by passing which browser you want to use.
+            Implements the <see cref="T:System.IDisposable" />
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.SelectedDriver">
+            <summary>
+            Gets or sets the selected driver.
+            </summary>
+            <value>The selected driver.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.Driver">
+            <summary>
+            Gets or sets the driver.
+            </summary>
+            <value>The driver.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.Ga">
+            <summary>
+            Gets or sets the ga.
+            </summary>
+            <value>The ga.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction._sleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.ScreenShotLocation">
+            <summary>
+            The screen shot location/
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.ErrorList">
+            <summary>
+            A simple list to log errors
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.SettingsScreenShotLocation">
+            <summary>
+            Gets or sets the settings screen shot location.
+            </summary>
+            <value>The settings screen shot location.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.DoSleep">
+            <summary>
+            Gets or sets a value indicating whether [do sleep].
+            </summary>
+            <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.FlexAction.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver">
+            <summary>
+            Enum Use Broswer Driver Options
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver.Chrome">
+            <summary>
+            The chrome browser driver
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver.Edge">
+            <summary>
+            The edge  browser driver, not the edge from the band U2, this is better, it's MS Edge
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver.IE">
+            <summary>
+            The ie  browser driver
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver.FireFox">
+            <summary>
+            The fire fox  browser driver
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.Initializer">
+            <summary>
+            Initialize this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetLinkFromElement(System.String,System.String@)">
+            <summary>
+            Gets the link from element.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Runs the batch commands.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="errOut">The error out.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+            <example>
+            This is an example from the unit test <br/>
+            <br/>
+            Ca.TestName = "PublicUIBatch";<br/>
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+            List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+            cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Loaders Log", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = @"Click on the My Loaders Log Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "File Renamer Utility", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the File Renamer Utility" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "BurnPad", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on BurnPad Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Click on Support Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "Contact", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Select Contact Option from menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_txtName", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Jimmy Pop Corn Batch", <br/>
+                    TestName = "Send Name to Text Box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txteMail", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "joe.mireles@burnsoft.net", <br/>
+                    TestName = "Send email to text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txtMsg", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Make Software Great Again in Batch", <br/>
+                    TestName = "Send the message to the text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_btnSend", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Click on the send button" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_Label4", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Wait for response label" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+                    ExpectedReturnedValue = "$29.99" <br/>
+                }); <br/>
+             <br/>
+                List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+             <br/>
+            int testNumber = 1; <br/>
+                foreach (BatchCommandList v in value) <br/>
+                { <br/>
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+            TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+                    TestContext.WriteLine(v.ReturnedValue); <br/>
+                    testNumber++; <br/>
+                } <br/>
+            </example>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.AllTestsPassed(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList})">
+            <summary>
+            Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+            if some show up as failed then it will return false, else everything passed and it is true.
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GenerateResults(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+            if it failed, to return the element name that it failed at.
+            </summary>
+            <param name="cmdResults">The command results.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
+            <param name="sendText">the text that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <param name="sendText">The send text.</param>
+            <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetContentsOfTag(System.String)">
+            <summary>
+            Gets the contents of tag.  If you ask for the <br/>
+            Body tag it will return only the text of the entire webpage.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
+            <summary>
+            Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">Error out if results return false or exception</param>
+            <param name="expectedCount">The expected count.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.LinkIsPresentByLinkText(System.String,System.String@)">
+            <summary>
+            Links the is present by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.LinkIsPresentById(System.String,System.String@)">
+            <summary>
+            Links the is present by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the text from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the text from element by x path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by partial link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the text from element by CSS selector.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by tag.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElementByName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetTextFromElement(System.String,System.String@)">
+            <summary>
+            Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">Actions to so, click clear, send keys etc</param>
+            <param name="sendKeys">keys that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetItemBackGroundColorByCss(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by CSS Element link.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetItemBackGroundColorByXPath(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by x path.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetItemBackGroundColorById(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by identifier.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.GetItemBackGroundColorByLinkText(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by link text.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.ReleaseUnmanagedResources">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.FlexAction"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.DriverList">
+            <summary>
+            The driver list
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.FlexAction.DriverListObj">
+            <summary>
+            The driver list
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.SelectDriver(System.String)">
+            <summary>
+            Selects the driver mased on the string selection for th driver using adrop down or something from the driver list
+            </summary>
+            <param name="driver">The driver.</param>
+            <returns>UseDriver.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.FlexAction"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.#ctor(BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.FlexAction"/> class.
+            </summary>
+            <param name="ud">The ud.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.InitDriver(BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver)">
+            <summary>
+            Initializes the driver.
+            </summary>
+            <param name="ud">The ud.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.#ctor(BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+            <param name="ud">Use Selenium Driver selection</param>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.ApplendToErrorList(System.String,System.String)">
+            <summary>
+            Applends to error list.
+            </summary>
+            <param name="function">The function.</param>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.GeneralActions">
+            <summary>
+            Class GeneralActions.
+            Implements the <see cref="T:System.IDisposable" />
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.TestName">
+            <summary>
+            The test name that will mostly be used for the screen capturing exception capturing
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.Driver">
+            <summary>
+            The driver
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.SettingsScreenShotLocation">
+            <summary>
+            The settings screen shot location
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.Url">
+            <summary>
+            The URL to start with
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.DoSleep">
+            <summary>
+            Toggle the sleeping after a command was issue so you can see the results
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.Wait">
+            <summary>
+            The wait
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions._sleepInterval">
+            <summary>
+            The sleep interval
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.ScreenShotLocation">
+            <summary>
+            The screen shot location/
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.GeneralActions.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.UseWaitSeconds">
+            <summary>
+            Uses the wait seconds.
+            </summary>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.Initializer">
+            <summary>
+            Initialize this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.GeneralActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.GeneralActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.GeneralActions"/> class.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction">
+            <summary>
+            Enum My Actions to do on the web page
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.Nothing">
+            <summary>
+            The nothing
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.Click">
+            <summary>
+            The click
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.SendKeys">
+            <summary>
+            The send keys
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.SendKeysSubmit">
+            <summary>
+            The send keys submit
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.Clear">
+            <summary>
+            The clear
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.ClearSendKeys">
+            <summary>
+            The clear send keys
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.Submit">
+            <summary>
+            The submit
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction.ClearSendKeysSubmit">
+            <summary>
+            The clear send keys submit
+            </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy">
+            <summary>
+            Enum FindBy
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.ClassName">
+            <summary>
+            The class name
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.Id">
+            <summary>
+            The identifier
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.XPath">
+            <summary>
+            The x path
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.LinkText">
+            <summary>
+            The link text
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.CssSelector">
+            <summary>
+            The CSS selector
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.TagName">
+            <summary>
+            The tag name
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.Name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy.PartialLinkText">
+            <summary>
+            The partial link text
+            </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand">
+            <summary>
+            Enum UseCommand
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.Find">
+            <summary>
+            The find
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.WaitFound">
+            <summary>
+            The wait found
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.Wait">
+            <summary>
+            The wait
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.Sleep">
+            <summary>
+            The sleep
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetTextValue">
+            <summary>
+            The find element and get the text value, ReturnedValueBlankOk applies to this command
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetTextValueAndCompare">
+            <summary>
+            The get text value and compare to an expted value. ExpectedReturnedValue applies to this comment
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.MoveSlider">
+            <summary>
+            The move a slider, pairs with SliderMoveTo, SliderMax and SliderMin
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetTextValueAndMustContain">
+            <summary>
+            Get the Test value and see if it contains whatever
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementCssColor">
+            <summary>
+            The get element css color, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementCssColorAndCompare">
+            <summary>
+            The get element css color and compare, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementIdColor">
+            <summary>
+            The get element identifier color, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementXPathColor">
+            <summary>
+            The get element x path color, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementLinkedTextColor">
+            <summary>
+            The get element linked text color, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementIdColorAndCompare">
+            <summary>
+            The get element identifier color and compare, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementXPathColorAndCompare">
+            <summary>
+            The get element x path color and compare, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetElementLinkedTextColorAndCompare">
+            <summary>
+            The get element linked text color and compare, CssValue can apply to this command if you want to change it
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.GetUrlAndGoTo">
+            <summary>
+            The get URL and go to
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.SetByType(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Sets the type of the by.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <returns>By.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
+            <param name="sendText">the text that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String@,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">The ma.</param>
+            <param name="errOut">The error out.</param>
+            <param name="sendText">The send text.</param>
+            <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">Actions to so, click clear, send keys etc</param>
+            <param name="sendKeys">keys that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.MoveSlider(System.String,System.Int32,System.Int32,System.Int32,System.String@)">
+            <summary>
+            Moves the slider.
+            </summary>
+            <param name="elementName">Name of the element as xPath.</param>
+            <param name="sliderMin">The minium slider value</param>
+            <param name="errOut">The error out.</param>
+            <param name="moveAmount">the amount to move the slider</param>
+            <param name="sliderMax">the maxium slider amount</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetPixelsToMove(OpenQA.Selenium.IWebElement,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Gets the pixels to move.
+            </summary>
+            <param name="slider">The slider.</param>
+            <param name="amount">The amount.</param>
+            <param name="sliderMax">The slider maximum.</param>
+            <param name="sliderMin">The slider minimum.</param>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GenerateResults(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+            if it failed, to return the element name that it failed at.
+            </summary>
+            <param name="cmdResults">The command results.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.AllTestsPassed(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList})">
+            <summary>
+            Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+            if some show up as failed then it will return false, else everything passed and it is true.
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Runs the batch of list commands to test the web ui
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="errOut">The error out.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+            <example>
+            This is an example from the unit test <br/>
+            <br/>
+            Ca.TestName = "PublicUIBatch";<br/>
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+            List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+            cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Loaders Log", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = @"Click on the My Loaders Log Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "File Renamer Utility", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the File Renamer Utility" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "BurnPad", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on BurnPad Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Click on Support Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "Contact", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Select Contact Option from menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_txtName", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Jimmy Pop Corn Batch", <br/>
+                    TestName = "Send Name to Text Box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txteMail", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "joe.mireles@burnsoft.net", <br/>
+                    TestName = "Send email to text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txtMsg", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Make Software Great Again in Batch", <br/>
+                    TestName = "Send the message to the text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_btnSend", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Click on the send button" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_Label4", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Wait for response label" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+                    ExpectedReturnedValue = "$29.99" <br/>
+                }); <br/>
+             <br/>
+                List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+             <br/>
+            int testNumber = 1; <br/>
+                foreach (BatchCommandList v in value) <br/>
+                { <br/>
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+            TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+                    TestContext.WriteLine(v.ReturnedValue); <br/>
+                    testNumber++; <br/>
+                } <br/>
+            </example>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
+            <summary>
+            Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">Error out if results return false or exception</param>
+            <param name="expectedCount">The expected count.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.LinkIsPresentByLinkText(System.String,System.String@)">
+            <summary>
+            Links the is present by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.LinkIsPresentById(System.String,System.String@)">
+            <summary>
+            Links the is present by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the URL from element by x path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the URL from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the name of the URL from element by class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the URL from element by CSS selector.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByName(System.String,System.String@)">
+            <summary>
+            Gets the name of the URL from element by.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Gets the name of the URL from element by tag.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Gets the URL from element by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetUrlFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Gets the URL from element by partial link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetLinkFromElement(System.String,System.String@)">
+            <summary>
+            Gets the link from element.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElement(System.String,System.String@)">
+            <summary>
+            Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the text from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the text from element by xpath
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the text from element by Class Name
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the text from element by Css Selector
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByName(System.String,System.String@)">
+            <summary>
+            Get Text from Element by the Name
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Get Text from Element by the Tag Name
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Get Text from Element by the link text
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetTextFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Get Text from Element by the partial link text
+            </summary>
+            <param name="name"></param>
+            <param name="errOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetContentsOfTag(System.String)">
+            <summary>
+            Gets the contents of tag.  If you ask for the <br/>
+            Body tag it will return only the text of the entire webpage.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetItemBackGroundColorByCss(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by CSS Element link.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetItemBackGroundColorByXPath(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by x path.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetItemBackGroundColorById(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by identifier.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.GetItemBackGroundColorByLinkText(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by link text.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.IEActions">
+            <summary>
+            Class to test the website using the Selenium IE Driver
+            Implements the <see cref="T:System.IDisposable" />
+            Implements the <see cref="T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral" />
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+            <seealso cref="T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral" />
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.IEActions._driver">
+            <summary>
+            The driver
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.Ga">
+            <summary>
+            Gets or sets the ga.
+            </summary>
+            <value>The ga.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions._sleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.IEActions.ScreenShotLocation">
+            <summary>
+            The screen shot location/
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.SettingsScreenShotLocation">
+            <summary>
+            Gets or sets the settings screen shot location.
+            </summary>
+            <value>The settings screen shot location.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.DoSleep">
+            <summary>
+            Gets or sets a value indicating whether [do sleep].
+            </summary>
+            <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.IEActions.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.Initializer">
+            <summary>
+            Initialize this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Runs the batch commands.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="errOut">The error out.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+            <example>
+            This is an example from the unit test <br/>
+            <br/>
+            Ca.TestName = "PublicUIBatch";<br/>
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+            List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+            cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Loaders Log", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = @"Click on the My Loaders Log Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "File Renamer Utility", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the File Renamer Utility" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "BurnPad", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on BurnPad Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Click on Support Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "Contact", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Select Contact Option from menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_txtName", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Jimmy Pop Corn Batch", <br/>
+                    TestName = "Send Name to Text Box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txteMail", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "joe.mireles@burnsoft.net", <br/>
+                    TestName = "Send email to text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txtMsg", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Make Software Great Again in Batch", <br/>
+                    TestName = "Send the message to the text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_btnSend", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Click on the send button" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_Label4", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Wait for response label" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+                    ExpectedReturnedValue = "$29.99" <br/>
+                }); <br/>
+             <br/>
+                List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+             <br/>
+            int testNumber = 1; <br/>
+                foreach (BatchCommandList v in value) <br/>
+                { <br/>
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+            TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+                    TestContext.WriteLine(v.ReturnedValue); <br/>
+                    testNumber++; <br/>
+                } <br/>
+            </example>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.AllTestsPassed(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList})">
+            <summary>
+            Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+            if some show up as failed then it will return false, else everything passed and it is true.
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GenerateResults(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+            if it failed, to return the element name that it failed at.
+            </summary>
+            <param name="cmdResults">The command results.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
+            <param name="sendText">the text that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <param name="sendText">The send text.</param>
+            <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetContentsOfTag(System.String)">
+            <summary>
+            Gets the contents of tag.  If you ask for the <br/>
+            Body tag it will return only the text of the entire webpage.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetLinkFromElement(System.String,System.String@)">
+            <summary>
+            Gets the link from element.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
+            <summary>
+            Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">Error out if results return false or exception</param>
+            <param name="expectedCount">The expected count.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.LinkIsPresentByLinkText(System.String,System.String@)">
+            <summary>
+            Links the is present by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.LinkIsPresentById(System.String,System.String@)">
+            <summary>
+            Links the is present by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the text from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the text from element by x path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by partial link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the text from element by CSS selector.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by tag.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElementByName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetTextFromElement(System.String,System.String@)">
+            <summary>
+            Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">Actions to so, click clear, send keys etc</param>
+            <param name="sendKeys">keys that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetItemBackGroundColorByCss(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by CSS Element link.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetItemBackGroundColorByXPath(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by x path.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetItemBackGroundColorById(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by identifier.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GetItemBackGroundColorByLinkText(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by link text.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.ReleaseUnmanagedResources">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions">
+            <summary>
+            Interface iChromeActions
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.Ca">
+            <summary>
+            Access Selenium Chrome Actions Class
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.MainUrl">
+            <summary>
+            Gets or sets the main URL.
+            </summary>
+            <value>The main URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.UsrLogin">
+            <summary>
+            Gets or sets the usr login.
+            </summary>
+            <value>The usr login.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.UsrPwd">
+            <summary>
+            Gets or sets the usr password.
+            </summary>
+            <value>The usr password.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.SettingsScreenShotLocation">
+            <summary>
+            The settings screen shot location
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.FullExceptionPath">
+            <summary>
+            The full exception path
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.PagesLogin">
+            <summary>
+            Gets or sets the pages login.
+            </summary>
+            <value>The pages login.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.LogIn(System.String)">
+            <summary>
+            Logs the in.
+            </summary>
+            <param name="testName">Name of the test.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.LogOut">
+            <summary>
+            Logs the out.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iChromeActions.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral">
+            <summary>
+            Interface iGeneral
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.Ga">
+            <summary>
+            Gets or sets the ga.
+            </summary>
+            <value>The ga.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral._sleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.SettingsScreenShotLocation">
+            <summary>
+            Gets or sets the settings screen shot location.
+            </summary>
+            <value>The settings screen shot location.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.DoSleep">
+            <summary>
+            Gets or sets a value indicating whether [do sleep].
+            </summary>
+            <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.Initializer">
+            <summary>
+            Initializers this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">The ma.</param>
+            <param name="sendText">The send text.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">The ma.</param>
+            <param name="sendKeys">The send keys.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions">
+            <summary>
+            Interface iIEActions
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.Ea">
+            <summary>
+            Access Selenium Chrome Actions Class
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.MainUrl">
+            <summary>
+            Gets or sets the main URL.
+            </summary>
+            <value>The main URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.UsrLogin">
+            <summary>
+            Gets or sets the usr login.
+            </summary>
+            <value>The usr login.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.UsrPwd">
+            <summary>
+            Gets or sets the usr password.
+            </summary>
+            <value>The usr password.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.SettingsScreenShotLocation">
+            <summary>
+            The settings screen shot location
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.FullExceptionPath">
+            <summary>
+            The full exception path
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.PagesLogin">
+            <summary>
+            Gets or sets the pages login.
+            </summary>
+            <value>The pages login.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.LogIn(System.String)">
+            <summary>
+            Logs the in.
+            </summary>
+            <param name="testName">Name of the test.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.LogOut">
+            <summary>
+            Logs the out.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iIEActions.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions">
+            <summary>
+            Interface for the MsEdgeActions Class
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.Ea">
+            <summary>
+            Access Selenium Chrome Actions Class
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.MainUrl">
+            <summary>
+            Gets or sets the main URL.
+            </summary>
+            <value>The main URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.UsrLogin">
+            <summary>
+            Gets or sets the usr login.
+            </summary>
+            <value>The usr login.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.UsrPwd">
+            <summary>
+            Gets or sets the usr password.
+            </summary>
+            <value>The usr password.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.SettingsScreenShotLocation">
+            <summary>
+            The settings screen shot location
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.FullExceptionPath">
+            <summary>
+            The full exception path
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.PagesLogin">
+            <summary>
+            Gets or sets the pages login.
+            </summary>
+            <value>The pages login.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.LogIn(System.String)">
+            <summary>
+            Logs the in.
+            </summary>
+            <param name="testName">Name of the test.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.LogOut">
+            <summary>
+            Logs the out.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.interfaces.iMsEdgeActions.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.MsEdgeActions">
+            <summary>
+            Class to test the website using the Selenium Edge Driver
+            Implements the <see cref="T:System.IDisposable" />
+            Implements the <see cref="T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral" />
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+            <seealso cref="T:BurnSoft.Testing.Web.Selenium.interfaces.iGeneral" />
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.MsEdgeActions.ScreenShotLocation">
+            <summary>
+            The screen shot location/
+            </summary>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.MsEdgeActions._driver">
+            <summary>
+            The driver
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Ga">
+            <summary>
+            Gets or sets the ga.
+            </summary>
+            <value>The ga.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions._sleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.SettingsScreenShotLocation">
+            <summary>
+            Gets or sets the settings screen shot location.
+            </summary>
+            <value>The settings screen shot location.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.DoSleep">
+            <summary>
+            Gets or sets a value indicating whether [do sleep].
+            </summary>
+            <value><c>true</c> if [do sleep]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.MsEdgeActions.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Initializer">
+            <summary>
+            Initialize this instance.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.ScreenShotIt">
+            <summary>
+            Screens the shot it.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GoToAnotherPage(System.String)">
+            <summary>
+            Goes to another page.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma"> Perform Actions click, clear or send keys or do nothing and just read</param>
+            <param name="sendText">the text that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@,System.String)">
+            <summary>
+            Finds the elements.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <param name="sendText">The send text.</param>
+            <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetContentsOfTag(System.String)">
+            <summary>
+            Gets the contents of tag.  If you ask for the <br/>
+            Body tag it will return only the text of the entire webpage.
+            </summary>
+            <param name="name">The name.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Runs the batch commands.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="errOut">The error out.</param>
+            <returns>List&lt;BatchCommandList&gt;.</returns>
+            <example>
+            This is an example from the unit test <br/>
+            <br/>
+            Ca.TestName = "PublicUIBatch";<br/>
+            string softwareMenu = "//ul[@id='jetmenu']/li[3]/a";<br/>
+            List&lt;BatchCommandList&gt; cmd = new List&lt;BatchCommandList&gt;();<br/>
+            cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, UseCommand = GeneralActions.UseCommand.WaitFound,
+                    ElementName = softwareMenu, FindBy = GeneralActions.FindBy.XPath, TestName = @"Click On Windows App Menu"
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Loaders Log", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = @"Click on the My Loaders Log Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "File Renamer Utility", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the File Renamer Utility" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "BurnPad", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on BurnPad Link" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "//ul[@id='jetmenu']/li[7]/a", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Click on Support Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "Contact", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Select Contact Option from menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_txtName", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Jimmy Pop Corn Batch", <br/>
+                    TestName = "Send Name to Text Box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txteMail", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "joe.mireles@burnsoft.net", <br/>
+                    TestName = "Send email to text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.SendKeys, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_txtMsg", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    SendKeys = "Make Software Great Again in Batch", <br/>
+                    TestName = "Send the message to the text box" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.Find, <br/>
+                    ElementName = "MainContent_btnSend", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Click on the send button" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "MainContent_Label4", <br/>
+                    FindBy = GeneralActions.FindBy.Id, <br/>
+                    TestName = "Wait for response label" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = softwareMenu, <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = @"Click On Windows App Menu" <br/>
+                }); <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Click, <br/>
+                    UseCommand = GeneralActions.UseCommand.WaitFound, <br/>
+                    ElementName = "My Gun Collection", <br/>
+                    FindBy = GeneralActions.FindBy.LinkText, <br/>
+                    TestName = "Click on the My Gun Collection link" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValue, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software" <br/>
+                }); <br/>
+             <br/>
+                cmd.Add(new BatchCommandList() <br/>
+            { <br/>
+                Actions = GeneralActions.MyAction.Nothing, <br/>
+                    UseCommand = GeneralActions.UseCommand.GetTextValueAndCompare, <br/>
+                    ElementName = "//h3/span", <br/>
+                    FindBy = GeneralActions.FindBy.XPath, <br/>
+                    TestName = "Get Price of My Gun Collector Software and Compare to exptected Version", <br/>
+                    ExpectedReturnedValue = "$29.99" <br/>
+                }); <br/>
+             <br/>
+                List&lt;BatchCommandList&gt; value = Ca.RunBatchCommands(cmd, out var errOut); <br/>
+             <br/>
+            int testNumber = 1; <br/>
+                foreach (BatchCommandList v in value) <br/>
+                { <br/>
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED"; <br/>
+            TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}"); <br/>
+                    TestContext.WriteLine(v.ReturnedValue); <br/>
+                    testNumber++; <br/>
+                } <br/>
+            </example>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.AllTestsPassed(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList})">
+            <summary>
+            Works through the results of the Batch Command list and looks to see if any of the tests where marked as failed,
+            if some show up as failed then it will return false, else everything passed and it is true.
+            </summary>
+            <param name="results"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetLinkFromElement(System.String,System.String@)">
+            <summary>
+            Gets the link from element.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GenerateResults(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
+            <summary>
+            Generates the results from the Batch Command List to display the step number, testname, any returnedvalue results and
+            if it failed, to return the element name that it failed at.
+            </summary>
+            <param name="cmdResults">The command results.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
+            <summary>
+            Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">Error out if results return false or exception</param>
+            <param name="expectedCount">The expected count.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.LinkIsPresentByLinkText(System.String,System.String@)">
+            <summary>
+            Links the is present by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.LinkIsPresentById(System.String,System.String@)">
+            <summary>
+            Links the is present by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">Unable to find link {name}</exception>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementById(System.String,System.String@)">
+            <summary>
+            Gets the text from element by identifier.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByXPath(System.String,System.String@)">
+            <summary>
+            Gets the text from element by x path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByPartialLinkText(System.String,System.String@)">
+            <summary>
+            Gets the text from element by partial link text.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByCssSelector(System.String,System.String@)">
+            <summary>
+            Gets the text from element by CSS selector.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByTagName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by tag.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByClassName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElementByName(System.String,System.String@)">
+            <summary>
+            Gets the name of the text from element by.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetTextFromElement(System.String,System.String@)">
+            <summary>
+            Well attempt to get the value from the xpath, id, classname, cssSelector if the string keeps returning null.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="errOut">The error out.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
+            <summary>
+            Selects the element in page.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="textToSelect">The text to select.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.WaitTillElementFound(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
+            <summary>
+            Waits the till element found.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+            <param name="ma">Actions to so, click clear, send keys etc</param>
+            <param name="sendKeys">keys that you want to send</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.DoWait(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy)">
+            <summary>
+            Does the wait.
+            </summary>
+            <param name="field">The field.</param>
+            <param name="fb">The fb.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetItemBackGroundColorByCss(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by CSS Element link.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetItemBackGroundColorByXPath(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by x path.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetItemBackGroundColorById(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by identifier.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.GetItemBackGroundColorByLinkText(System.String,System.String@,System.String)">
+            <summary>
+            Gets the item back ground color by link text.
+            </summary>
+            <param name="elementName">Name of the element.</param>
+            <param name="errOut">The error out.</param>
+            <param name="cssValue">The CSS value.  By default it will look for background-color, but you can change that to what ever css value you need</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.ReleaseUnmanagedResources">
+            <summary>
+            Releases the unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BurnSoft.Testing.Web.Selenium.ChromeActions"/> class.
+            </summary>
+            <param name="url">The URL.</param>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.SeleniumIde">
+            <summary>
+            Class SeleniumIde allows you to use the selnium IDE .side file to run tests in the back ground.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.SeleniumIde.ReadSeleniumIdeFile(System.String)">
+            <summary>
+            Reads the selenium IDE file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns>List&lt;SideFile&gt;.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.SeleniumIde.RunSeleniumIdeFile(System.String,System.String,System.String@,System.String@)">
+            <summary>
+            Runs the selenium IDE file.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="testName">Name of the test.</param>
+            <param name="results">The results.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">ERROR!  There is no url set in the file or was unable to pull it from teh json file!</exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.SeleniumIde.DriverOptions">
+            <summary>
+            The driver options
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.SeleniumIde.StringToDriver(System.String)">
+            <summary>
+            Strings to driver.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>FlexAction.UseDriver.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.SeleniumIde.RunSeleniumIdeFile(BurnSoft.Testing.Web.Selenium.FlexAction.UseDriver,System.String,System.String,System.String@,System.String@)">
+            <summary>
+            Runs the selenium IDE file.
+            </summary>
+            <param name="useDriver">The use driver.</param>
+            <param name="file">The file.</param>
+            <param name="testName">Name of the test.</param>
+            <param name="results">The results.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.Exception">ERROR!  There is no url set in the file or was unable to pull it from teh json file!</exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList">
+            <summary>
+            Batch Command List to Run a List of Selnium commands and hold all the elements , values and commands
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.TestName">
+            <summary>
+            Gets or sets the name of the test.
+            </summary>
+            <value>The name of the test.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.FindBy">
+            <summary>
+            Fing By command, find by id, xpath, css, etc
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.Actions">
+            <summary>
+            Action to perform, send command, click, nothing, etc.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.UseCommand">
+            <summary>
+            Find, wait till found, wait, etc, performs the function to run
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.ElementName">
+            <summary>
+            Element Name
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.SendKeys">
+            <summary>
+            Keys or text to send 
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.JumpToUrl">
+            <summary>
+            Gets or sets the jump to URL.
+            </summary>
+            <value>The jump to URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.SliderMoveTo">
+            <summary>
+            Move slide x positions over + up, - down
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.SliderMax">
+            <summary>
+            The slider max value
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.SliderMin">
+            <summary>
+            The slider min value.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.PassedFailed">
+            <summary>
+            Gets or sets a value indicating whether [passed failed].
+            </summary>
+            <value><c>true</c> if [passed failed]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.ReturnedValue">
+            <summary>
+            Gets or sets the returned value.
+            </summary>
+            <value>The returned value.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.ExpectedReturnedValue">
+            <summary>
+            Gets or sets the expected returned value.
+            </summary>
+            <value>The expected returned value.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.ReturnedValueBlankOk">
+            <summary>
+            Gets or sets a value indicating whether [returned value blank ok].
+            </summary>
+            <value><c>true</c> if [returned value blank ok]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.SleepInterval">
+            <summary>
+            Gets or sets the sleep interval.
+            </summary>
+            <value>The sleep interval.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.BatchCommandList.CssValue">
+            <summary>
+            Gets or sets the CSS value.
+            </summary>
+            <value>The CSS value.</value>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.Types.SideFile">
+            <summary>
+            Class SideFile.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+            <value>The version.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.url">
+            <summary>
+            Gets or sets the URL.
+            </summary>
+            <value>The URL.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.tests">
+            <summary>
+            Gets or sets the tests.
+            </summary>
+            <value>The tests.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.suites">
+            <summary>
+            Gets or sets the suites.
+            </summary>
+            <value>The suites.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.urls">
+            <summary>
+            Gets or sets the urls.
+            </summary>
+            <value>The urls.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.SideFile.plugins">
+            <summary>
+            Gets or sets the plugins.
+            </summary>
+            <value>The plugins.</value>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.Types.Command">
+            <summary>
+            Class Command.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.comment">
+            <summary>
+            Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.command">
+            <summary>
+            Gets or sets the command.
+            </summary>
+            <value>The command.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.target">
+            <summary>
+            Gets or sets the target.
+            </summary>
+            <value>The target.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.targets">
+            <summary>
+            Gets or sets the targets.
+            </summary>
+            <value>The targets.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Command.value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.Types.Test">
+            <summary>
+            Class Test.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Test.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Test.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Test.commands">
+            <summary>
+            Gets or sets the commands.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="T:BurnSoft.Testing.Web.Selenium.Types.Suite">
+            <summary>
+            Class Suite.
+            </summary>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.persistSession">
+            <summary>
+            Gets or sets a value indicating whether [persist session].
+            </summary>
+            <value><c>true</c> if [persist session]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.parallel">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:BurnSoft.Testing.Web.Selenium.Types.Suite"/> is parallel.
+            </summary>
+            <value><c>true</c> if parallel; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.timeout">
+            <summary>
+            Gets or sets the timeout.
+            </summary>
+            <value>The timeout.</value>
+        </member>
+        <member name="P:BurnSoft.Testing.Web.Selenium.Types.Suite.tests">
+            <summary>
+            Gets or sets the tests.
+            </summary>
+            <value>The tests.</value>
+        </member>
+    </members>
+</doc>
