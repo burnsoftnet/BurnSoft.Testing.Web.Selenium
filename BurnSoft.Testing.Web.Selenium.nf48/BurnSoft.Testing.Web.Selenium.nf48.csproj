@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,17 +35,94 @@
     <DocumentationFile>bin\Release\BurnSoft.Testing.Web.Selenium.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.4.1.0\lib\net48\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.4.1.0\lib\net48\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\BatchCmdHelper.cs">
+      <Link>BatchCmdHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\CheatSheet.cs">
+      <Link>CheatSheet.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\ChromeActions.cs">
+      <Link>ChromeActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\FlexAction.cs">
+      <Link>FlexAction.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\GeneralActions.cs">
+      <Link>GeneralActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\IEActions.cs">
+      <Link>IEActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iChromeActions.cs">
+      <Link>interfaces\iChromeActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iGeneral.cs">
+      <Link>interfaces\iGeneral.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iIEActions.cs">
+      <Link>interfaces\iIEActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\interfaces\iMsEdgeActions.cs">
+      <Link>interfaces\iMsEdgeActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\MSEdgeActions.cs">
+      <Link>MSEdgeActions.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\SeleniumIde.cs">
+      <Link>SeleniumIde.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\Types\BatchCommandList.cs">
+      <Link>Types\BatchCommandList.cs</Link>
+    </Compile>
+    <Compile Include="..\BurnSoft.Testing.Web.Selenium\Types\SideFile.cs">
+      <Link>Types\SideFile.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.99.0.4844.5100\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.99.0.4844.5100\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.30.0.1\build\Selenium.WebDriver.GeckoDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.0.30.0.1\build\Selenium.WebDriver.GeckoDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.4.0.0\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.4.0.0\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.99.0.4844.5100\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.99.0.4844.5100\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.30.0.1\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.30.0.1\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.4.0.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.4.0.0\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
 </Project>
