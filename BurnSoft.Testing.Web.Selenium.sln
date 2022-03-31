@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium", "BurnSoft.Testing.Web.Selenium\BurnSoft.Testing.Web.Selenium.csproj", "{302F1C35-0BFA-4B62-9B8D-E269ED101DF4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A7DCB178-25D2-45B8-AC79-2AE0C035CD7E} = {A7DCB178-25D2-45B8-AC79-2AE0C035CD7E}
+		{F82611A3-ACC7-4AD4-BD4A-D75B5B5E0B0E} = {F82611A3-ACC7-4AD4-BD4A-D75B5B5E0B0E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BurnSoft.Testing.Web.Selenium.UnitTest", "BurnSoft.Testing.Web.Selenium.UnitTest\BurnSoft.Testing.Web.Selenium.UnitTest.csproj", "{9995E183-2FAC-4001-BE76-37D98F3142E3}"
 EndProject
