@@ -130,7 +130,7 @@ Happy Testing!
 
 ## Release Log
 
-### v.1.0.0.4x
+### v.1.0.0.41
 - Updated drivers
 - Added More options for framwork support. .net 5 and .net framework 4.8
 
