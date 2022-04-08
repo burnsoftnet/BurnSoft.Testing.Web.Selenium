@@ -868,7 +868,13 @@ namespace BurnSoft.Testing.Web.Selenium
                                 case UseCommand.CheckExistAndClick:
                                     if (ElementExists(c.ElementName, c.FindBy, out errOut))
                                     {
+                                        result = "Found Element!";
                                         WaitTillElementFound(c.ElementName, c.FindBy, c.Actions);
+                                        result += " Was able to click on item.";
+                                    }
+                                    else
+                                    {
+                                        result = "Element was not found So No action taken!";
                                     }
                                     break;
                                 case UseCommand.GetTextValue:

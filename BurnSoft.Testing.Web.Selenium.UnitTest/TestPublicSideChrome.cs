@@ -170,7 +170,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             {
                 Actions = GeneralActions.MyAction.Click,
                 UseCommand = GeneralActions.UseCommand.CheckExistAndClick,
-                ElementName = "//a[contains(.,'DOWNLOAD NOW!!')]",
+                ElementName = "//a[contains(.,'DOWNLOAD NOW')]",
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = "Click on Download Button if it exists"
             });
