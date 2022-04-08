@@ -145,6 +145,8 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = @"Click On Windows App Menu"
             });
+
+
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Click,
@@ -154,14 +156,6 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 TestName = "Click on the My Gun Collection link"
             });
 
-            cmd.Add(new BatchCommandList()
-            {
-                Actions = GeneralActions.MyAction.Nothing,
-                UseCommand = GeneralActions.UseCommand.Find,
-                ElementName = "//h3/span",
-                FindBy = GeneralActions.FindBy.XPath,
-                TestName = "Get Price of My Gun Collector Software"
-            });
 
             cmd.Add(new BatchCommandList()
             {
@@ -170,6 +164,15 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 ElementName = "//h3/span",
                 FindBy = GeneralActions.FindBy.XPath,
                 TestName = "Get Price of My Gun Collector Software"
+            });
+
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Click,
+                UseCommand = GeneralActions.UseCommand.CheckExistAndClick,
+                ElementName = "//a[contains(.,'DOWNLOAD NOW!!')]",
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = "Click on Download Button if it exists"
             });
 
             cmd.Add(new BatchCommandList()

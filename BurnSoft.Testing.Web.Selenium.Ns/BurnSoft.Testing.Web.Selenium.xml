@@ -1622,6 +1622,11 @@
             The get URL and go to
             </summary>
         </member>
+        <member name="F:BurnSoft.Testing.Web.Selenium.GeneralActions.UseCommand.CheckExistAndClick">
+            <summary>
+            The check exist, if it does than click on the element
+            </summary>
+        </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.ScreenShotIt">
             <summary>
             Screens the shot it.
@@ -1665,6 +1670,15 @@
             <param name="errOut">The error out.</param>
             <param name="sendText">The send text.</param>
             <returns>IWebElement.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
+            <summary>
+            Elements the exists.
+            </summary>
+            <param name="element">The element.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.SelectElementInPage(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String)">
             <summary>
