@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Threading;
 using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
@@ -81,6 +82,7 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             set => _sleepInterval = value;
         }
+
         /// <summary>
         /// Uses the wait seconds.
         /// </summary>
@@ -91,15 +93,17 @@ namespace BurnSoft.Testing.Web.Selenium
             try
             {
                 var clockSpeed = 0.0;
-                var searcher = new ManagementObjectSearcher(
-                    "select MaxClockSpeed from Win32_Processor");
-                foreach (var item in searcher.Get())
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    clockSpeed = (uint)item["MaxClockSpeed"];
+                    var searcher = new ManagementObjectSearcher(
+                        "select MaxClockSpeed from Win32_Processor");
+                    foreach (var item in searcher.Get())
+                    {
+                        clockSpeed = (uint)item["MaxClockSpeed"];
+                    }
+
+                    if (clockSpeed < 2000) iAns = 40;
                 }
-
-                if (clockSpeed < 2000) iAns = 40;
-
             }
             catch (Exception e)
             {
@@ -831,7 +835,9 @@ namespace BurnSoft.Testing.Web.Selenium
                                     FindElements(c.ElementName, c.FindBy, c.Actions);
                                     break;
                                 case UseCommand.GetTextValue:
+#pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
                                     bool blankOk = c.ReturnedValueBlankOk != null ? c.ReturnedValueBlankOk : false;
+#pragma warning restore CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'
 
                                     result = GetTextFromElement(c.ElementName, out errOut);
                                     if (!blankOk)

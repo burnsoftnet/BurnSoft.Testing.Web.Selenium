@@ -57,7 +57,7 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="100.0.4896.6000" />
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0.1" />
     <PackageReference Include="Selenium.WebDriver.IEDriver" Version="4.0.0.1" />
-    <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="99.0.1150.46" />
+    <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="100.0.1185.36" />
     <PackageReference Include="System.Management" Version="6.0.0" />
   </ItemGroup>
 
