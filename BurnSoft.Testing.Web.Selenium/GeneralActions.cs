@@ -454,13 +454,34 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             catch (Exception e)
             {
+#if DEBUG
                 Debug.Print(e.Message);
+#endif
                 errOut = e.Message;
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
 
             return wAns;
+        }
+
+        public bool ElementExists(string element, FindBy fb, out string errOut)
+        {
+            bool bAns = false;
+            errOut = "";
+            try
+            {
+                List<IWebElement> el = new List<IWebElement>();
+                el.AddRange(Driver.FindElements(SetByType(element, fb)));
+                bAns = el.Count > 0;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+                ScreenShotIt();
+                if (Driver != null) Driver.Quit();
+            }
+            return bAns;
         }
         /// <summary>
         /// Selects the element in page.

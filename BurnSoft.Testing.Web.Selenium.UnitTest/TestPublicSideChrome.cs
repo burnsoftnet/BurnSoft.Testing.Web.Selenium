@@ -157,6 +157,15 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             cmd.Add(new BatchCommandList()
             {
                 Actions = GeneralActions.MyAction.Nothing,
+                UseCommand = GeneralActions.UseCommand.Find,
+                ElementName = "//h3/span",
+                FindBy = GeneralActions.FindBy.XPath,
+                TestName = "Get Price of My Gun Collector Software"
+            });
+
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = GeneralActions.MyAction.Nothing,
                 UseCommand = GeneralActions.UseCommand.GetTextValue,
                 ElementName = "//h3/span",
                 FindBy = GeneralActions.FindBy.XPath,
