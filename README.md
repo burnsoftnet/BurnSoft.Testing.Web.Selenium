@@ -130,9 +130,9 @@ Happy Testing!
 
 ## Release Log
 
-### v1.0.0.x
+### v1.0.0.42
 - Updated Edge Driver
-- 
+- Added the ability to See if an element exists, if it does then you can click on it.
 
 ### v.1.0.0.41
 - Updated drivers

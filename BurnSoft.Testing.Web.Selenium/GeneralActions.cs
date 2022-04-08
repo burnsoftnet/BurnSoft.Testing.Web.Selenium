@@ -303,7 +303,11 @@ namespace BurnSoft.Testing.Web.Selenium
             /// <summary>
             /// The get URL and go to
             /// </summary>
-            GetUrlAndGoTo
+            GetUrlAndGoTo,
+            /// <summary>
+            /// The check exist, if it does than click on the element
+            /// </summary>
+            CheckExistAndClick
 
         }
 
@@ -454,13 +458,40 @@ namespace BurnSoft.Testing.Web.Selenium
             }
             catch (Exception e)
             {
+#if DEBUG
                 Debug.Print(e.Message);
+#endif
                 errOut = e.Message;
                 ScreenShotIt();
                 if (Driver != null) Driver.Quit();
             }
 
             return wAns;
+        }
+        /// <summary>
+        /// Gets the elements and checks the see if the element that you are looking for exists
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <param name="fb">The fb.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool ElementExists(string element, FindBy fb, out string errOut)
+        {
+            bool bAns = false;
+            errOut = "";
+            try
+            {
+                List<IWebElement> el = new List<IWebElement>();
+                el.AddRange(Driver.FindElements(SetByType(element, fb)));
+                bAns = el.Count > 0;
+            }
+            catch (Exception e)
+            {
+                errOut = e.Message;
+                ScreenShotIt();
+                if (Driver != null) Driver.Quit();
+            }
+            return bAns;
         }
         /// <summary>
         /// Selects the element in page.
@@ -833,6 +864,18 @@ namespace BurnSoft.Testing.Web.Selenium
                             {
                                 case UseCommand.Find:
                                     FindElements(c.ElementName, c.FindBy, c.Actions);
+                                    break;
+                                case UseCommand.CheckExistAndClick:
+                                    if (ElementExists(c.ElementName, c.FindBy, out errOut))
+                                    {
+                                        result = "Found Element!";
+                                        WaitTillElementFound(c.ElementName, c.FindBy, c.Actions);
+                                        result += " Was able to click on item.";
+                                    }
+                                    else
+                                    {
+                                        result = "Element was not found So No action taken!";
+                                    }
                                     break;
                                 case UseCommand.GetTextValue:
 #pragma warning disable CS0472 // The result of the expression is always the same since a value of this type is never equal to 'null'

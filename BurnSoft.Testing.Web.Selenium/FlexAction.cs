@@ -161,6 +161,19 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             return Ga.GetLinkFromElement(name, out errOut);
         }
+        /// <summary>
+        /// Gets the elements and checks the see if the element that you are looking for exists
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <param name="fb">The fb.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool ElementExists(string element, GeneralActions.FindBy fb, out string errOut)
+        {
+            Ga.Driver = Driver;
+            Ga.TestName = TestName;
+            return Ga.ElementExists(element, fb, out errOut);
+        }
 
         /// <summary>
         /// Runs the batch commands.

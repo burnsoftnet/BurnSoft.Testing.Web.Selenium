@@ -5,6 +5,7 @@ using BurnSoft.Testing.Web.Selenium.interfaces;
 using BurnSoft.Testing.Web.Selenium.Types;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
+// ReSharper disable UnusedMember.Global
 
 namespace BurnSoft.Testing.Web.Selenium
 {
@@ -114,7 +115,19 @@ namespace BurnSoft.Testing.Web.Selenium
         {
             Ga.GoToAnotherPage(url);
         }
-
+        /// <summary>
+        /// Gets the elements and checks the see if the element that you are looking for exists
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <param name="fb">The fb.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public bool ElementExists(string element, GeneralActions.FindBy fb, out string errOut)
+        {
+            Ga.Driver = _driver;
+            Ga.TestName = TestName;
+            return Ga.ElementExists(element, fb, out errOut);
+        }
         /// <summary>
         /// Finds the elements.
         /// </summary>

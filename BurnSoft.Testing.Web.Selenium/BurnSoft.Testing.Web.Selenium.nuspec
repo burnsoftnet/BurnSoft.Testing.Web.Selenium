@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>$id$</id>
-		<version>1.0.0.41-alpha</version>
+		<version>1.0.0.42-alpha</version>
 		<title>$title$</title>
 		<authors>burnsoftnet</authors>
 		<owners>burnsoftnet</owners>
@@ -22,6 +22,7 @@
 		<file src="bin/$configuration$/$id$.chm" target="content/$id$.chm" />
     <file src="bin/$configuration$/net50/net5.0/$id$.dll" target="lib/net5/" />
     <file src="bin/$configuration$/net50/net5.0/$id$.xml" target="lib/net5/" />
+    <file src="bin/$configuration$/net50/net5.0/$id$.deps.json" target="lib/net5/" />
     <file src="bin/$configuration$/net48/$id$.dll" target="lib/net48/" />
     <file src="bin/$configuration$/net48/$id$.xml" target="lib/net48/" />
 	</files>
