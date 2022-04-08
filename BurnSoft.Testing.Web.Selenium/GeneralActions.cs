@@ -469,7 +469,7 @@ namespace BurnSoft.Testing.Web.Selenium
             return wAns;
         }
         /// <summary>
-        /// Elements the exists.
+        /// Gets the elements and checks the see if the element that you are looking for exists
         /// </summary>
         /// <param name="element">The element.</param>
         /// <param name="fb">The fb.</param>
