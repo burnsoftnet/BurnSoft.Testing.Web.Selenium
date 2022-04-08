@@ -384,6 +384,15 @@
             <param name="name">The name.</param>
             <returns>System.String.</returns>
         </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
+            <summary>
+            Gets the elements and checks the see if the element that you are looking for exists
+            </summary>
+            <param name="element">The element.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.ChromeActions.NumberOfExpectedLinks(System.String,System.String@,System.Int32)">
             <summary>
             Get the number of Expected Links by the Link text, the Default expected count is 1 but you can change that number
@@ -902,6 +911,15 @@
             <param name="name">The name.</param>
             <param name="errOut">The error out.</param>
             <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
+            <summary>
+            Gets the elements and checks the see if the element that you are looking for exists
+            </summary>
+            <param name="element">The element.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.FlexAction.RunBatchCommands(System.Collections.Generic.List{BurnSoft.Testing.Web.Selenium.Types.BatchCommandList},System.String@)">
             <summary>
@@ -1673,7 +1691,7 @@
         </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.GeneralActions.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
             <summary>
-            Elements the exists.
+            Gets the elements and checks the see if the element that you are looking for exists
             </summary>
             <param name="element">The element.</param>
             <param name="fb">The fb.</param>
@@ -2209,6 +2227,15 @@
             <summary>
             Screens the shot it.
             </summary>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
+            <summary>
+            Gets the elements and checks the see if the element that you are looking for exists
+            </summary>
+            <param name="element">The element.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.IEActions.GoToAnotherPage(System.String)">
             <summary>
@@ -2993,6 +3020,15 @@
             Goes to another page.
             </summary>
             <param name="url">The URL.</param>
+        </member>
+        <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.ElementExists(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,System.String@)">
+            <summary>
+            Gets the elements and checks the see if the element that you are looking for exists
+            </summary>
+            <param name="element">The element.</param>
+            <param name="fb">The fb.</param>
+            <param name="errOut">The error out.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:BurnSoft.Testing.Web.Selenium.MsEdgeActions.FindElements(System.String,BurnSoft.Testing.Web.Selenium.GeneralActions.FindBy,BurnSoft.Testing.Web.Selenium.GeneralActions.MyAction,System.String)">
             <summary>
