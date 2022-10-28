@@ -130,6 +130,9 @@ Happy Testing!
 
 ## Release Log
 
+### v.1.0.0.44
+- Updated drivers, verified everything still works with the unit tests
+
 ### v.1.0.0.43
 - Updated drivers
 

@@ -36,7 +36,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method RunSideFile.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Seleinum Side File")]
         public void RunSideFile()
         {
             bool value = SeleniumIde.RunSeleniumIdeFile(_file, _testName, out var results, out _errOut);
