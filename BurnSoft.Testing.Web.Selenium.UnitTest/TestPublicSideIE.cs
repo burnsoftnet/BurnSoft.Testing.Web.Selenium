@@ -101,7 +101,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method CheckPublic.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void CheckPublic()
         {
             Ea.TestName = "PublicUI";
@@ -126,7 +126,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void GetContentsOfTagTest()
         {
             Ea.TestName = "GetContentsOfTagTest";
@@ -139,7 +139,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method NumberOfExpectedLinksTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void NumberOfExpectedLinksTest()
         {
             Ea.TestName = "NumberOfExpectedLinksTest";
@@ -153,7 +153,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method LinkIsPresentByLinkTextTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void LinkIsPresentByLinkTextTest()
         {
             Ea.TestName = "LinkIsPresentByLinkTextTest";
@@ -166,7 +166,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method LinkIsPresentByIdTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void LinkIsPresentByIdTest()
         {
             Ea.TestName = "LinkIsPresentByIdTest";
@@ -179,7 +179,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method GetTextFromElementByIdTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("IE - Public Website")]
         public void GetTextFromElementByIdTest()
         {
             Ea.TestName = "GetTextFromElementByIdTest";

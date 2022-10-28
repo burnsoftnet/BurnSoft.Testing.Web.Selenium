@@ -103,7 +103,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method CheckPublic.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void CheckPublic()
         {
             Ca.TestName = "PublicUI";
@@ -115,8 +115,10 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             Ca.WaitTillElementFound("//ul[@id='jetmenu']/li[3]/a", GeneralActions.FindBy.XPath, GeneralActions.MyAction.Click);
 
         }
-
-        [TestMethod]
+        /// <summary>
+        /// Defines the test method PublicSideBatch.
+        /// </summary>
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void PublicSideBatch()
         {
             Ca.TestName = "PublicUIBatch";
@@ -196,7 +198,10 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
                 testNumber++;
             }
         }
-        [TestMethod]
+        /// <summary>
+        /// Defines the test method UseCommandListGetAndJumpToTest.
+        /// </summary>
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void UseCommandListGetAndJumpToTest()
         {
             bool didPass = false;
@@ -240,7 +245,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method GetContentsOfTagTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void GetContentsOfTagTest()
         {
             Ca.TestName = "GetContentsOfTagTest";
@@ -253,7 +258,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method NumberOfExpectedLinksTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void NumberOfExpectedLinksTest()
         {
             Ca.TestName = "NumberOfExpectedLinksTest";
@@ -267,7 +272,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method LinkIsPresentByLinkTextTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void LinkIsPresentByLinkTextTest()
         {
             Ca.TestName = "LinkIsPresentByLinkTextTest";
@@ -280,7 +285,7 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
         /// <summary>
         /// Defines the test method LinkIsPresentByIdTest.
         /// </summary>
-        [TestMethod]
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void LinkIsPresentByIdTest()
         {
             Ca.TestName = "LinkIsPresentByIdTest";
@@ -290,8 +295,10 @@ namespace BurnSoft.Testing.Web.Selenium.UnitTest
             TestContext.WriteLine($"{value}");
             Assert.IsTrue(value);
         }
-
-        [TestMethod]
+        /// <summary>
+        /// Defines the test method GetTextFromElementByIdTest.
+        /// </summary>
+        [TestMethod, TestCategory("Chrome - Public Website")]
         public void GetTextFromElementByIdTest()
         {
             Ca.TestName = "GetTextFromElementByIdTest";
