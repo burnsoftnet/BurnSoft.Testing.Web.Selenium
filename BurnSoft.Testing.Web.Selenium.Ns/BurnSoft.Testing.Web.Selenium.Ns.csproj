@@ -9,8 +9,8 @@
     <RepositoryType>git</RepositoryType>
     <Description>Web Testing library using Selenium to test any of the websites, just simplifying the process to to a unit test on your website</Description>
     <Copyright>www.burnsoft.net</Copyright>
-    <AssemblyVersion>1.0.0.43</AssemblyVersion>
-    <FileVersion>1.0.0.43</FileVersion>
+    <AssemblyVersion>1.0.0.44</AssemblyVersion>
+    <FileVersion>1.0.0.44</FileVersion>
     <PackageReleaseNotes>init release of .net5</PackageReleaseNotes>
     <Version>1.0.0.41</Version>
     <RootNamespace>BurnSoft.Testing.Web.Selenium</RootNamespace>
