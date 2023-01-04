@@ -1,5 +1,6 @@
 # BurnSoft.Testing.Web.Selenium
 
+![](https://img.shields.io/nuget/vpre/BurnSoft.Testing.Web.Selenium) | ![](https://img.shields.io/nuget/v/BurnSoft.Testing.Web.Selenium)
 
 This library was created to simplify testing out a website using Selenium.  All you have to do is add which interface that you want to use (Chrome, IE, Edge, etc) and add the code required for that interface to initialize the module.
 
@@ -188,3 +189,4 @@ Happy Testing!
 ### v1.0.0.0
 
 Initial Release
+
