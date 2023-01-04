@@ -1,6 +1,5 @@
 # BurnSoft.Testing.Web.Selenium
 
-|nuget preview shield| |nuget release shield|
 
 This library was created to simplify testing out a website using Selenium.  All you have to do is add which interface that you want to use (Chrome, IE, Edge, etc) and add the code required for that interface to initialize the module.
 
